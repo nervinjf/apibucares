@@ -8,6 +8,11 @@ const Preliminar = db.define('preliminar', {
         autoIncrement: true,
         allowNull: false,
     },
+    userId:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        field: 'user_id',
+    },
     Fecha:{
         type: DataTypes.DATEONLY,
         allowNull: false,

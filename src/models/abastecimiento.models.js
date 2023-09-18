@@ -2,10 +2,19 @@ const db = require("../utils/database");
 const { DataTypes } = require("sequelize");
 
 const Abastecimiento = db.define("abastecimiento", {
-    codigo: {
+    id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
+        autoIncrement: true,
         allowNull: false,
+    },
+    userId:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        field: 'user_id',
+    },
+    codigo: {
+        type: DataTypes.INTEGER,
     },
     nombre: {
         type: DataTypes.STRING(400),

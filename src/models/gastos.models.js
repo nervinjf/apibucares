@@ -29,7 +29,7 @@ const Gastos = db.define("gastos", {
         allowNull: false,
     },
     monto:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
         allowNull: false,
     },
 });

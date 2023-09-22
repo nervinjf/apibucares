@@ -104,11 +104,15 @@ class ActionServices {
                   });
 
                   console.log('Correo enviado a:', 'correo_destino@ejemplo.com');
-                    console.log(`numero: ${recipen.length}, status: ${status}, total: ${totalpagar}`)
+                    console.log(`numero: ${Number(recipen.length)}, status: ${status}, total: ${totalpagar}`)
                     console.log(`where: { id: ${e.id} }`)
+                try{
                   const update = await Vivienda.update({ recibospendientes: Number(recipen.length),  status: status }, {
                     where: { id: e.id },
                 } )
+                }catch (error) {
+            throw error;
+        }
                 console.log(update)
             }
 

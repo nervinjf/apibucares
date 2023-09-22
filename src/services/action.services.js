@@ -91,9 +91,9 @@ class ActionServices {
                 const deuda =  e?.uservivienda?.deudadl;
                 const meses = e?.uservivienda?.recibospendientes;
                 const totalpagar = deuda + montomes.toFixed(2);
-                const recipen = e?.uservivienda?.filter(e => e.status != 'Pagado')
+                const recipen = e?.uservivienda?.viviendaRecibo?.filter(e => e.status != 'Pagado')
                 const status = status.length <= 1 ? 'Solvente' : 'Moroso'
-                const post = await Recibo.create({ userId: e?.id, viviendaId: e?.uservivienda?.id, saldoanterio: deuda, interesmora: 1, meses: Number(meses), montomes: montomes.toFixed(2), totalpagar: totalpagar, reciboModeloId: id})
+                const post = await Recibo.create({ userId: e?.id, viviendaId: e?.uservivienda?.id, saldoanterio: deuda, interesmora: 1, meses: Number(meses), montomes: montomes.toFixed(2), totalpagar: totalpagar, reciboModeloId: id, status: 'Deuda'})
 
                 await transporter.sendMail({
                     from: '<nervinjflores@gmail.com>',

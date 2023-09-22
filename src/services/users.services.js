@@ -22,7 +22,7 @@ class UserServices {
                         include: {
                             model: Recibo,
                             as: "viviendaRecibo",
-                            attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses"],
+                            attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses", "status"],
                             include: {
                                 model: ReciboModelo,
                                 as: "reciboRecibomodelo",

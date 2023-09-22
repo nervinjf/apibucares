@@ -5,6 +5,9 @@ const PrelRoutes = require("./preliminar.routes");
 const ReciboMRoutes = require("./recibomodelo.routes");
 const GastosRoutes = require("./gastos.routes");
 const authRoutes = require("./auth.routes");
+const ActionRoutes = require("./action.routes");
+const ViviendaRoutes = require("./vivienda.routes");
+const ReciboRoutes = require("./recibo.routes");
 
 module.exports = {
     UserRoutes,
@@ -13,5 +16,8 @@ module.exports = {
     PrelRoutes,
     ReciboMRoutes,
     GastosRoutes,
-    authRoutes
+    authRoutes,
+    ActionRoutes,
+    ViviendaRoutes,
+    ReciboRoutes
 }

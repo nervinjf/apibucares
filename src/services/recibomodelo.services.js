@@ -18,6 +18,22 @@ class RebiboMServices {
         }
     }    
 
+    static async getId(id){
+        try {
+            const result = await ReciboModelo.findByPk(id,{
+                attributes:["id", "Fecha", "bcv"],
+                include:{
+                    model: Gastos,
+                    as: "recibomodeloGastos",
+                    attributes:["id", "nombre", "Fecha", "ncasa", "monto"]
+                }
+            })
+            return result;
+        } catch (error) {
+            throw error;
+        }
+    } 
+
     static async postPrel(newRM){
         try {
             const result = await ReciboModelo.create(newRM)

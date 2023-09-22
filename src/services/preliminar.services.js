@@ -18,6 +18,22 @@ class PreliminarServices {
         }
     }    
 
+    static async getId(id){
+        try {
+            const result = await Preliminar.findByPk(id,{
+                attributes:["id", "Fecha", "bcv"],
+                include:{
+                    model: Gastos,
+                    as: "preliminarGastos",
+                    attributes:["id", "nombre", "Fecha", "ncasa", "monto"]
+                }
+            })
+            return result;
+        } catch (error) {
+            throw error;
+        }
+    } 
+
     static async postPrel(newPrel){
         try {
             const result = await Preliminar.create(newPrel)

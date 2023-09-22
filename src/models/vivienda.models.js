@@ -48,20 +48,16 @@ const Vivienda = db.define("vivienda", {
     },
     recibospendientes:{
         type: DataTypes.INTEGER,
-        allowNull: false,
         field: 'recibos_pendientes',
     },
     deudadl:{
         type: DataTypes.INTEGER,
-        allowNull: false,
     },
     deudabs:{
         type: DataTypes.INTEGER,
-        allowNull: false,
     },
     status:{
         type: DataTypes.STRING(50),
-        allowNull: false,
     },
 })
 

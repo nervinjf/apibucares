@@ -17,6 +17,9 @@ const RegisterUsers = async (req, res, next) => {
           });
 
     } catch (error) {
+        console.log(error.original);
+            console.log(error.stack);
+            console.log(error.message);
         next({
             status: 400,
             errorContent: error,
@@ -31,6 +34,7 @@ const getuserId = async (req, res, next) => {
         const result = await UserServices.getId(id);
         res.json(result);
     } catch (error) {
+        console.log(error)
         next({
             status: 400,
             errorContent: error,

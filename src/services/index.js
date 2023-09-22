@@ -5,6 +5,9 @@ const PreliminarServices = require("./preliminar.services")
 const RebiboMServices = require("./recibomodelo.services")
 const GastosServices = require("./gastos.services")
 const AuthServices = require("./auth.services");
+const ActionServices = require("./action.services");
+const ViviendaServices = require("./vivienda.services");
+const ReciboServices = require("./recibo.services");
 
 
 module.exports = {
@@ -14,5 +17,8 @@ module.exports = {
     PreliminarServices,
     RebiboMServices,
     GastosServices,
-    AuthServices
+    AuthServices,
+    ActionServices,
+    ViviendaServices,
+    ReciboServices
 }

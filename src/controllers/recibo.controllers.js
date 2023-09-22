@@ -1,8 +1,8 @@
-const { RebiboMServices } = require('../services');
+const { ReciboServices } = require('../services');
 
-const GetRmodel = async (req, res, next) => {
+const GetRecibo = async (req, res, next) => {
     try {
-        const result = await RebiboMServices.get();
+        const result = await ReciboServices.getR();
         res.json(result);
     } catch (error) {
         next({
@@ -13,10 +13,10 @@ const GetRmodel = async (req, res, next) => {
     }
 };
 
-const GetIdRecibomodel = async (req, res, next) => {
+const GetIdRecibo = async (req, res, next) => {
     try {
         const {id} = req.params;
-        const result = await RebiboMServices.getId(id);
+        const result = await ReciboServices.getId(id);
         res.json(result);
     } catch (error) {
         next({
@@ -27,10 +27,10 @@ const GetIdRecibomodel = async (req, res, next) => {
     }
 };
 
-const RegisterRmodel = async (req, res, next) => {
+const RegisterRecibo = async (req, res, next) => {
     try {
         const newRM= req.body;
-        const result = await RebiboMServices.postPrel(newRM);
+        const result = await ReciboServices.postR(newRM);
         res.status(201).json(result);
     } catch (error) {
         next({
@@ -41,11 +41,11 @@ const RegisterRmodel = async (req, res, next) => {
     }
 };
 
-const UpdateRmodel = async (req, res, next) => {
+const UpdateRecibo = async (req, res, next) => {
     try {
         const updRM = req.body;
         const { id } = req.params;
-        const result = await RebiboMServices.update(id, updRM);
+        const result = await ReciboServices.update(id, updRM);
         res.json(result);
     } catch (error) {
         next({
@@ -56,10 +56,10 @@ const UpdateRmodel = async (req, res, next) => {
     }
 };
 
-const DeleteRmodel = async (req, res, next) => {
+const DeleteRecibo = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const result = await RebiboMServices.deletePrel(id);
+        const result = await ReciboServices.deleteR(id);
         res.json(result);
     } catch (error) {
         next({
@@ -71,9 +71,9 @@ const DeleteRmodel = async (req, res, next) => {
 };
 
 module.exports = {
-    GetRmodel,
-    RegisterRmodel,
-    UpdateRmodel,
-    DeleteRmodel,
-    GetIdRecibomodel
+    GetRecibo,
+    RegisterRecibo,
+    UpdateRecibo,
+    DeleteRecibo,
+    GetIdRecibo
 }

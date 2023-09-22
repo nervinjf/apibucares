@@ -13,7 +13,7 @@ class GastosServices {
 
     static async postgastos(newGastos){
         try {
-            const result = await Gastos.create(newGastos)
+            const result = await Gastos.bulkCreate(newGastos)
             return result;
         } catch (error) {
             throw error;

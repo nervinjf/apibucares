@@ -26,7 +26,6 @@ const Gastos = db.define("gastos", {
     },
     ncasa:{
         type: DataTypes.STRING(5),
-        allowNull: false,
     },
     monto:{
         type: DataTypes.FLOAT,

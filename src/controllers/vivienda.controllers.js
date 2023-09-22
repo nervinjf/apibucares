@@ -1,8 +1,8 @@
-const { RebiboMServices } = require('../services');
+const { ViviendaServices } = require('../services');
 
-const GetRmodel = async (req, res, next) => {
+const GetVivienda = async (req, res, next) => {
     try {
-        const result = await RebiboMServices.get();
+        const result = await ViviendaServices.get();
         res.json(result);
     } catch (error) {
         next({
@@ -13,10 +13,10 @@ const GetRmodel = async (req, res, next) => {
     }
 };
 
-const GetIdRecibomodel = async (req, res, next) => {
+const GetIdVivienda = async (req, res, next) => {
     try {
         const {id} = req.params;
-        const result = await RebiboMServices.getId(id);
+        const result = await ViviendaServices.getId(id);
         res.json(result);
     } catch (error) {
         next({
@@ -27,10 +27,10 @@ const GetIdRecibomodel = async (req, res, next) => {
     }
 };
 
-const RegisterRmodel = async (req, res, next) => {
+const RegisterVivienda = async (req, res, next) => {
     try {
-        const newRM= req.body;
-        const result = await RebiboMServices.postPrel(newRM);
+        const newPrel = req.body;
+        const result = await ViviendaServices.postVivienda(newPrel);
         res.status(201).json(result);
     } catch (error) {
         next({
@@ -41,11 +41,11 @@ const RegisterRmodel = async (req, res, next) => {
     }
 };
 
-const UpdateRmodel = async (req, res, next) => {
+const UpdateVivienda = async (req, res, next) => {
     try {
-        const updRM = req.body;
+        const updPrel = req.body;
         const { id } = req.params;
-        const result = await RebiboMServices.update(id, updRM);
+        const result = await ViviendaServices.update(id, updPrel);
         res.json(result);
     } catch (error) {
         next({
@@ -56,10 +56,10 @@ const UpdateRmodel = async (req, res, next) => {
     }
 };
 
-const DeleteRmodel = async (req, res, next) => {
+const DeleteVivienda = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const result = await RebiboMServices.deletePrel(id);
+        const result = await ViviendaServices.deleteVivienda(id);
         res.json(result);
     } catch (error) {
         next({
@@ -71,9 +71,9 @@ const DeleteRmodel = async (req, res, next) => {
 };
 
 module.exports = {
-    GetRmodel,
-    RegisterRmodel,
-    UpdateRmodel,
-    DeleteRmodel,
-    GetIdRecibomodel
+    GetVivienda,
+    RegisterVivienda,
+    UpdateVivienda,
+    DeleteVivienda,
+    GetIdVivienda
 }

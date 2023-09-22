@@ -5,6 +5,7 @@ const Abastecimiento = require('./abastecimiento.models');
 const Preliminar = require('./preliminar.models');
 const Gastos = require('./gastos.models');
 const ReciboModelo = require('./recibomodelo.models');
+const Recibo = require('./recibo.models');
 
 module.exports = {
     Users,
@@ -13,5 +14,6 @@ module.exports = {
     Abastecimiento,
     Preliminar,
     Gastos,
-    ReciboModelo
+    ReciboModelo,
+    Recibo
 }

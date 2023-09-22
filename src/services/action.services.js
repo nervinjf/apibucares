@@ -108,6 +108,7 @@ class ActionServices {
                       });
 
             console.log(update);
+            console.log(update);
         }
 
         } catch (error) {

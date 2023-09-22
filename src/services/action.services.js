@@ -83,11 +83,9 @@ class ActionServices {
 
                 const test = allviviendas.filter(e => e?.id != 2)
 
-            console.log(test);
-
             for (const e of test) {
 
-                console.log(e?.id)
+                console.log(e?.uservivienda.id)
                 const deuda =  e?.uservivienda?.deudadl;
                 const meses = e?.uservivienda?.recibospendientes;
                 const totalpagar = deuda? (deuda+montomes.toFixed(2)).toNumber() : (0+montomes.toFixed(2)).toNumber();
@@ -110,7 +108,7 @@ class ActionServices {
                         where: { id: e?.uservivienda?.id },
                       });
 
-                          console.log(update);
+            console.log(update);
         }
 
         } catch (error) {

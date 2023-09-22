@@ -91,7 +91,7 @@ class ActionServices {
                 const deuda =  e?.uservivienda?.deudadl;
                 const meses = e?.uservivienda?.recibospendientes;
                 const totalpagar = deuda + montomes.toFixed(2);
-                const post = await Recibo.create({ userId: 1, viviendaId: e?.uservivienda?.id, saldoanterio: deuda, interesmora: 1, meses: Number(meses), montomes: montomes.toFixed(2), totalpagar: totalpagar, reciboModeloId: id})
+                const post = await Recibo.create({ userId: e?.id, viviendaId: e?.uservivienda?.id, saldoanterio: deuda, interesmora: 1, meses: Number(meses), montomes: montomes.toFixed(2), totalpagar: totalpagar, reciboModeloId: id})
                 console.log(post)
 
                 await transporter.sendMail({

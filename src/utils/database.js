@@ -8,10 +8,10 @@ const db = new Sequelize({
     host: process.env.DB_HOST,
     post: process.env.DB_PORT,
     password: process.env.DB_PASSWORD,
-    dialect: 'postgres',
+    dialect: 'mysql',
     dialectModule: Tedious,
     logging: 0,
-    timezone: "America/Caracas",
+    timezone: "-04:00",
     useUTC: 0,
 });
 

@@ -66,7 +66,7 @@ class ActionServices {
                     include: {
                         model: Recibo,
                         as: "viviendaRecibo",
-                        attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses"],
+                        attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses", "status"],
                         include: {
                             model: ReciboModelo,
                             as: "reciboRecibomodelo",
@@ -81,18 +81,19 @@ class ActionServices {
                 }]
             })
 
-                const test = allviviendas.filter(e => e?.id != 1)
+                const test = allviviendas.filter(e => e?.id != 2)
 
             console.log(test);
 
             for (const e of test) {
 
-                console.log(e?.uservivienda?.nroCasa)
+                console.log(e?.id)
                 const deuda =  e?.uservivienda?.deudadl;
                 const meses = e?.uservivienda?.recibospendientes;
                 const totalpagar = deuda + montomes.toFixed(2);
-                const post = await Recibo.create({ userId: 1, viviendaId: e?.uservivienda?.id, saldoanterio: deuda, interesmora: 1, meses: Number(meses), montomes: montomes.toFixed(2), totalpagar: totalpagar, reciboModeloId: id})
-                console.log(post)
+                const recipen = e?.uservivienda?.filter(e => e.status != 'Pagado')
+                const status = status.length <= 1 ? 'Solvente' : 'Moroso'
+                const post = await Recibo.create({ userId: e?.id, viviendaId: e?.uservivienda?.id, saldoanterio: deuda, interesmora: 1, meses: Number(meses), montomes: montomes.toFixed(2), totalpagar: totalpagar, reciboModeloId: id})
 
                 await transporter.sendMail({
                     from: '<nervinjflores@gmail.com>',
@@ -104,6 +105,10 @@ class ActionServices {
 
                   console.log('Correo enviado a:', 'correo_destino@ejemplo.com');
 
+                  const update = await Vivienda.update({ recibospendientes: recipen.length, deudadl: totalpagar, deudabs: totalpagar, status: status }, {
+                    where: { id: e.id },
+                } )
+                console.log(update)
             }
 
         } catch (error) {

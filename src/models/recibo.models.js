@@ -39,6 +39,9 @@ const Recibo = db.define('recibo', {
     },
     meses:{
         type: DataTypes.INTEGER,
+    },
+    status: {
+        type: DataTypes.STRING(50),
     }
 })
 

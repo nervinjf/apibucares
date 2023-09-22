@@ -90,7 +90,7 @@ class ActionServices {
                 console.log(e?.id)
                 const deuda =  e?.uservivienda?.deudadl;
                 const meses = e?.uservivienda?.recibospendientes;
-                const totalpagar = deuda + montomes.toFixed(2);
+                const totalpagar = deuda ? deuda : 0 + montomes.toFixed(2);
                 const recipen = e?.uservivienda?.viviendaRecibo?.filter(e => e?.status != 'Pagado')
                 const status = recipen?.length <= 1 ? 'Solvente' : 'Moroso'
                 const post = await Recibo.create({ userId: e?.id, viviendaId: e?.uservivienda?.id, saldoanterio: deuda, interesmora: 1, meses: Number(meses), montomes: montomes.toFixed(2), totalpagar: totalpagar, reciboModeloId: id, status: 'Deuda'})

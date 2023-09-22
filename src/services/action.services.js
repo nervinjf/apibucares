@@ -111,9 +111,8 @@ class ActionServices {
                     where: { id: e.id },
                 } )
                 }catch (error) {
-            throw error;
+                console.log(error)
         }
-                console.log(update)
             }
 
         } catch (error) {

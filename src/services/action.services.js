@@ -55,7 +55,6 @@ class ActionServices {
                 montomes += Number(e.monto / 244)
             }
             montomes = montomes + montomes*(10/100);
-            console.log(montomes.toFixed(2))
 
             const allviviendas = await Users.findAll({
                 attributes: ["id", "nombre", "apellido", "correo", "rolId"],

@@ -16,7 +16,7 @@ const app = express();
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors({
-    origin: 'https://bucares.netlify.app'
+    origin: ['https://bucares.netlify.app', 'http://localhost:5173'],
 }));
 
 initModels();

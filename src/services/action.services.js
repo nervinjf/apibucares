@@ -106,7 +106,7 @@ class ActionServices {
                   console.log('Correo enviado a:', 'correo_destino@ejemplo.com');
                     console.log(`numero: ${recipen.length}, status: ${status}, total: ${totalpagar}`)
                     console.log(`where: { id: ${e.id} }`)
-                  const update = await Vivienda.update({ recibospendientes: recipen.length, deudadl: totalpagar ? totalpagar : 0, deudabs: totalpagar ? totalpagar : 0, status: status }, {
+                  const update = await Vivienda.update({ recibospendientes: recipen.length,  status: status }, {
                     where: { id: e.id },
                 } )
                 console.log(update)

@@ -6,7 +6,7 @@ const puppeteer = require('puppeteer');
 var options = { format: 'Letter', format: 'A4' };
 const pdfFolderPath = './pdf'; // Ruta de la carpeta donde deseas guardar los PDF
 const pdfFilePath = ('D:/Usuarios/Mis Documentos/Nervin/Urb. Bucares/API/src/templates/pdf'); // Ruta completa del archivo PDF
-const pdfFilePath2 = ('https://nebconnection.com/TEST/test.pdf'); // Ruta completa del archivo PDF
+const pdfFilePath2 = ('https://drive.google.com/drive/folders/1WA0WPEekU1GO72wRKhpJa9J2XAKpd5nS?usp=sharing'); // Ruta completa del archivo PDF
 
 
 

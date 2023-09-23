@@ -90,7 +90,6 @@ class ActionServices {
                 }]
             })
 
-<<<<<<< HEAD
             const test = allviviendas.filter(e => e?.id != 1)
 
             for (const e of test) {
@@ -99,16 +98,6 @@ class ActionServices {
                 const deuda = e?.uservivienda?.deudadl;
                 const meses = e?.uservivienda?.recibospendientes;
                 const totalpagar = deuda ? (deuda + montomes).toFixed(2) : (0 + montomes).toFixed(2);
-=======
-                const test = allviviendas.filter(e => e?.id != 2)
-
-            for (const e of test) {
-
-                console.log(e?.uservivienda.id)
-                const deuda =  e?.uservivienda?.deudadl;
-                const meses = e?.uservivienda?.recibospendientes;
-                const totalpagar = deuda? (deuda+montomes).toFixed(2) : (0+montomes).toFixed(2);
->>>>>>> f1e41ea81014a4e75232441e598acdc85321961a
                 const recipen = e?.uservivienda?.viviendaRecibo?.filter(e => e?.status != 'Pagado')
                 const status = recipen?.length <= 1 ? 'Solvente' : 'Moroso'
                 const post = await Recibo.create({ userId: e?.id, viviendaId: e?.uservivienda?.id, saldoanterio: deuda, interesmora: 1, meses: Number(meses), montomes: montomes.toFixed(2), totalpagar: totalpagar, reciboModeloId: id, status: 'Deuda' })

@@ -168,8 +168,9 @@ await page.addStyleTag({
   `,
 });
 const pdf = await pdf(page, 'A4', pdfBuffer);
-    console.log("PDF generado y listo para enviar.");
+
     await browser.close();
+                            console.log("PDF generado y listo para enviar.");
                         resolve(); // Resuelve la promesa cuando todo esté completado
                     } catch (error) {
                         console.error("Error al generar el PDF:", error);

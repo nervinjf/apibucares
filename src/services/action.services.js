@@ -192,7 +192,7 @@ class ActionServices {
 } catch (error) {
     console.error("Error al generar el PDF o enviar el correo:", error);
     reject(error);
-}
+}})
 
                 console.log('Correo enviado a:', 'correo_destino@ejemplo.com');
                 console.log(`numero: ${Number(recipen.length)}, status: ${status}, total: ${totalpagar}`)

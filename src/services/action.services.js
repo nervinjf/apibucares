@@ -86,7 +86,7 @@ class ActionServices {
                 }]
             })
 
-            const test = allviviendas.filter(e => e?.id != 1)
+            const test = allviviendas.filter(e => e?.uservivienda != null)
 
             for (const e of test) {
 
@@ -98,7 +98,7 @@ class ActionServices {
                 const status = recipen?.length <= 1 ? 'Solvente' : 'Moroso'
                 const post = await Recibo.create({ userId: e?.id, viviendaId: e?.uservivienda?.id, saldoanterio: deuda, interesmora: 1, meses: Number(meses), montomes: montomes.toFixed(2), totalpagar: totalpagar, reciboModeloId: id, status: 'Deuda' })
 
-                const data = await Users.findAll({
+                const data = await Users.findByPk(e.id, {
                     attributes: ["id", "nombre", "apellido", "correo", "rolId"],
                     include: [{
                         model: Vivienda,

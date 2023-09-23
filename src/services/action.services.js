@@ -6,8 +6,7 @@ const puppeteer = require('puppeteer');
 var options = { format: 'Letter', format: 'A4' };
 const pdfFolderPath = './pdf'; // Ruta de la carpeta donde deseas guardar los PDF
 const pdfFilePath = ('D:/Usuarios/Mis Documentos/Nervin/Urb. Bucares/API/src/templates/pdf'); // Ruta completa del archivo PDF
-const pdfFilePath2 = ('https://github.com/nervinjf/apibucares/blob/8e0a14e64f9ba16542ec4f036aa992e12f70d39a/src/templates/pdf/Recibo.pdf'); // Ruta completa del archivo PDF
-
+const pdfUrl = 'https://github.com/nervinjf/apibucares/blob/bd342bfd3108b8f050e8f7e41181b1bb6915ac4e/src/templates/pdf/Recibo.pdf';
 
 
 
@@ -137,38 +136,40 @@ class ActionServices {
                 // Llama a la función generatePDF para generar el PDF
                 await new Promise(async (resolve, reject) => { // Asegúrate de que la función sea async
                     try {
-                        const browser = await puppeteer.launch();
-                        const page = await browser.newPage();
-                        await page.setContent(recibocondominio(data, recibo));
+                         const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    const response = await fetch(pdfUrl);
+    const pdfBuffer = await response.buffer();
 
-                        await page.addStyleTag({
-                            content: `
-                              /* Define márgenes y estilo de página */
-                              @page {
-                                size: A4; /* El tamaño de página que desees */
-                                margin: 20mm 10mm; /* Márgenes superior e inferior de 20 mm y laterales de 10 mm */
-                              }
-                          
-                              /* Estilo del encabezado de página */
-                              header {
-                                text-align: center;
-                                font-size: 16px;
-                                font-weight: bold;
-                                padding: 10px 0;
-                              }
-                          
-                              /* Estilo del pie de página de página */
-                              footer {
-                                text-align: center;
-                                font-size: 12px;
-                                padding: 5px 0;
-                              }
-                            `,
-                        });
+    await page.setContent(recibocondominio(data, recibo));
+    await page.addStyleTag({
+      content: `
+        /* Define márgenes y estilo de página */
+        @page {
+          size: A4; /* El tamaño de página que desees */
+          margin: 20mm 10mm; /* Márgenes superior e inferior de 20 mm y laterales de 10 mm */
+        }
 
-                        await page.pdf({ path: pdfFilePath2, format: 'A4' });
-                        console.log("PDF generado y guardado en:", pdfFilePath2);
-                        await browser.close();
+        /* Estilo del encabezado de página */
+        header {
+          text-align: center;
+          font-size: 16px;
+          font-weight: bold;
+          padding: 10px 0;
+        }
+
+        /* Estilo del pie de página de página */
+        footer {
+          text-align: center;
+          font-size: 12px;
+          padding: 5px 0;
+        }
+      `,
+    });
+
+    await page.pdf({ format: 'A4', buffer: pdfBuffer });
+    console.log("PDF generado y listo para enviar.");
+    await browser.close();
                         resolve(); // Resuelve la promesa cuando todo esté completado
                     } catch (error) {
                         console.error("Error al generar el PDF:", error);
@@ -184,7 +185,7 @@ class ActionServices {
                     attachments: [
                         {
                             filename: 'recibo.pdf',
-                            content: fs.readFileSync(pdfFilePath2),
+                            content: await page.pdf({ format: 'A4', buffer: pdfBuffer }), // Adjunta el PDF generado en memoria
                         },
                     ]
                 });

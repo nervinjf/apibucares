@@ -142,33 +142,32 @@ class ActionServices {
     const response = await fetch(pdfUrl);
     const pdfBuffer = await response.buffer();
 
-    await page.setContent(recibocondominio(data, recibo));
-    await page.addStyleTag({
-      content: `
-        /* Define márgenes y estilo de página */
-        @page {
-          size: A4; /* El tamaño de página que desees */
-          margin: 20mm 10mm; /* Márgenes superior e inferior de 20 mm y laterales de 10 mm */
-        }
+   await page.setContent(recibocondominio(data, recibo));
+await page.addStyleTag({
+  content: `
+    /* Define márgenes y estilo de página */
+    @page {
+      size: A4; /* El tamaño de página que desees */
+      margin: 20mm 10mm; /* Márgenes superior e inferior de 20 mm y laterales de 10 mm */
+    }
 
-        /* Estilo del encabezado de página */
-        header {
-          text-align: center;
-          font-size: 16px;
-          font-weight: bold;
-          padding: 10px 0;
-        }
+    /* Estilo del encabezado de página */
+    header {
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 10px 0;
+    }
 
-        /* Estilo del pie de página de página */
-        footer {
-          text-align: center;
-          font-size: 12px;
-          padding: 5px 0;
-        }
-      `,
-    });
-
-    await page.pdf({ format: 'A4', buffer: pdfBuffer });
+    /* Estilo del pie de página de página */
+    footer {
+      text-align: center;
+      font-size: 12px;
+      padding: 5px 0;
+    }
+  `,
+});
+const pdf = await pdf(page, 'A4', pdfBuffer);
     console.log("PDF generado y listo para enviar.");
     await browser.close();
                         resolve(); // Resuelve la promesa cuando todo esté completado

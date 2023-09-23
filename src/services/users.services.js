@@ -27,6 +27,7 @@ class UserServices {
                                 model: ReciboModelo,
                                 as: "reciboRecibomodelo",
                                 attributes: ["id", "Fecha", "bcv"],
+                                // where: { id: 21},
                                 include: {
                                     model: Gastos,
                                     as: "recibomodeloGastos",

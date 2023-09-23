@@ -86,7 +86,7 @@ class ActionServices {
                 }]
             })
 
-            const test = allviviendas.filter(e => e?.id != 1)
+            const test = allviviendas.filter(e => e?.uservivienda != null)
 
             for (const e of test) {
 
@@ -98,7 +98,7 @@ class ActionServices {
                 const status = recipen?.length <= 1 ? 'Solvente' : 'Moroso'
                 const post = await Recibo.create({ userId: e?.id, viviendaId: e?.uservivienda?.id, saldoanterio: deuda, interesmora: 1, meses: Number(meses), montomes: montomes.toFixed(2), totalpagar: totalpagar, reciboModeloId: id, status: 'Deuda' })
 
-                const data = await Users.findAll({
+                const data = await Users.findByPk(e.id, {
                     attributes: ["id", "nombre", "apellido", "correo", "rolId"],
                     include: [{
                         model: Vivienda,
@@ -108,19 +108,24 @@ class ActionServices {
                             model: Recibo,
                             as: "viviendaRecibo",
                             attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses", "status"],
-                            include: {
-                                model: ReciboModelo,
-                                as: "reciboRecibomodelo",
-                                attributes: ["id", "Fecha", "bcv"],
-                                where: { id },
-                                include: {
-                                    model: Gastos,
-                                    as: "recibomodeloGastos",
-                                    attributes: ["id", "nombre", "Fecha", "ncasa", "monto"]
-                                }
-                            }
                         }
                     }]
+                })
+
+                console.log(post.id)
+
+                const recibo = await Recibo.findByPk(post.id, {
+                    attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses"],
+                    include: {
+                        model: ReciboModelo,
+                        as: "reciboRecibomodelo",
+                        attributes: ["id", "Fecha", "bcv"],
+                        include: {
+                            model: Gastos,
+                            as: "recibomodeloGastos",
+                            attributes: ["id", "nombre", "Fecha", "ncasa", "monto"]
+                        }
+                    }
                 })
 
 
@@ -134,7 +139,7 @@ class ActionServices {
                     try {
                         const browser = await puppeteer.launch();
                         const page = await browser.newPage();
-                        await page.setContent(recibocondominio(data));
+                        await page.setContent(recibocondominio(data, recibo));
 
                         await page.addStyleTag({
                             content: `

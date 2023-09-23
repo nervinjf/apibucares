@@ -18,6 +18,7 @@ const recibocondominio = (data) => {
 
     });
 
+    console.log(data)
 
 const contenidoHTML = data?.uservivienda?.viviendaRecibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
     `<div key=${e.id} style="display: flex; justify-content: center; align-items: center; border-top: 0.1rem solid black; height: 100%;">

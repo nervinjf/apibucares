@@ -173,25 +173,26 @@ class ActionServices {
 
     await browser.close();
     console.log("PDF generado y listo para enviar.");
+
+    // Ahora puedes enviar el correo electrónico dentro de este bloque
+    await transporter.sendMail({
+        from: '<nervinjflores@gmail.com>',
+        to: e.correo,
+        subject: `Recibo Bucares Casa ${e?.uservivienda?.nroCasa}`,
+        text: 'Recibo Bucares',
+        attachments: [
+            {
+                filename: 'recibo.pdf',
+                content: pdf, // Adjunta el PDF generado
+            },
+        ],
+    });
+
     resolve();
 } catch (error) {
-    console.error("Error al generar el PDF:", error);
+    console.error("Error al generar el PDF o enviar el correo:", error);
     reject(error);
-}
-                });
-
-                await transporter.sendMail({
-                    from: '<nervinjflores@gmail.com>',
-                    to: e.correo, // Reemplaza con la dirección de correo correcta de la vivienda
-                    subject: `Recibo Bucares Casa ${e?.uservivienda?.nroCasa}`,
-                    text: 'Recibo Bucares',
-                    attachments: [
-                        {
-                            filename: 'recibo.pdf',
-                            content: await page.pdf({ format: 'A4', buffer: pdfBuffer }), // Adjunta el PDF generado en memoria
-                        },
-                    ]
-                });
+}}
 
                 console.log('Correo enviado a:', 'correo_destino@ejemplo.com');
                 console.log(`numero: ${Number(recipen.length)}, status: ${status}, total: ${totalpagar}`)

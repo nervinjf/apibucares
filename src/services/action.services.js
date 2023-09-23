@@ -3,9 +3,10 @@ const transporter = require("../utils/mailer");
 const fs = require('fs');
 const recibocondominio = require('../templates/Recibo'); // Reemplaza la ruta con la ubicación correcta de tu archivo
 const puppeteer = require('puppeteer');
-const pdfFolderPath = './pdf'; // Ruta de la carpeta donde deseas guardar los PDF// Ruta completa del archivo PDF
-const pdfFilePath2 = ('D:/Usuarios/Mis Documentos/Nervin/Urb. Bucares/API/src/templates/pdf/Recibo.pdf'); // Ruta completa del archivo PDF
-
+var options = { format: 'Letter', format: 'A4' };
+const pdfFolderPath = './pdf'; // Ruta de la carpeta donde deseas guardar los PDF
+const pdfFilePath = ('D:/Usuarios/Mis Documentos/Nervin/Urb. Bucares/API/src/templates/pdf'); // Ruta completa del archivo PDF
+const pdfUrl = 'https://github.com/nervinjf/apibucares/blob/bd342bfd3108b8f050e8f7e41181b1bb6915ac4e/src/templates/pdf/Recibo.pdf';
 
 
 
@@ -135,14 +136,14 @@ class ActionServices {
                 // Llama a la función generatePDF para generar el PDF
                 await new Promise(async (resolve, reject) => { // Asegúrate de que la función sea async
                     try {
-                        const browser = await puppeteer.launch();
-                        const page = await browser.newPage();
-                        const response = await fetch(pdfUrl);
-                        const pdfBuffer = await response.buffer();
+                         const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    const response = await fetch(pdfUrl);
+    const pdfBuffer = await response.buffer();
 
-                        await page.setContent(recibocondominio(data, recibo));
-                        await page.addStyleTag({
-                            content: `
+    await page.setContent(recibocondominio(data, recibo));
+    await page.addStyleTag({
+      content: `
         /* Define márgenes y estilo de página */
         @page {
           size: A4; /* El tamaño de página que desees */
@@ -164,11 +165,11 @@ class ActionServices {
           padding: 5px 0;
         }
       `,
-                        });
+    });
 
-                        await page.pdf({ format: 'A4', buffer: pdfBuffer });
-                        console.log("PDF generado y listo para enviar.");
-                        await browser.close();
+    await page.pdf({ format: 'A4', buffer: pdfBuffer });
+    console.log("PDF generado y listo para enviar.");
+    await browser.close();
                         resolve(); // Resuelve la promesa cuando todo esté completado
                     } catch (error) {
                         console.error("Error al generar el PDF:", error);
@@ -184,7 +185,7 @@ class ActionServices {
                     attachments: [
                         {
                             filename: 'recibo.pdf',
-                            content: fs.readFileSync('https://github.com/nervinjf/apibucares/tree/main/src/templates/pdf/Recibo.pdf'),
+                            content: await page.pdf({ format: 'A4', buffer: pdfBuffer }), // Adjunta el PDF generado en memoria
                         },
                     ]
                 });

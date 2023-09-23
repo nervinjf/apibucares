@@ -60,11 +60,7 @@ class ActionServices {
             for (const e of reciboModel.recibomodeloGastos) {
                 montomes += Number(e.monto / 244)
             }
-<<<<<<< HEAD
             montomes = montomes + montomes * (10 / 100);
-=======
-            montomes = montomes + montomes*(10/100);
->>>>>>> f1e41ea81014a4e75232441e598acdc85321961a
 
             const allviviendas = await Users.findAll({
                 attributes: ["id", "nombre", "apellido", "correo", "rolId"],
@@ -188,7 +184,6 @@ class ActionServices {
                     ]
                 });
 
-<<<<<<< HEAD
                 console.log('Correo enviado a:', 'correo_destino@ejemplo.com');
                 console.log(`numero: ${Number(recipen.length)}, status: ${status}, total: ${totalpagar}`)
                 console.log(`where: { id: ${e.id} }`)
@@ -199,18 +194,6 @@ class ActionServices {
                 console.log(update);
                 console.log(update);
             }
-=======
-                  console.log('Correo enviado a:', 'correo_destino@ejemplo.com');
-                    console.log(`numero: ${Number(recipen.length)}, status: ${status}, total: ${totalpagar}`)
-                    console.log(`where: { id: ${e.id} }`)
-                 const update = await Vivienda.update({ recibospendientes: Number(recipen.length),  status: status, deudabs: totalpagar, deudadl: totalpagar}, {
-                        where: { id: e?.uservivienda?.id },
-                      });
-
-            console.log(update);
-            console.log(update);
-        }
->>>>>>> f1e41ea81014a4e75232441e598acdc85321961a
 
         } catch (error) {
             throw error;

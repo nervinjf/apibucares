@@ -10,6 +10,7 @@ const recibocondominio = (data) => {
     let totalalicuotaBs = 0;
 
     data?.uservivienda?.viviendaRecibo?.reciboRecibomodelo?.recibomodeloGastos?.map(e => {
+    console.log(e.monto);
         totalmontodolares += Number(e.monto);
         totalalicuotadolares += Number(e.monto / 244);
         totalmontoBs += Number(e.monto * data?.uservivienda?.viviendaRecibo?.reciboRecibomodelo?.bcv);
@@ -17,7 +18,6 @@ const recibocondominio = (data) => {
 
     });
 
-    console.log(totalmontodolares);
 
 const contenidoHTML = data?.uservivienda?.viviendaRecibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
     `<div key=${e.id} style="display: flex; justify-content: center; align-items: center; border-top: 0.1rem solid black; height: 100%;">

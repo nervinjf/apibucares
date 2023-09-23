@@ -1,0 +1,262 @@
+.container-recibModeldetail{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.containerrecibomodelo-sect1{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    gap: 1rem;
+}
+
+.containerrecibomodelo-sect2{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerrecibomodelo-sect2-page{
+    width: 100%;
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 1.22) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    /* overflow-y: scroll; */
+
+}
+
+.sect2-page{
+    width: 100%;
+    height: 100%;
+}
+
+.box2--preli2 {
+    width: 100%;
+    height: 100%;
+    box-shadow: rgba(50, 50, 93, 0.034) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.041) 0px 18px 36px -18px inset;
+    border-radius: 0 0.5rem 0.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page {
+    width: 100%;
+    height: 95%;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    padding: 1rem;
+    overflow-y: scroll;
+}
+
+.descripcion-prel{
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    border: 0.1rem solid black;
+}
+
+.descripcion-prel1 {
+    display: flex;
+    width: 100%;
+}
+
+.descripcion1-prel1 {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    border-right: 0.1rem solid black;
+    gap: 0.0rem;
+}
+
+.descripcion1-prel12 {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    border-right: 0.1rem solid black;
+    gap: 0.0rem;
+    
+}
+
+.descripcion1-prel122 {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    border-right: 0.1rem solid black;
+    gap: 0.0rem;
+    
+}
+
+.descripcion1-prel2 {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    border-right: 0.1rem solid black;
+    gap: 0.0rem;
+    height: 100%;
+}
+
+/* .descripcion-detail-prel{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 0.1rem solid black;
+    height: 100%;
+} */
+
+.descripcion1-prel3 {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.0rem;
+}
+
+.descripcion-prel1 {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 100%;
+}
+
+.descripcion1-prel-relleno{
+    display: flex;
+    gap: 0.0rem;
+    width: 100%;
+    border-top: 0.1rem solid black;
+    height: 100%;
+
+}
+
+.descripcion-detail-prel1{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.descripcion-prel-style1{
+    width: 40%;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    background: rgba(167, 166, 166, 0.596);
+    height: 100%;
+
+}
+
+.descripcion-prel1-correo{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 100%;
+}
+
+.descripcion1-prel-relleno-correo{
+    display: flex;
+    gap: 0.0rem;
+    width: 100%;
+    height: 100%;
+}
+
+.descripcion1-prel1-2{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    border-right: 0.1rem solid black;
+    gap: 0.0rem;
+}
+
+.descripcion1-prel1-3{
+    width: 12%;
+    display: flex;
+    flex-direction: column;
+    border-right: 0.1rem solid black;
+    gap: 0.0rem;
+}
+
+.total-prel1-4{
+    width: 13%;
+    display: flex;
+    flex-direction: column;
+    border-right: 0.1rem solid black;
+    gap: 0.0rem;
+}
+
+
+.descripcion1-prel1-5{
+    width: 18%;
+    display: flex;
+    flex-direction: column;
+    border-right: 0.1rem solid black;
+    gap: 0.0rem;
+}
+
+.total-prel1-6{
+    width: 17%;
+    display: flex;
+    flex-direction: column;
+    border-right: 0.1rem solid black;
+    gap: 0.0rem;
+}
+
+.descripcion1-prel1-7{
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    border-right: 0.1rem solid black;
+    gap: 0.0rem;
+}
+
+.descripcion1-prel1-8{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    border-right: 0.1rem solid black;
+    gap: 0.0rem;
+}
+
+.descripcion-detail-prel2-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 0.1rem solid black;
+    width: 100%;
+    height: 100%;
+}
+
+.descripcion-detail-prel2-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 1rem;
+}
+
+.descripcion-detail-prel2-2-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-right: 0.1rem solid black;
+}
+
+.descripcion1-prel1-72{
+    display: flex;
+    justify-content: flex-start;
+    padding: 0.1rem 0 0 1rem;
+    width: 100%;
+    height: 3rem;
+    border: none;
+}

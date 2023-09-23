@@ -1,4 +1,4 @@
-const welcomeTemplate = (username) => `
+const welcomeTemplate = (e) => `
   <!DOCTYPE html>
 <html lang="en" xmlns="https://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
 

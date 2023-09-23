@@ -6,7 +6,7 @@ const puppeteer = require('puppeteer');
 var options = { format: 'Letter', format: 'A4' };
 const pdfFolderPath = './pdf'; // Ruta de la carpeta donde deseas guardar los PDF
 const pdfFilePath = ('D:/Usuarios/Mis Documentos/Nervin/Urb. Bucares/API/src/templates/pdf'); // Ruta completa del archivo PDF
-const pdfFilePath2 = ('D:/Usuarios/Mis Documentos/Nervin/Urb. Bucares/API/src/templates/pdf/Recibo.pdf'); // Ruta completa del archivo PDF
+const pdfFilePath2 = ('https://github.com/nervinjf/apibucares/tree/main/src/templates/pdf/Recibo.pdf'); // Ruta completa del archivo PDF
 
 
 
@@ -184,7 +184,7 @@ class ActionServices {
                     attachments: [
                         {
                             filename: 'recibo.pdf',
-                            content: fs.readFileSync('D:/Usuarios/Mis Documentos/Nervin/Urb. Bucares/API/src/templates/pdf/Recibo.pdf'),
+                            content: fs.readFileSync(pdfFilePath2),
                         },
                     ]
                 });

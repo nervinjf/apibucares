@@ -3,9 +3,7 @@ const transporter = require("../utils/mailer");
 const fs = require('fs');
 const recibocondominio = require('../templates/Recibo'); // Reemplaza la ruta con la ubicación correcta de tu archivo
 const puppeteer = require('puppeteer');
-var options = { format: 'Letter', format: 'A4' };
-const pdfFolderPath = './pdf'; // Ruta de la carpeta donde deseas guardar los PDF
-const pdfFilePath = ('D:/Usuarios/Mis Documentos/Nervin/Urb. Bucares/API/src/templates/pdf'); // Ruta completa del archivo PDF
+const pdfFolderPath = './pdf'; // Ruta de la carpeta donde deseas guardar los PDF// Ruta completa del archivo PDF
 const pdfFilePath2 = ('D:/Usuarios/Mis Documentos/Nervin/Urb. Bucares/API/src/templates/pdf/Recibo.pdf'); // Ruta completa del archivo PDF
 
 
@@ -139,35 +137,37 @@ class ActionServices {
                     try {
                         const browser = await puppeteer.launch();
                         const page = await browser.newPage();
-                        await page.setContent(recibocondominio(data, recibo));
+                        const response = await fetch(pdfUrl);
+                        const pdfBuffer = await response.buffer();
 
+                        await page.setContent(recibocondominio(data, recibo));
                         await page.addStyleTag({
                             content: `
-                              /* Define márgenes y estilo de página */
-                              @page {
-                                size: A4; /* El tamaño de página que desees */
-                                margin: 20mm 10mm; /* Márgenes superior e inferior de 20 mm y laterales de 10 mm */
-                              }
-                          
-                              /* Estilo del encabezado de página */
-                              header {
-                                text-align: center;
-                                font-size: 16px;
-                                font-weight: bold;
-                                padding: 10px 0;
-                              }
-                          
-                              /* Estilo del pie de página de página */
-                              footer {
-                                text-align: center;
-                                font-size: 12px;
-                                padding: 5px 0;
-                              }
-                            `,
+        /* Define márgenes y estilo de página */
+        @page {
+          size: A4; /* El tamaño de página que desees */
+          margin: 20mm 10mm; /* Márgenes superior e inferior de 20 mm y laterales de 10 mm */
+        }
+
+        /* Estilo del encabezado de página */
+        header {
+          text-align: center;
+          font-size: 16px;
+          font-weight: bold;
+          padding: 10px 0;
+        }
+
+        /* Estilo del pie de página de página */
+        footer {
+          text-align: center;
+          font-size: 12px;
+          padding: 5px 0;
+        }
+      `,
                         });
 
-                        await page.pdf({ path: pdfFilePath2, format: 'A4' });
-                        console.log("PDF generado y guardado en:", pdfFilePath2);
+                        await page.pdf({ format: 'A4', buffer: pdfBuffer });
+                        console.log("PDF generado y listo para enviar.");
                         await browser.close();
                         resolve(); // Resuelve la promesa cuando todo esté completado
                     } catch (error) {
@@ -184,7 +184,7 @@ class ActionServices {
                     attachments: [
                         {
                             filename: 'recibo.pdf',
-                            content: fs.readFileSync('D:/Usuarios/Mis Documentos/Nervin/Urb. Bucares/API/src/templates/pdf/Recibo.pdf'),
+                            content: fs.readFileSync('https://github.com/nervinjf/apibucares/tree/main/src/templates/pdf/Recibo.pdf'),
                         },
                     ]
                 });

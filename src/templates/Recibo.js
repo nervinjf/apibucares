@@ -225,7 +225,7 @@ width: 100%; height: 100%;
     width: 100%;
     overflow: hidden;
     border: 0.1rem solid black;
-    height: 5rem;">
+    height: 3rem;">
                                     <div style="display: flex;
                 width: 100%;
                 flex-direction: column;
@@ -254,7 +254,7 @@ width: 100%; height: 100%;
                                     </div>
                                 </div>
                                 <div style="display: flex;
-    width: 100%;
+    width: 2rem;
     overflow: hidden;
     border: 0.1rem solid black;
     height: 100%;">
@@ -282,7 +282,7 @@ width: 100%; height: 100%;
                                         <div>
                                             <p>Monto $</p>
                                         </div>
-                                        <div id="miContenedor1">
+                                        <div style="width: 2rem;">
                                             ${contenidoHTML1}
                                         </div>
                                     </div>

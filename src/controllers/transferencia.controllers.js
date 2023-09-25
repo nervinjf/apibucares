@@ -1,4 +1,4 @@
-const { Recibo } = require('../models');
+const { Recibo, ReciboModelo, Gastos } = require('../models');
 const { TransferenciaServices } = require('../services');
 
 const GetTransferencia = async (req, res, next) => {

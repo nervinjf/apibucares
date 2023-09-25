@@ -139,7 +139,6 @@ class ActionServices {
     let totalalicuotaBs = 0;
 
     recibo?.reciboRecibomodelo?.recibomodeloGastos?.map(e => {
-    console.log(e?.monto)
 
         totalmontodolares += Number(e.monto);
         totalalicuotadolares += Number(e.monto / 244);
@@ -152,8 +151,6 @@ const contenidoHTML = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
     `<div key=${e.id} style="display: flex; justify-content: center; align-items: center; border-top: 0.1rem solid black; height: 100%;">
         <p>${e.nombre}</p>
     </div>`).join('');
-
-    console.log(contenidoHTML)
 
 const contenidoHTML1 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
     `<div key=${e.id} style=" display: flex;

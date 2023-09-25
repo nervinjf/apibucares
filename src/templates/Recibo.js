@@ -69,7 +69,6 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
     background: rgb(255, 255, 255);
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
     padding: 1rem;
-    overflow-y: scroll;
 }
 
 .descripcion-prel{
@@ -327,7 +326,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                                 <p><b>Tasa</b></p>
                             </div>
                             <div class='descripcion-detail-prel1'>
-                                <p>{(data?.reciboRecibomodelo?.bcv)}</p>
+                                <p>{(recibo?.reciboRecibomodelo?.bcv)}</p>
                             </div>
                         </div>
                         <div class='descripcion1-prel-relleno'>
@@ -335,7 +334,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                                 <p><b>Fecha</b></p>
                             </div>
                             <div class='descripcion-detail-prel1'>
-                                <p>{moment(data?.reciboRecibomodelo?.Fecha).format('DD-MM-YYYY')}</p>
+                                <p>{moment(recibo?.reciboRecibomodelo?.Fecha).format('DD-MM-YYYY')}</p>
                             </div>
                         </div>
                     </div>
@@ -364,7 +363,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                                 <p style="font-size: 0.6rem; text-align: center"><b>N° DE CONTROL Y MES</b></p>
                             </div>
                             <div class='descripcion-detail-prel1'>
-                                <p>{moment(data?.Fecha).format('MM-YYYY')}</p>
+                                <p>{moment(recibo?.reciboRecibomodelo?.Fecha).format('MM-YYYY')}</p>
                             </div>
                         </div>
                         <div class='descripcion1-prel-relleno'>
@@ -372,7 +371,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                                 <p style="font-size: 0.6rem; text-align: center"><b>PROPIETARIO</b></p>
                             </div>
                             <div class='descripcion-detail-prel1'>
-                                <p style="font-size: 0.9rem">{user?.uservivienda?.nombre}</p>
+                                <p style="font-size: 0.9rem">{data?.uservivienda?.nombre}</p>
                             </div>
                         </div>
                         <div class='descripcion1-prel-relleno'>
@@ -380,7 +379,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                                 <p style="font-size: 0.6rem; text-align: center"><b>Nª DE Casa</b></p>
                             </div>
                             <div class='descripcion-detail-prel1'>
-                                <p>{user?.uservivienda?.nroCasa}</p>
+                                <p>{data?.uservivienda?.nroCasa}</p>
                             </div>
                         </div>
                         <div class='descripcion1-prel-relleno'>
@@ -388,7 +387,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                                 <p style="font-size: 0.6rem; text-align: center"><b>Estatus</b></p>
                             </div>
                             <div class='descripcion-detail-prel1'>
-                                <p>{user?.uservivienda?.status}</p>
+                                <p>{recibo?.status}</p>
                             </div>
                         </div>
                     </div>
@@ -401,7 +400,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                             <p><b>Correo</b></p>
                         </div>
                         <div class='descripcion-detail-prel1'>
-                            <p>{user.correo}</p>
+                            <p>{data.correo}</p>
                         </div>
                     </div>
                 </div>
@@ -533,8 +532,8 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                 <div class='descripcion1-prel1-7'>
                     <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
                         <p style="font-size: 0.8rem; text-align: center"> ${`* EL TIPO DE CAMBIO REFERENCIAL
-                            APLICADO ES DE Bs.D. ${data?.bcv}
-                            DE FECHA VALOR ${moment(data?.Fecha).format('DD/MM/YYYY')}, SEGUN RES. N°. 19-05-01 DEL BCV
+                            APLICADO ES DE Bs.D. $recibo?.reciboRecibomodelo?.bcv}
+                            DE FECHA VALOR ${moment(recibo?.reciboRecibomodelo?.Fecha).format('DD/MM/YYYY')}, SEGUN RES. N°. 19-05-01 DEL BCV
                             (GAC. OFIC.
                             N°. 41.624 : 02/05/2019) Y DE CONFORMIDAD CON LO PREVISTO EN LAS
                             NORMAS GENERALES DE EMISION DE FACTURAS Y OTROS DOCUMENTOS.

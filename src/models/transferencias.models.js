@@ -44,7 +44,7 @@ const Transferencia = db.define('transferencia', {
         type: DataTypes.DATEONLY,
     },
     montoPagado: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.FLOAT,
     }
 })
 

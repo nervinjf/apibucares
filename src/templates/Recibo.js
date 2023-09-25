@@ -10,24 +10,6 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                 <meta name="x-apple-disable-message-reformatting">
                     <title>Recibo</title>
                     <link rel="stylesheet" href="./recibo.css">
-                        <!--[if mso]>
-                        <noscript>
-                            <xml>
-                                <o: OfficeDocumentSettings>
-                                    <o: PixelsPerInch>96</o: PixelsPerInch>
-                                </o: OfficeDocumentSettings>
-                            </xml>
-                        </noscript>
-                        <![endif]-->
-                        <style>
-                            table,
-                            td,
-                            div,
-                            h1,
-                            p {
-                                font - family: SF Pro Display, sans-serif;
-        }
-                        </style>
                     </head>
 
                     <body style="padding: 1rem; margin: 0; width: 97%; height: 100%;">
@@ -42,8 +24,7 @@ width: 100%; height: 100%;
                                     height: 95%;
                                     background: rgb(255, 255, 255);
                                     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-                                    padding: 1rem;
-                                    overflow-y: scroll;">
+                                    padding: 1rem;">
                                 <div
                                     style="display: flex; gap: 0.5rem; justify-content: center; align-items: center; flex-direction: column">
                                     <h1 style="margin: 0">Recibo</h1>

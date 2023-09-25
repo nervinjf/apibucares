@@ -263,7 +263,7 @@ width: 100%; height: 100%;
         flex-direction: column;
         border-right: 0.1rem solid black;
         gap: 0.0rem;
-        height: 100%;">
+        height: 2.5rem;">
                                         <div id="miContenedor"></div>
                     // <div>
                                             <p>Descripcion de gastos</p>
@@ -273,7 +273,7 @@ width: 100%; height: 100%;
                                         </div>
                                     </div>
                                     <div style="
-                height: 100%;
+                height: 2.5rem;
                 width: 12%;
         display: flex;
         flex-direction: column;
@@ -282,7 +282,7 @@ width: 100%; height: 100%;
                                         <div>
                                             <p>Monto $</p>
                                         </div>
-                                        <div style="width: 2rem;">
+                                        <div id="miContenedor1">
                                             ${contenidoHTML1}
                                         </div>
                                     </div>
@@ -291,7 +291,7 @@ width: 100%; height: 100%;
         flex-direction: column;
         border-right: 0.1rem solid black;
         gap: 0.0rem;
-        height: 100%;">
+        height: 2.5rem;">
                                         <div>
                                             <p>Alicuota $</p>
                                         </div>
@@ -317,7 +317,7 @@ width: 100%; height: 100%;
         flex-direction: column;
         border-right: 0.1rem solid black;
         gap: 0.0rem;
-        height: 100%;">
+        height: 2.5rem;">
                                         <div>
                                             <p>Alicuota Bs</p>
                                         </div>

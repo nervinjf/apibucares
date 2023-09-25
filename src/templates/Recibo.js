@@ -68,7 +68,6 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
     width: 100%;
     height: 95%;
     background: rgb(255, 255, 255);
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
     padding: 1rem;
 }
 

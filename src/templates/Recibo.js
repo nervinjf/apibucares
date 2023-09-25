@@ -2,7 +2,8 @@
 const moment = require('moment');
 const logo = ('../img/logo.png');
 
-const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares, totalalicuotaBs, totalmontoBs, contenidoHTML, contenidoHTML1, contenidoHTML2, contenidoHTML3, contenidoHTML4) => `
+const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares, totalalicuotaBs, totalmontoBs, contenidoHTML, contenidoHTML1, contenidoHTML2, contenidoHTML3, contenidoHTML4) => 
+    console.log(recibo);`
 <html lang="en" xmlns="https://www.w3.org/1999/xhtml" xmlns: o="urn:schemas-microsoft-com:office:office">
 
 <head>
@@ -326,7 +327,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                                 <p><b>Tasa</b></p>
                             </div>
                             <div class='descripcion-detail-prel1'>
-                                <p>{(recibo?.reciboRecibomodelo?.bcv)}</p>
+                                <p>${(recibo?.reciboRecibomodelo?.bcv)}</p>
                             </div>
                         </div>
                         <div class='descripcion1-prel-relleno'>
@@ -334,7 +335,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                                 <p><b>Fecha</b></p>
                             </div>
                             <div class='descripcion-detail-prel1'>
-                                <p>{moment(recibo?.reciboRecibomodelo?.Fecha).format('DD-MM-YYYY')}</p>
+                                <p>${moment(recibo?.reciboRecibomodelo?.Fecha).format('DD-MM-YYYY')}</p>
                             </div>
                         </div>
                     </div>
@@ -363,7 +364,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                                 <p style="font-size: 0.6rem; text-align: center"><b>N° DE CONTROL Y MES</b></p>
                             </div>
                             <div class='descripcion-detail-prel1'>
-                                <p>{moment(recibo?.reciboRecibomodelo?.Fecha).format('MM-YYYY')}</p>
+                                <p>${moment(recibo?.reciboRecibomodelo?.Fecha).format('MM-YYYY')}</p>
                             </div>
                         </div>
                         <div class='descripcion1-prel-relleno'>
@@ -371,7 +372,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                                 <p style="font-size: 0.6rem; text-align: center"><b>PROPIETARIO</b></p>
                             </div>
                             <div class='descripcion-detail-prel1'>
-                                <p style="font-size: 0.9rem">{data?.uservivienda?.nombre}</p>
+                                <p style="font-size: 0.9rem">${data?.uservivienda?.nombre}</p>
                             </div>
                         </div>
                         <div class='descripcion1-prel-relleno'>
@@ -379,7 +380,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                                 <p style="font-size: 0.6rem; text-align: center"><b>Nª DE Casa</b></p>
                             </div>
                             <div class='descripcion-detail-prel1'>
-                                <p>{data?.uservivienda?.nroCasa}</p>
+                                <p>${data?.uservivienda?.nroCasa}</p>
                             </div>
                         </div>
                         <div class='descripcion1-prel-relleno'>
@@ -387,7 +388,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                                 <p style="font-size: 0.6rem; text-align: center"><b>Estatus</b></p>
                             </div>
                             <div class='descripcion-detail-prel1'>
-                                <p>{recibo?.status}</p>
+                                <p>${recibo?.status}</p>
                             </div>
                         </div>
                     </div>
@@ -400,7 +401,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                             <p><b>Correo</b></p>
                         </div>
                         <div class='descripcion-detail-prel1'>
-                            <p>{data.correo}</p>
+                            <p>${data.correo}</p>
                         </div>
                     </div>
                 </div>
@@ -492,30 +493,30 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                 </div>
                 <div class='descripcion1-prel1-5'>
                     <div class='descripcion-detail-prel'>
-                        <p>Bs{(totalmontoBs).toFixed(2)}</p>
+                        <p>Bs ${(totalmontoBs).toFixed(2)}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>Bs{(totalmontoBs * (10 / 100)).toFixed(2)}</p>
+                        <p>Bs ${(totalmontoBs * (10 / 100)).toFixed(2)}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>Bs{(totalmontoBs + totalmontoBs * (10 / 100)).toFixed(2)}</p>
+                        <p>Bs ${(totalmontoBs + totalmontoBs * (10 / 100)).toFixed(2)}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>Bs{(totalmontoBs + totalmontoBs * (10 / 100)).toFixed(2)}</p>
+                        <p>Bs ${(totalmontoBs + totalmontoBs * (10 / 100)).toFixed(2)}</p>
                     </div>
                 </div>
                 <div class='total-prel1-6'>
                     <div class='descripcion-detail-prel'>
-                        <p>Bs{(totalalicuotaBs).toFixed(2)}</p>
+                        <p>Bs ${(totalalicuotaBs).toFixed(2)}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>Bs{(totalalicuotaBs * (10 / 100)).toFixed(2)}</p>
+                        <p>Bs ${(totalalicuotaBs * (10 / 100)).toFixed(2)}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>Bs{(totalalicuotaBs + totalalicuotaBs * (10 / 100)).toFixed(2)}</p>
+                        <p>Bs ${(totalalicuotaBs + totalalicuotaBs * (10 / 100)).toFixed(2)}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>Bs{(totalalicuotaBs + totalalicuotaBs * (10 / 100)).toFixed(2)}</p>
+                        <p>Bs ${(totalalicuotaBs + totalalicuotaBs * (10 / 100)).toFixed(2)}</p>
                     </div>
                 </div>
             </div>
@@ -564,7 +565,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                             <p>0,00% </p>
                         </div>
                         <div class='descripcion-detail-prel2-2'>
-                            <p style="font-size: 0.75rem; text-align: center">Bs.{(totalmontoBs + totalmontoBs *
+                            <p style="font-size: 0.75rem; text-align: center">Bs. ${(totalmontoBs + totalmontoBs *
                                 (10 / 100)).toFixed(2)}</p>
                         </div>
                     </div>

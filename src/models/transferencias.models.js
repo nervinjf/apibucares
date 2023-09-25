@@ -23,7 +23,7 @@ const Transferencia = db.define('transferencia', {
         allowNull: false,
     },
     documentoIdentidad:{
-        type: DataTypes.FLOAT,
+        type: DataTypes.STRING,
         allowNull: false,
     },
     codigoOperadora:{

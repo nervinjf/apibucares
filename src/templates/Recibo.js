@@ -2,8 +2,7 @@
 const moment = require('moment');
 const logo = ('../img/logo.png');
 
-const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares, totalalicuotaBs, totalmontoBs, contenidoHTML, contenidoHTML1, contenidoHTML2, contenidoHTML3, contenidoHTML4) => 
-    console.log(recibo);`
+const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares, totalalicuotaBs, totalmontoBs, contenidoHTML, contenidoHTML1, contenidoHTML2, contenidoHTML3, contenidoHTML4) => `
 <html lang="en" xmlns="https://www.w3.org/1999/xhtml" xmlns: o="urn:schemas-microsoft-com:office:office">
 
 <head>

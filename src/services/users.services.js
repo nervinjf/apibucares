@@ -19,11 +19,11 @@ class UserServices {
                         model: Vivienda,
                         as: "uservivienda",
                         attributes: ["id", "nombre", "nroCasa", "telefono", "numero", "etapa", "sector", "casa", "calle", "recibospendientes", "deudadl", "deudabs", "status"],
-                        include: [{
+                        include: {
                             model: Recibo,
                             as: "viviendaRecibo",
                             attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses", "status"],
-                            include: {
+                            include: [{
                                 model: ReciboModelo,
                                 as: "reciboRecibomodelo",
                                 attributes: ["id", "Fecha", "bcv"],
@@ -33,12 +33,12 @@ class UserServices {
                                     as: "recibomodeloGastos",
                                     attributes: ["id", "nombre", "Fecha", "ncasa", "monto"],
                                 }
-                            },
-                        }, {
-                            model: Transferencia,
-                            as: "transferenciaRecibo",
-                            attributes: ["id", "tipoDocumento", "documentoIdentidad", "codigoOperadora", "numeroTelefono", "BancoEmisor", "nReferencia", "fechaPago", "montoPagado"],
-                        }]
+                            },{
+                                model: Transferencia,
+                                as: "transferenciaRecibo",
+                                attributes: ["id", "tipoDocumento", "documentoIdentidad", "codigoOperadora", "numeroTelefono", "BancoEmisor", "nReferencia", "fechaPago", "montoPagado"],
+                            }]
+                        }
                     }]
 
             });

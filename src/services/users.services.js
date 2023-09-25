@@ -1,4 +1,4 @@
-const { Users, Vivienda, Recibo, ReciboModelo, Gastos } = require('../models');
+const { Users, Vivienda, Recibo, ReciboModelo, Gastos, Transferencia } = require('../models');
 
 class UserServices {
     static async create(user) {
@@ -19,7 +19,7 @@ class UserServices {
                         model: Vivienda,
                         as: "uservivienda",
                         attributes: ["id", "nombre", "nroCasa", "telefono", "numero", "etapa", "sector", "casa", "calle", "recibospendientes", "deudadl", "deudabs", "status"],
-                        include: {
+                        include: [{
                             model: Recibo,
                             as: "viviendaRecibo",
                             attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses", "status"],
@@ -33,8 +33,13 @@ class UserServices {
                                     as: "recibomodeloGastos",
                                     attributes: ["id", "nombre", "Fecha", "ncasa", "monto"],
                                 }
-                            },}
+                            },
+                        }, {
+                            model: Transferencia,
+                            as: "transferenciaRecibo",
+                            attributes: ["id", "tipoDocumento", "documentoIdentidad", "codigoOperadora", "numeroTelefono", "BancoEmisor", "nReferencia", "fechaPago", "montoPagado"],
                         }]
+                    }]
 
             });
             return result;

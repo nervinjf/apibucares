@@ -115,7 +115,7 @@ class ActionServices {
                 console.log(post.id)
 
                 const recibo = await Recibo.findByPk(post.id, {
-                    attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses"],
+                    attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses", "status"],
                     include: {
                         model: ReciboModelo,
                         as: "reciboRecibomodelo",

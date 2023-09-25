@@ -446,6 +446,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                     </div>
                 </div>
             </div>
+            <br/>
             <div class='descripcion-prel'>
                 <div class='descripcion1-prel1-2'>
                     <div class='descripcion-detail-prel'>

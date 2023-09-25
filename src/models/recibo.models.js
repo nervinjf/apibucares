@@ -31,6 +31,14 @@ const Recibo = db.define('recibo', {
         type: DataTypes.FLOAT,
         allowNull: false,
     },
+    montopagado:{
+        type: DataTypes.FLOAT,
+        allowNull: false,
+    },
+    montorestante:{
+        type: DataTypes.FLOAT,
+        allowNull: false,
+    },
     saldoanterio:{
         type: DataTypes.FLOAT,
     },

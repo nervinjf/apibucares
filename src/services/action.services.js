@@ -240,7 +240,7 @@ height: 2.5rem;">
         from: '<nervinjflores@gmail.com>',
         to: e.correo,
         subject: `Recibo mes ${moment(recibo.reciboRecibomodelo.Fecha).format('MM/YYYY')} - Casa ${e?.uservivienda?.nroCasa}`,
-        text: `Buenas tardes ${e?.uservivienda?.nombre}, <br/> este es el recibo ${moment(recibo.reciboRecibomodelo.Fecha).format('MM/YYYY')}. <br/> para mas informacion acercarse al condominio<br/> Saludos cordiales<br/> Junta de Condominio`,
+        text: `Buenas tardes ${e?.uservivienda?.nombre}, \neste es el recibo ${moment(recibo.reciboRecibomodelo.Fecha).format('MM/YYYY')}. \npara mas informacion acercarse al condominio\n Saludos cordiales\n Junta de Condominio`,
         attachments: [
             {
                 filename: 'recibo.pdf',

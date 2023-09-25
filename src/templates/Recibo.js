@@ -180,7 +180,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
     gap: 0.5rem;
     justify-content: center;
     align-items: center;
-    background: rgba(167, 166, 166, 0.596);
+    background: #a7a6a698;
     height: 100%;
 
 }

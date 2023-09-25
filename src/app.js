@@ -6,7 +6,7 @@ const initModels = require('./models/initModels');
 const handleError = require("./middlewares/error.middleware");
 const transporter = require('./utils/mailer');
 const moment = require('moment');
-const { authRoutes, UserRoutes, RolRoutes, AbsRoutes, PrelRoutes, ReciboMRoutes, GastosRoutes, ActionRoutes, ReciboRoutes, ViviendaRoutes } = require("./routes");
+const { authRoutes, TransferenciaRoutes, UserRoutes, RolRoutes, AbsRoutes, PrelRoutes, ReciboMRoutes, GastosRoutes, ActionRoutes, ReciboRoutes, ViviendaRoutes } = require("./routes");
 require("moment-timezone");
 moment.locale('es-VE');
 moment.tz.setDefault("America/Caracas");
@@ -48,6 +48,7 @@ app.use('/api/v1/bucares', GastosRoutes)
 app.use('/api/v1/bucares', ActionRoutes)
 app.use('/api/v1/bucares', ViviendaRoutes)
 app.use('/api/v1/bucares', ReciboRoutes)
+app.use('/api/v1/bucares', TransferenciaRoutes)
 
 
 app.use(handleError);

@@ -1,7 +1,7 @@
 const db = require('../utils/database');
 const { DataTypes } = require('sequelize');
 
-const Recibo = db.define('recibo', {
+const Transferencia = db.define('transferencia', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -13,44 +13,39 @@ const Recibo = db.define('recibo', {
         allowNull: false,
         field: 'user_id',
     },
-    viviendaId:{
+    ReciboId: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        field: 'vivienda_id',
-    },
-    reciboModeloId: {
-        type: DataTypes.INTEGER,
-        field: 'recibo_modelo_id',
+        field: 'recibo_id',
         allowNull: false,
     },
-    totalpagar:{
+    tipoDocumento:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    documentoIdentidad:{
         type: DataTypes.FLOAT,
         allowNull: false,
     },
-    montomes:{
-        type: DataTypes.FLOAT,
+    codigoOperadora:{
+        type: DataTypes.STRING,
         allowNull: false,
     },
-    montopagado:{
-        type: DataTypes.FLOAT,
+    numeroTelefono:{
+        type: DataTypes.STRING,
         allowNull: false,
     },
-    montorestante:{
-        type: DataTypes.FLOAT,
-        allowNull: false,
+    BancoEmisor:{
+        type: DataTypes.STRING,
     },
-    saldoanterio:{
-        type: DataTypes.FLOAT,
-    },
-    interesmora:{
+    nReferencia:{
         type: DataTypes.FLOAT,
     },
-    meses:{
-        type: DataTypes.INTEGER,
+    fechaPago:{
+        type: DataTypes.DATEONLY,
     },
-    status: {
+    montoPagado: {
         type: DataTypes.STRING(50),
     }
 })
 
-module.exports = Recibo;
+module.exports = Transferencia;

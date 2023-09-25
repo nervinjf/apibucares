@@ -8,6 +8,7 @@ const { GetRecibo, RegisterRecibo, UpdateRecibo, DeleteRecibo, GetIdRecibo } = r
 const { Getgastos, Registergastos, Updategastos, Deletegastos } = require("./gastos.controllers")
 const { userLogin } = require("./auth.controllers");
 const { reciboModelo,reciboEnv } = require("./action.controllers");
+const { GetTransferencia, Registertransferencia, UpdateTransferencia, DeleteTransferencia } = require("./transferencia.controllers");
 
 
 module.exports = {
@@ -44,5 +45,9 @@ module.exports = {
     UpdateRecibo,
     DeleteRecibo,
     GetIdRecibo,
-    reciboEnv
+    reciboEnv,
+    GetTransferencia,
+    Registertransferencia,
+    UpdateTransferencia,
+    DeleteTransferencia
 }

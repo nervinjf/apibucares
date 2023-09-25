@@ -1,4 +1,4 @@
-const { Users, Rol, Vivienda, Abastecimiento, Preliminar, ReciboModelo, Gastos, Recibo } = require("./index");
+const { Users, Rol, Vivienda, Abastecimiento, Preliminar, ReciboModelo, Gastos, Recibo, Transferencia } = require("./index");
 
 
 const initModels = () =>{
@@ -33,6 +33,8 @@ const initModels = () =>{
     Vivienda.hasMany(Recibo, {as: "viviendaRecibo", foreignKey: "vivienda_id"})
     Recibo.belongsTo(Vivienda, {as: "recibovivienda", foreignKey: "vivienda_id"});
 
+    Recibo.hasMany(Transferencia, {as: "transferenciaRecibo", foreignKey: "recibo_id"})
+    Transferencia.belongsTo(Recibo, {as: "recibotransferencia", foreignKey: "recibo_id"});
 
 };
 

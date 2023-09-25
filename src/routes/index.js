@@ -8,6 +8,7 @@ const authRoutes = require("./auth.routes");
 const ActionRoutes = require("./action.routes");
 const ViviendaRoutes = require("./vivienda.routes");
 const ReciboRoutes = require("./recibo.routes");
+const TransferenciaRoutes = require("./transferencia.routes");
 
 module.exports = {
     UserRoutes,
@@ -19,5 +20,6 @@ module.exports = {
     authRoutes,
     ActionRoutes,
     ViviendaRoutes,
-    ReciboRoutes
+    ReciboRoutes,
+    TransferenciaRoutes
 }

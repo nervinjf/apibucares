@@ -51,10 +51,10 @@ const Vivienda = db.define("vivienda", {
         field: 'recibos_pendientes',
     },
     deudadl:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
     },
     deudabs:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
     },
     status:{
         type: DataTypes.STRING(50),

@@ -225,11 +225,11 @@ height: 2.5rem;">
         `,
     });
 
-                        console.log(page);
+                      
 
     const pdf = await page.pdf({ format: 'A4' });
 
-                        console.log(pdf);
+                   
 
     await browser.close();
     console.log("PDF generado y listo para enviar.");

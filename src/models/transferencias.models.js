@@ -38,7 +38,7 @@ const Transferencia = db.define('transferencia', {
         type: DataTypes.STRING,
     },
     nReferencia:{
-        type: DataTypes.FLOAT,
+        type: DataTypes.STRING,
     },
     fechaPago:{
         type: DataTypes.DATEONLY,

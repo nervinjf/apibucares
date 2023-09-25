@@ -265,7 +265,6 @@ width: 100%; height: 100%;
         gap: 0.0rem;
         height: 2.5rem;">
                                         <div id="miContenedor"></div>
-                    // <div>
                                             <p>Descripcion de gastos</p>
                                         </div>
                                         <div id="miContenedor1">

@@ -4,7 +4,7 @@ const { GetTransferencia, Registertransferencia, UpdateTransferencia, DeleteTran
 const router = Router();
 
 router.get('/gt/transferencia', GetTransferencia);
-router.post('/pst/transferencia', Registertransferencia);
+router.post('/pst/transferencia/:id/:userId', Registertransferencia);
 router.put('/pt/transferencia/:id', UpdateTransferencia);
 router.delete('/dlt/transferencia/:id', DeleteTransferencia);
 

@@ -3,9 +3,7 @@ const moment = require('moment');
 const logo = ('../img/logo.png');
 
 const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares, totalalicuotaBs, totalmontoBs, contenidoHTML, contenidoHTML1, contenidoHTML2, contenidoHTML3, contenidoHTML4) => `
-< !DOCTYPE html >
 <html lang="en" xmlns="https://www.w3.org/1999/xhtml" xmlns: o="urn:schemas-microsoft-com:office:office">
-
     <head>
         <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -63,7 +61,8 @@ width: 100%; height: 100%;
                 display: flex;
                 flex-direction: column;
                 border-right: 0.1rem solid black;
-                gap: 0.0rem;">
+                gap: 0.0rem;
+                 height: 100%;">
                                         <img src=${logo} alt="" />
                                         <div >
                                             <p>Tipo de cambio</p>
@@ -137,7 +136,8 @@ width: 100%; height: 100%;
                 display: flex;
                 flex-direction: column;
                 border-right: 0.1rem solid black;
-                gap: 0.0rem;">
+                gap: 0.0rem;
+                height: 100%;">
                                         <div>
                                             <p style="font-size: 0.8rem; text-align: center"> PARQUE RESIDENCIAL LOS BUCARES <br />
                                                 RIF-31030581-1 <br />
@@ -151,7 +151,8 @@ width: 100%; height: 100%;
         gap: 0.0rem;
         width: 100%;
         border-top: 0.1rem solid black;
-        height: 100%;">
+        height: 100%;
+        font-size: 0.8rem;">
                                                 <div style="width: 40%;
                             display: flex;
                             gap: 0.5rem;
@@ -173,7 +174,8 @@ width: 100%; height: 100%;
         gap: 0.0rem;
         width: 100%;
         border-top: 0.1rem solid black;
-        height: 100%;">
+        height: 100%;
+        font-size: 0.8rem;">
                                                 <div style="width: 40%;
                             display: flex;
                             gap: 0.5rem;

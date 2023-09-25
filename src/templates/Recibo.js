@@ -225,7 +225,7 @@ width: 100%; height: 100%;
     width: 100%;
     overflow: hidden;
     border: 0.1rem solid black;
-    height: 100%;">
+    height: 5rem;">
                                     <div style="display: flex;
                 width: 100%;
                 flex-direction: column;

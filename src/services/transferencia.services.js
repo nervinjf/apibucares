@@ -11,9 +11,9 @@ class TransferenciaServices {
         }
     }    
 
-    static async postTrans(newGastos){
+    static async postTrans(dato){
         try {
-            const result = await Transferencia.bulkCreate(newGastos)
+            const result = await Transferencia.create(dato)
             return result;
         } catch (error) {
             throw error;

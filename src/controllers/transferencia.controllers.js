@@ -16,10 +16,11 @@ const GetTransferencia = async (req, res, next) => {
 
 const Registertransferencia = async (req, res, next) => {
     try {
-        const newGastos = req.body;
+        const dato = req.body;
         const { id, userId } = req.params;
-        const result = await TransferenciaServices.postTrans(newGastos);
-
+        const result = await TransferenciaServices.postTrans(dato);
+        console.log(dato)
+        console.log(result)
         const recibo = await Recibo.findByPk(id, {
             attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses", "status"],
             include: {

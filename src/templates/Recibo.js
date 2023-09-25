@@ -2,70 +2,7 @@
 const moment = require('moment');
 const logo = ('../img/logo.png');
 
-const recibocondominio = (data, recibo) => {
-
-    let totalmontodolares = 0;
-    let totalalicuotadolares = 0;
-    let totalmontoBs = 0;
-    let totalalicuotaBs = 0;
-
-    console.log(recibo)
-
-    recibo?.reciboRecibomodelo?.recibomodeloGastos?.map(e => {
-    console.log(e?.monto)
-
-        totalmontodolares += Number(e.monto);
-        totalalicuotadolares += Number(e.monto / 244);
-        totalmontoBs += Number(e.monto * recibo.reciboRecibomodelo?.bcv);
-        totalalicuotaBs += Number(e.monto * recibo.reciboRecibomodelo?.bcv / 244);
-
-    });
-
-const contenidoHTML = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
-    `<div key=${e.id} style="display: flex; justify-content: center; align-items: center; border-top: 0.1rem solid black; height: 100%;">
-        <p>${e.nombre}</p>
-    </div>`).join('');
-
-    console.log(contenidoHTML)
-
-const contenidoHTML1 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
-    `<div key=${e.id} style=" display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: 0.1rem solid black;
-    height: 100%;">
-        <p>$ ${e?.monto}</p>
-    </div>`).join('');
-
-const contenidoHTML2 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
-    `<div key=${e.id} style=" display: flex;
-justify-content: center;
-align-items: center;
-border-top: 0.1rem solid black;
-height: 100%;">
-    <p>$ ${(e?.monto / 244).toFixed(3)}</p>
-</div>`).join('');
-
-const contenidoHTML3 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
-`<div key=${e.id} style=" display: flex;
-justify-content: center;
-align-items: center;
-border-top: 0.1rem solid black;
-height: 100%;">
-    <p>Bs. ${(e?.monto * recibo?.reciboRecibomodelo?.bcv)}</p>
-</div>`).join('');
-
-const contenidoHTML4 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
-`<div key=${data.id} style="display: flex;
-justify-content: center;
-align-items: center;
-border-top: 0.1rem solid black;
-height: 100%;">
-    <p>Bs ${(e?.monto * recibo?.reciboRecibomodelo?.bcv / 244).toFixed(3)}</p>
-</div>`).join('');
-
-
-`
+const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares, totalalicuotaBs, totalmontoBs, contenidoHTML, contenidoHTML1, contenidoHTML2, contenidoHTML3, contenidoHTML4) => `
 < !DOCTYPE html >
 <html lang="en" xmlns="https://www.w3.org/1999/xhtml" xmlns: o="urn:schemas-microsoft-com:office:office">
 
@@ -766,7 +703,5 @@ width: 100%; height: 100%;
                         </div>
                     </body>
                 </html>`
-            };
-
 
 module.exports = recibocondominio;

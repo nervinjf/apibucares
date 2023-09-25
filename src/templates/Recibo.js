@@ -254,10 +254,10 @@ width: 100%; height: 100%;
                                     </div>
                                 </div>
                                 <div style="display: flex;
-    width: 2rem;
+    width: 100%;
     overflow: hidden;
     border: 0.1rem solid black;
-    height: 100%;">
+    height: 2rem;">
                                     <div style="width: 40%;
         display: flex;
         flex-direction: column;

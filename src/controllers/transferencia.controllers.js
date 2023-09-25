@@ -44,6 +44,7 @@ const Registertransferencia = async (req, res, next) => {
             console.log(Recibo.montopagado)
             
             const pagado = (Recibo.montopagado ? Recibo.montopagado : 0) + result?.montoPagado;
+            
 
             const reciboP = await Recibo.update({ status: "Deuda", montopagado: pagado, montorestante: (pagado - recibo?.montomes)}, {
                 where: { id }

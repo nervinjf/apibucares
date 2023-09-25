@@ -22,7 +22,7 @@ const Registertransferencia = async (req, res, next) => {
         console.log(dato)
         console.log(result)
         const recibo = await Recibo.findByPk(id, {
-            attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses", "status"],
+            attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses", "status", "montopagado", "montorestante"],
             include: {
                 model: ReciboModelo,
                 as: "reciboRecibomodelo",

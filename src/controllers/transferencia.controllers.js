@@ -21,6 +21,7 @@ const Registertransferencia = async (req, res, next) => {
         const result = await TransferenciaServices.postTrans(dato);
         console.log(dato)
         console.log(result)
+
         const recibo = await Recibo.findByPk(id, {
             attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses", "status", "montopagado", "montorestante"],
             include: {
@@ -41,10 +42,10 @@ const Registertransferencia = async (req, res, next) => {
             console.log("1pago", reciboP)
         } else {
 
-            console.log(Recibo.montopagado)
+            console.log(recibo.montopagado)
             
-            const pagado = (Recibo.montopagado ? Recibo.montopagado : 0) + result?.montoPagado;
-            
+            const pagado = recibo.montopagado + result?.montoPagado;
+
 
             const reciboP = await Recibo.update({ status: "Deuda", montopagado: pagado, montorestante: (pagado - recibo?.montomes)}, {
                 where: { id }

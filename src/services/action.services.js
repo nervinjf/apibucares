@@ -9,6 +9,7 @@ const pdfFilePath = ('D:/Usuarios/Mis Documentos/Nervin/Urb. Bucares/API/src/tem
 const pdfUrl = 'https://github.com/nervinjf/apibucares/blob/bd342bfd3108b8f050e8f7e41181b1bb6915ac4e/src/templates/pdf/Recibo.pdf';
 const axios = require('axios');
 const moment = require('moment');
+const Math = require('mathjs');
 
 
 class ActionServices {
@@ -181,7 +182,7 @@ align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
 font-size: 0.8rem">
-    <p>Bs. ${new Intl.NumberFormat("es").format((e?.monto * recibo?.reciboRecibomodelo?.bcv), "Bs. ###,###.##")}</p>
+    <p>Bs. ${(Math.toFixed(e?.monto * recibo?.reciboRecibomodelo?.bcv), 2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
 </div>`).join('');
 
                 const contenidoHTML4 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>

@@ -126,7 +126,8 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
     justify-content: center;
     align-items: center;
     border-bottom: 0.1rem solid black;
-    height: 1.5rem;
+    height: 1.3rem;
+    font-size: 0.8rem
 }
 
 .descripcion1-prel3 {

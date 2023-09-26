@@ -149,7 +149,9 @@ class ActionServices {
     });
 
 const contenidoHTML = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
-    `<div key=${e.id} style="display: flex; justify-content: center; align-items: center; border-top: 0.1rem solid black; height: 1.5rem;">
+    `<div key=${e.id} style="display: flex; justify-content: center; align-items: center; border-top: 0.1rem solid black; height: 1rem
+;
+font-size: 0.8rem">
         <p>${e.nombre}</p>
     </div>`).join('');
 
@@ -158,7 +160,9 @@ const contenidoHTML1 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =
     justify-content: center;
     align-items: center;
     border-top: 0.1rem solid black;
-    height: 1.5rem;">
+    height: 1rem
+;
+font-size: 0.8rem">
         <p>$ ${e?.monto}</p>
     </div>`).join('');
 
@@ -167,7 +171,8 @@ const contenidoHTML2 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =
 justify-content: center;
 align-items: center;
 border-top: 0.1rem solid black;
-height: 1.5rem;">
+height: 1rem;
+font-size: 0.8rem">
     <p>$ ${(e?.monto / 244).toFixed(3)}</p>
 </div>`).join('');
 
@@ -176,7 +181,8 @@ const contenidoHTML3 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =
 justify-content: center;
 align-items: center;
 border-top: 0.1rem solid black;
-height: 1.5rem;">
+height: 1rem;
+font-size: 0.8rem">
     <p>Bs. ${(e?.monto * recibo?.reciboRecibomodelo?.bcv)}</p>
 </div>`).join('');
 
@@ -185,7 +191,8 @@ const contenidoHTML4 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =
 justify-content: center;
 align-items: center;
 border-top: 0.1rem solid black;
-height: 1.5rem;">
+height: 1rem;
+font-size: 0.8rem">
     <p>Bs ${(e?.monto * recibo?.reciboRecibomodelo?.bcv / 244).toFixed(3)}</p>
 </div>`).join('');
 

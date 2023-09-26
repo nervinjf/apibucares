@@ -183,8 +183,8 @@ border-top: 0.1rem solid black;
 height: 1rem;
 font-size: 0.8rem">
     <p>Bs. ${(numeral((e?.monto * recibo?.reciboRecibomodelo?.bcv).toFixed(2)).format('0,0.00', {
-        thousandSeparator: '.',
-    decimalSeparator: ',',
+        thousand: ',',
+        decimal: '.',
     }))}</p>
 </div>`).join('');
 

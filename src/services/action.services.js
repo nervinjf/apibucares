@@ -9,7 +9,7 @@ const pdfFilePath = ('D:/Usuarios/Mis Documentos/Nervin/Urb. Bucares/API/src/tem
 const pdfUrl = 'https://github.com/nervinjf/apibucares/blob/bd342bfd3108b8f050e8f7e41181b1bb6915ac4e/src/templates/pdf/Recibo.pdf';
 const axios = require('axios');
 const moment = require('moment');
-const currency = require('currency.js')
+const currency = require("currency.js");
 
 const Bs = value => currency(value, { symbol: 'Bs', decimal: ',', separator: '.' });
 
@@ -195,7 +195,7 @@ height: 1rem;
 font-size: 0.8rem">
     <p>Bs. ${(e?.monto * recibo?.reciboRecibomodelo?.bcv / 244).toFixed(3)}</p>
 </div>`).join('');
-
+                console.log(Bs(456985.525).format())
 
 
                 // Llama a la función generatePDF para generar el PDF

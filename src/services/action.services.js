@@ -182,7 +182,7 @@ align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
 font-size: 0.8rem">
-    <p>Bs. ${Intl.NumberFormat("es").format(e?.monto * recibo?.reciboRecibomodelo?.bcv, "###,###.##")}</p>
+    <p>Bs. ${Intl.NumberFormat("es").format(e?.monto * recibo?.reciboRecibomodelo?.bcv, "Bs. ###,###.##")}</p>
 </div>`).join('');
 
                 const contenidoHTML4 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>

@@ -11,12 +11,6 @@ const axios = require('axios');
 const moment = require('moment');
 const currency = require('currency.js');
 
-const formatBs = value => currency(value, {
-    symbol: 'Bs',
-    decimal: ',',
-    separator: '.'
-  });
-
 class ActionServices {
 
     static async convertirReciboModelo(id) {
@@ -187,7 +181,13 @@ align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
 font-size: 0.8rem">
-    <p>Bs. ${formatBs(e?.monto * recibo?.reciboRecibomodelo?.bcv)}</p>
+    <p>Bs. ${ currency(
+        e?.monto * recibo?.reciboRecibomodelo?.bcv,
+        {
+          symbol: es.symbol('es-VE'),
+          decimal: es.decimal('es-VE')
+        }
+      )}</p>
 </div>`).join('');
 
                 const contenidoHTML4 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>

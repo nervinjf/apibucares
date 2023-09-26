@@ -184,7 +184,8 @@ height: 1rem;
 font-size: 0.8rem">
     <p>Bs. ${(numeral(e?.monto * recibo?.reciboRecibomodelo?.bcv).format('0,0.00', {
         thousandSeparator: '.',
-        decimalSeparator: ','
+        decimalSeparator: ',',
+        roundingFunction: Math.round // Función de redondeo simple
       }))}</p>
 </div>`).join('');
 

@@ -149,7 +149,8 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
     gap: 0.0rem;
     width: 100%;
     border-top: 0.1rem solid black;
-    height: 1.5rem;
+    height: 1.3rem;
+    font-size: 0.8rem
 
 }
 
@@ -313,8 +314,8 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
         <div class='page'>
             <div style="display: flex; gap: 0.5rem; justify-content: center; align-items: center;
                 flex-direction: column">
-                <h1 style="margin: 0">Recibo</h1>
-                <p style="margin: 0; text-align: center; font-size: 1rem">FAVOR DEPOSITAR EN: <br />
+                <h1 style="margin: 0">RECIBO</h1>
+                <p style="margin: 0; text-align: center; font-size: 0.8rem">FAVOR DEPOSITAR EN: <br />
                     BANCO DE VENEZUELA, CUENTA CORRIENTE # 0102-0109-81-0000300425, CORREO:
                     condominioparquebucare1@gmail.com <br />
                     "NO" DEPOSITAR EN LA CUENTA DEL BANCO OCCIDENTAL DE DESCUENTO, POR LOS MOMENTOS.</p>
@@ -346,7 +347,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                 </div>
                 <div class='descripcion1-prel122'>
                     <div class='descripcion-detail-prel12'>
-                        <p style="font-size: 0.8rem; text-align: center">TODOS JUNTOS Y EN ARMONIA
+                        <p style="font-size: 0.6rem; text-align: justify">TODOS JUNTOS Y EN ARMONIA
                             TRABAJANDO DE LA MANO CON LA
                             MESA DE TRABAJO (RECUPERACION
                             DE LA PISCINA) PODREMOS

@@ -1,5 +1,9 @@
 const moment = require('moment');
 const logo = ('../img/logo.png');
+const currency = require("currency.js");
+
+const Bs = value => currency(value, { symbol: 'Bs. ', decimal: ',', separator: '.' });
+const USD = value => currency(value, { symbol: '$', decimal: ',', separator: '.' });
 
 
 const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares, totalalicuotaBs, totalmontoBs, contenidoHTML, contenidoHTML1, contenidoHTML2, contenidoHTML3, contenidoHTML4) => `
@@ -472,58 +476,58 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                 </div>
                 <div class='descripcion1-prel1-3'>
                     <div class='descripcion-detail-prel'>
-                        <p>$ ${totalmontodolares}</p>
+                        <p>${USD(totalmontodolares).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>$ ${(totalmontodolares * (10 / 100)).toFixed(2)}</p>
+                        <p>${USD(totalmontodolares * (10 / 100)).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>$ ${totalmontodolares + totalmontodolares * (10 / 100)}</p>
+                        <p>${USD(totalmontodolares + totalmontodolares * (10 / 100).format())}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>$ ${totalmontodolares + totalmontodolares * (10 / 100)}</p>
+                        <p>${USD(totalmontodolares + totalmontodolares * (10 / 100)).format()}</p>
                     </div>
                 </div>
                 <div class='total-prel1-4'>
                     <div class='descripcion-detail-prel'>
-                        <p>$ ${(totalalicuotadolares).toFixed(2)}</p>
+                        <p>${USD(totalalicuotadolares).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>$ ${(totalalicuotadolares * (10 / 100)).toFixed(2)}</p>
+                        <p>${USD(totalalicuotadolares * (10 / 100)).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>$ ${(totalalicuotadolares + totalalicuotadolares * (10 / 100)).toFixed(2)}</p>
+                        <p>${USD(totalalicuotadolares + totalalicuotadolares * (10 / 100)).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>$ ${(totalalicuotadolares + totalalicuotadolares * (10 / 100)).toFixed(2)}</p>
+                        <p>${USD(totalalicuotadolares + totalalicuotadolares * (10 / 100)).format()}</p>
                     </div>
                 </div>
                 <div class='descripcion1-prel1-5'>
                     <div class='descripcion-detail-prel'>
-                        <p>Bs. ${(totalmontoBs).toFixed(2)}</p>
+                        <p>${Bs(totalmontoBs).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>Bs. ${(totalmontoBs * (10 / 100)).toFixed(2)}</p>
+                        <p>Bs. ${Bs(totalmontoBs * (10 / 100)).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>Bs. ${(totalmontoBs + totalmontoBs * (10 / 100)).toFixed(2)}</p>
+                        <p>Bs. ${Bs(totalmontoBs + totalmontoBs * (10 / 100)).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>Bs. ${(totalmontoBs + totalmontoBs * (10 / 100)).toFixed(2)}</p>
+                        <p>Bs. ${Bs(totalmontoBs + totalmontoBs * (10 / 100)).format()}</p>
                     </div>
                 </div>
                 <div class='total-prel1-6'>
                     <div class='descripcion-detail-prel'>
-                        <p>Bs. ${(totalalicuotaBs).toFixed(2)}</p>
+                        <p>Bs. ${Bs(totalalicuotaBs).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>Bs. ${(totalalicuotaBs * (10 / 100)).toFixed(2)}</p>
+                        <p>Bs. ${Bs(totalalicuotaBs * (10 / 100)).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>Bs. ${(totalalicuotaBs + totalalicuotaBs * (10 / 100)).toFixed(2)}</p>
+                        <p>Bs. ${Bs(totalalicuotaBs + totalalicuotaBs * (10 / 100)).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>Bs. ${(totalalicuotaBs + totalalicuotaBs * (10 / 100)).toFixed(2)}</p>
+                        <p>Bs. ${Bs(totalalicuotaBs + totalalicuotaBs * (10 / 100)).format()}</p>
                     </div>
                 </div>
             </div>
@@ -572,20 +576,20 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                             <p>0,00% </p>
                         </div>
                         <div class='descripcion-detail-prel2-2'>
-                            <p style="font-size: 0.6rem; text-align: center">Bs. ${(totalmontoBs + totalmontoBs *
-                                (10 / 100)).toFixed(2)}</p>
+                            <p style="font-size: 0.6rem; text-align: center">Bs. ${Bs(totalmontoBs + totalmontoBs *
+                                (10 / 100)).format()}</p>
                         </div>
                     </div>
                 </div>
                 <div class='descripcion1-prel1-8'>
                     <div class='descripcion-detail-prel'>
-                        <p>BS. ${totalmontodolares + totalmontodolares * (10 / 100)}</p>
+                        <p>BS. ${Bs(totalmontodolares + totalmontodolares * (10 / 100)).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
                         <p>$0,00</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>Bs. ${totalmontodolares + totalmontodolares * (10 / 100)}</p>
+                        <p>Bs. ${Bs(totalmontodolares + totalmontodolares * (10 / 100)).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
                         <p>I.V.A.;</p>

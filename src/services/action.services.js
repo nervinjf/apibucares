@@ -11,7 +11,8 @@ const axios = require('axios');
 const moment = require('moment');
 const currency = require("currency.js");
 
-const Bs = value => currency(value, { symbol: 'Bs', decimal: ',', separator: '.' });
+const Bs = value => currency(value, { symbol: 'Bs. ', decimal: ',', separator: '.' });
+const USD = value => currency(value, { symbol: '$', decimal: ',', separator: '.' });
 
 class ActionServices {
 
@@ -163,7 +164,7 @@ font-size: 0.75rem; padding: 0 0.4rem">
     height: 1rem
 ;
 font-size: 0.8rem">
-        <p>$ ${e?.monto}</p>
+        <p>$ ${USD(e?.monto).format()}</p>
     </div>`).join('');
 
                 const contenidoHTML2 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
@@ -173,7 +174,7 @@ align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
 font-size: 0.8rem">
-    <p>$ ${(e?.monto / 244).toFixed(3)}</p>
+    <p>$ ${USD(e?.monto / 244).format()}</p>
 </div>`).join('');
 
                 const contenidoHTML3 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
@@ -193,7 +194,7 @@ align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
 font-size: 0.8rem">
-    <p>Bs. ${(e?.monto * recibo?.reciboRecibomodelo?.bcv / 244).toFixed(3)}</p>
+    <p>Bs. ${Bs(e?.monto * recibo?.reciboRecibomodelo?.bcv / 244).format()}</p>
 </div>`).join('');
                 console.log(Bs(456985.525).format())
 

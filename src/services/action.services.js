@@ -11,6 +11,17 @@ const axios = require('axios');
 const moment = require('moment');
 const numeral = require('numeral');
 
+// Configura la región o el idioma en español
+numeral.register('locale', 'es', {
+    delimiters: {
+      thousands: '.',
+      decimal: ',',
+    },
+  });
+  
+  // Establece la región o el idioma en español como activa
+  numeral.locale('es-VE');
+
 
 class ActionServices {
 
@@ -182,18 +193,7 @@ align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
 font-size: 0.8rem">
-    <p>Bs. ${new Intl.NumberFormat('es-VE', {
-                        style: 'currency',
-                        currency: 'VES',
-                        thousandSeparator: '.',
-                        decimalSeparator: ',',
-                        minimumGroupingDigits: 3,
-                        groupingSeparator: '',
-                        useGrouping: true,
-                        minimumFractionDigits: 1,
-                        minimumIntegerDigits: 1,
-                        forceThousands: true
-                    }).format(e?.monto * recibo?.reciboRecibomodelo?.bcv)}</p>
+    <p>Bs. ${numeral(e?.monto * recibo?.reciboRecibomodelo?.bcv).format('0,0.00')}</p>
 </div>`).join('');
 
                 const contenidoHTML4 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>

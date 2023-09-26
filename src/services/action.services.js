@@ -184,7 +184,7 @@ height: 1rem;
 font-size: 0.8rem">
     <p>Bs. ${new Intl.NumberFormat('es-VE', {
         style: 'currency',
-        currency: 'VES',
+        currency: 'Bs',
         thousandSeparator: '.',
         decimalSeparator: ',',
         minimumGroupingDigits: 3,

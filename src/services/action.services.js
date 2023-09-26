@@ -11,6 +11,11 @@ const axios = require('axios');
 const moment = require('moment');
 const currency = require('currency.js');
 
+const formatBs = value => currency(value, {
+    symbol: 'Bs',
+    decimal: ',',
+    separator: '.'
+  });
 
 class ActionServices {
 
@@ -182,7 +187,7 @@ align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
 font-size: 0.8rem">
-    <p>Bs. ${currency(e?.monto * recibo?.reciboRecibomodelo?.bcv, { symbol: 'Bs', decimal: ',', separator: '.' })}</p>
+    <p>Bs. ${formatBs(e?.monto * recibo?.reciboRecibomodelo?.bcv)}</p>
 </div>`).join('');
 
                 const contenidoHTML4 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>

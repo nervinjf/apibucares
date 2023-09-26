@@ -12,14 +12,14 @@ const moment = require('moment');
 const numeral = require('numeral');
 
 // Configura la región o el idioma en español
-numeral.register('locale', 'es', {
+numeral.register('format', 'es-VE', {
     delimiters: {
       thousands: '.',
       decimal: ',',
     },
   });
   
-  // Establece la región o el idioma en español como activa
+  // Usa la configuración recién creada
   numeral.locale('es-VE');
 
 

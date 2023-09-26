@@ -9,7 +9,7 @@ const pdfFilePath = ('D:/Usuarios/Mis Documentos/Nervin/Urb. Bucares/API/src/tem
 const pdfUrl = 'https://github.com/nervinjf/apibucares/blob/bd342bfd3108b8f050e8f7e41181b1bb6915ac4e/src/templates/pdf/Recibo.pdf';
 const axios = require('axios');
 const moment = require('moment');
-const es = require('intl');
+
 
 class ActionServices {
 
@@ -184,8 +184,8 @@ font-size: 0.8rem">
     <p>Bs. ${ currency(
         e?.monto * recibo?.reciboRecibomodelo?.bcv,
         {
-          symbol: es.symbol('es-VE'),
-          decimal: es.decimal('es-VE')
+            symbol: Intl.NumberFormat('es-VE', { style: 'currency', currency: 'VES' }).symbol,
+            decimal: Intl.NumberFormat('es-VE', { style: 'currency', currency: 'VES' }).decimal
         }
       )}</p>
 </div>`).join('');

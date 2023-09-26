@@ -126,8 +126,8 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
     justify-content: center;
     align-items: center;
     border-bottom: 0.1rem solid black;
-    height: 1.3rem;
-    font-size: 0.8rem
+    height: 1rem;
+    font-size: 0.7rem
 }
 
 .descripcion1-prel3 {
@@ -528,7 +528,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
             </div>
             <div class='descripcion-prel'>
                 <div class=''>
-                    <p style="font-size: 1rem; text-align: center">Este monto podrá efectuarse su pago en
+                    <p style="font-size: 0.7rem; text-align: justify">Este monto podrá efectuarse su pago en
                         dolares, o en bolívares previa consulta del sitio
                         web del Banco Central de Venezuela, (BCV), y deberá pagarse a la tasa de cambio oficial
                         del día del pago, multiplicando el monto en dólares expresado en este recibo de
@@ -538,7 +538,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
             <div class='descripcion-prel'>
                 <div class='descripcion1-prel1-7'>
                     <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
-                        <p style="font-size: 0.8rem; text-align: center"> ${`* EL TIPO DE CAMBIO REFERENCIAL
+                        <p style="font-size: 0.6rem; text-align: justify"> ${`* EL TIPO DE CAMBIO REFERENCIAL
                             APLICADO ES DE Bs.D. $recibo?.reciboRecibomodelo?.bcv}
                             DE FECHA VALOR ${moment(recibo?.reciboRecibomodelo?.Fecha).format('DD/MM/YYYY')}, SEGUN RES. N°. 19-05-01 DEL BCV
                             (GAC. OFIC.
@@ -563,7 +563,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                             <p>Tasa</p>
                         </div>
                         <div class='descripcion-detail-prel2-2'>
-                            <p style="font-size: 1rem; text-align: center">Base <br /> Imponible:</p>
+                            <p style="font-size: 0.8rem; text-align: center">Base Imponible:</p>
                         </div>
                     </div>
                     <div class='descripcion-detail-prel'>

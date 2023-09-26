@@ -1,4 +1,4 @@
-const { Recibo, ReciboModelo, Gastos } = require('../models');
+const { Recibo, ReciboModelo, Gastos, Users, Vivienda } = require('../models');
 const { TransferenciaServices } = require('../services');
 
 const GetTransferencia = async (req, res, next) => {
@@ -35,25 +35,56 @@ const Registertransferencia = async (req, res, next) => {
                 }
             }
         })
+
+        const vivienda = await Users.findByPk(userId, {
+            attributes: ["id", "nombre", "apellido", "correo", "rolId"],
+                include: [
+                    {
+                        model: Vivienda,
+                        as: "uservivienda",
+                        attributes: ["id", "nombre", "nroCasa", "telefono", "numero", "etapa", "sector", "casa", "calle", "recibospendientes", "deudadl", "deudabs", "status"],
+                
+            }]
+        })
+
+
         if (result?.montoPagado >= recibo?.montomes) {
-            const reciboP = await Recibo.update({ status: "Pagado", montopagado: result?.montoPagado, montorestante: 0, meses: (recibo?.meses - 1)}, {
+            const reciboP = await Recibo.update({ status: "Pagado", montopagado: result?.montoPagado, montorestante: 0, meses: (recibo?.meses - 1) }, {
                 where: { id }
             })
-            console.log("1pago", reciboP)
+
+            const viviendaP = await Vivienda.update({ recibospendientes: (vivienda?.uservivienda?.recibospendientes - 1) }, {
+                where: { userId }
+            })
+            console.log("1pago", reciboP, viviendaP)
         } else {
 
             console.log(recibo.montopagado)
-            
+
             const pagado = recibo.montopagado + result?.montoPagado;
 
+            if (result?.montoPagado >= result?.montorestante) {
 
-            const reciboP = await Recibo.update({ status: "Deuda", montopagado: pagado, montorestante: (pagado - recibo?.montomes)}, {
+                const reciboP = await Recibo.update({ status: "Pagado", montopagado: pagado, montorestante: 0, meses: (recibo?.meses - 1) }, {
+                    where: { id }
+                })
+
+                const viviendaP = await Vivienda.update({ recibospendientes: (vivienda?.uservivienda?.recibospendientes - 1) }, {
+                    where: { userId }
+                })
+
+            console.log("segundoifpago", reciboP, viviendaP)
+
+            }
+
+
+            const reciboP = await Recibo.update({ status: "Deuda", montopagado: pagado, montorestante: (pagado - recibo?.montomes) }, {
                 where: { id }
             })
             console.log("2pago", reciboP)
         }
 
-            res.status(201).json(result);
+        res.status(201).json(result);
     } catch (error) {
         next({
             status: 400,

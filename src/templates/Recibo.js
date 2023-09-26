@@ -11,6 +11,11 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
     <title>Recibo</title>
     <link rel="stylesheet" href="./recibo.css">
     <style>
+
+    body p {
+        margin: 0;
+    }
+
         .container-recibModeldetail{
     width: 100%;
     height: 100%;
@@ -121,7 +126,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
     justify-content: center;
     align-items: center;
     border-bottom: 0.1rem solid black;
-    height: 2rem;
+    height: 1.5rem;
 }
 
 .descripcion1-prel3 {
@@ -143,16 +148,17 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
     gap: 0.0rem;
     width: 100%;
     border-top: 0.1rem solid black;
-    height: 3rem;
+    height: 1.5rem;
 
 }
 
 .descripcion-prel-style{
     border-top: 0.1rem solid black;
-    height: 2rem;
+    height: 1.8rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: 600;
 }
 
 .descripcion-prel-style1234{
@@ -314,7 +320,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
             </div>
             <div class='descripcion-prel'>
                 <div class='descripcion1-prel1'>
-                    <img src="https://nebconnection.com/TEST/logo.png" alt="" width="100%" height="100%">
+                    <img src="https://nebconnection.com/TEST/logo.png" alt="" width="50%" height="50%">
                     <div class="descripcion-prel-style">
                         <p>Tipo de cambio</p>
                     </div>

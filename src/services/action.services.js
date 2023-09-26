@@ -182,10 +182,7 @@ align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
 font-size: 0.8rem">
-    <p>Bs. ${(numeral((e?.monto * recibo?.reciboRecibomodelo?.bcv).toFixed(2)).format('0,0.00', {
-        thousand: ',',
-        decimal: '.',
-    }))}</p>
+    <p>Bs. ${new Intl.NumberFormat('es-VE', { style: 'currency', currency: 'VES' }).format(e?.monto * recibo?.reciboRecibomodelo?.bcv)}))}</p>
 </div>`).join('');
 
                 const contenidoHTML4 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>

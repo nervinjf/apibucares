@@ -59,7 +59,7 @@ const Registertransferencia = async (req, res, next) => {
             console.log("1pago", reciboP, viviendaP)
         } else {
 
-            console.log(recibo.montopagado + result?.montoPagado)
+            console.log(recibo.montopagado + result?.montoPagado, 1)
 
             const pagado = recibo.montopagado + result?.montoPagado;
 

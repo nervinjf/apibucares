@@ -9,18 +9,7 @@ const pdfFilePath = ('D:/Usuarios/Mis Documentos/Nervin/Urb. Bucares/API/src/tem
 const pdfUrl = 'https://github.com/nervinjf/apibucares/blob/bd342bfd3108b8f050e8f7e41181b1bb6915ac4e/src/templates/pdf/Recibo.pdf';
 const axios = require('axios');
 const moment = require('moment');
-const numeral = require('numeral');
-
-// Configura la región o el idioma en español
-numeral.register('format', 'es-VE', {
-    delimiters: {
-      thousands: '.',
-      decimal: ',',
-    },
-  });
-  
-  // Usa la configuración recién creada
-  numeral.locale('es-VE');
+const currency = require('currency.js');
 
 
 class ActionServices {
@@ -193,7 +182,7 @@ align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
 font-size: 0.8rem">
-    <p>Bs. ${numeral(e?.monto * recibo?.reciboRecibomodelo?.bcv).format('0,0.00')}</p>
+    <p>Bs. ${currency(e?.monto * recibo?.reciboRecibomodelo?.bcv, { symbol: 'Bs', decimal: ',', separator: '.' })}</p>
 </div>`).join('');
 
                 const contenidoHTML4 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>

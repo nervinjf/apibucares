@@ -65,7 +65,7 @@ const Registertransferencia = async (req, res, next) => {
 
             if (pagado >= recibo?.montomes) {
 
-                const reciboP = await Recibo.update({ status: "Pagado", montopagado: pagado, montorestante: 0, meses: (recibo?.meses - 1) }, {
+                const reciboP = await Recibo.update({ status: "Pagado", montopagado: pagado, montorestante: 0 }, {
                     where: { id }
                 })
 
@@ -75,13 +75,12 @@ const Registertransferencia = async (req, res, next) => {
 
             console.log("segundoifpago", reciboP, viviendaP)
 
+            }else{
+                const reciboP = await Recibo.update({ status: "Deuda", montopagado: pagado, montorestante: (pagado - recibo?.montomes) }, {
+                    where: { id }
+                })
+                console.log("2pago", reciboP)
             }
-
-
-            const reciboP = await Recibo.update({ status: "Deuda", montopagado: pagado, montorestante: (pagado - recibo?.montomes) }, {
-                where: { id }
-            })
-            console.log("2pago", reciboP)
         }
 
         res.status(201).json(result);

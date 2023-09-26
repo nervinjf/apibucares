@@ -182,7 +182,7 @@ align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
 font-size: 0.8rem">
-    <p>Bs. ${(numeral(e?.monto * recibo?.reciboRecibomodelo?.bcv).format('Bs. 0,0.00', {
+    <p>Bs. ${(numeral(e?.monto * recibo?.reciboRecibomodelo?.bcv).format('0,0.00', {
         thousandSeparator: '.',
         decimalSeparator: ','
       }))}</p>

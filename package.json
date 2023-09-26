@@ -28,6 +28,7 @@
     "mysql2": "^3.6.1",
     "node-fetch": "^3.3.2",
     "nodemailer": "^6.9.5",
+    "numeral": "^2.0.6",
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",
     "save": "^2.9.0",

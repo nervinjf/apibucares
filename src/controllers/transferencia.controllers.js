@@ -59,11 +59,11 @@ const Registertransferencia = async (req, res, next) => {
             console.log("1pago", reciboP, viviendaP)
         } else {
 
-            console.log(recibo.montopagado)
+            console.log(recibo.montopagado + result?.montoPagado)
 
             const pagado = recibo.montopagado + result?.montoPagado;
 
-            if (result?.montoPagado >= result?.montorestante) {
+            if (pagado >= recibo?.montomes) {
 
                 const reciboP = await Recibo.update({ status: "Pagado", montopagado: pagado, montorestante: 0, meses: (recibo?.meses - 1) }, {
                     where: { id }

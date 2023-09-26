@@ -134,29 +134,29 @@ class ActionServices {
                     fs.mkdirSync(pdfFolderPath);
                 }
 
-                    let totalmontodolares = 0;
-    let totalalicuotadolares = 0;
-    let totalmontoBs = 0;
-    let totalalicuotaBs = 0;
+                let totalmontodolares = 0;
+                let totalalicuotadolares = 0;
+                let totalmontoBs = 0;
+                let totalalicuotaBs = 0;
 
-    recibo?.reciboRecibomodelo?.recibomodeloGastos?.map(e => {
+                recibo?.reciboRecibomodelo?.recibomodeloGastos?.map(e => {
 
-        totalmontodolares += Number(e.monto);
-        totalalicuotadolares += Number(e.monto / 244);
-        totalmontoBs += Number(e.monto * recibo.reciboRecibomodelo?.bcv);
-        totalalicuotaBs += Number(e.monto * recibo.reciboRecibomodelo?.bcv / 244);
+                    totalmontodolares += Number(e.monto);
+                    totalalicuotadolares += Number(e.monto / 244);
+                    totalmontoBs += Number(e.monto * recibo.reciboRecibomodelo?.bcv);
+                    totalalicuotaBs += Number(e.monto * recibo.reciboRecibomodelo?.bcv / 244);
 
-    });
+                });
 
-const contenidoHTML = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
-    `<div key=${e.id} style="display: flex; justify-content: center; align-items: center; border-top: 0.1rem solid black; height: 1rem
+                const contenidoHTML = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
+                    `<div key=${e.id} style="display: flex; justify-content: center; align-items: center; border-top: 0.1rem solid black; height: 1rem
 ;
 font-size: 0.8rem">
         <p>${e.nombre}</p>
     </div>`).join('');
 
-const contenidoHTML1 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
-    `<div key=${e.id} style=" display: flex;
+                const contenidoHTML1 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
+                    `<div key=${e.id} style=" display: flex;
     justify-content: center;
     align-items: center;
     border-top: 0.1rem solid black;
@@ -166,8 +166,8 @@ font-size: 0.8rem">
         <p>$ ${e?.monto}</p>
     </div>`).join('');
 
-const contenidoHTML2 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
-    `<div key=${e.id} style=" display: flex;
+                const contenidoHTML2 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
+                    `<div key=${e.id} style=" display: flex;
 justify-content: center;
 align-items: center;
 border-top: 0.1rem solid black;
@@ -176,8 +176,8 @@ font-size: 0.8rem">
     <p>$ ${(e?.monto / 244).toFixed(3)}</p>
 </div>`).join('');
 
-const contenidoHTML3 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
-`<div key=${e.id} style=" display: flex;
+                const contenidoHTML3 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
+                    `<div key=${e.id} style=" display: flex;
 justify-content: center;
 align-items: center;
 border-top: 0.1rem solid black;
@@ -186,8 +186,8 @@ font-size: 0.8rem">
     <p>Bs. ${(e?.monto * recibo?.reciboRecibomodelo?.bcv)}</p>
 </div>`).join('');
 
-const contenidoHTML4 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
-`<div key=${data.id} style="display: flex;
+                const contenidoHTML4 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
+                    `<div key=${data.id} style="display: flex;
 justify-content: center;
 align-items: center;
 border-top: 0.1rem solid black;
@@ -201,19 +201,18 @@ font-size: 0.8rem">
                 // Llama a la función generatePDF para generar el PDF
                 await new Promise(async (resolve, reject) => { // Asegúrate de que la función sea async
                     try {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
+                        const browser = await puppeteer.launch();
+                        const page = await browser.newPage();
 
-    const response = await axios.get(pdfUrl);
-    const pdfBuffer = response.data;
+                        const response = await axios.get(pdfUrl);
+                        const pdfBuffer = response.data;
 
-    await page.setContent(recibocondominio(data, recibo, totalmontodolares, totalalicuotadolares, totalalicuotaBs, totalmontoBs, contenidoHTML, contenidoHTML1, contenidoHTML2, contenidoHTML3, contenidoHTML4));
-    await page.addStyleTag({
-        content: `
+                        await page.setContent(recibocondominio(data, recibo, totalmontodolares, totalalicuotadolares, totalalicuotaBs, totalmontoBs, contenidoHTML, contenidoHTML1, contenidoHTML2, contenidoHTML3, contenidoHTML4));
+                        await page.addStyleTag({
+                            content: `
             /* Define márgenes y estilo de página */
             @page {
                 size: A4;
-                margin: 20mm 10mm;
             }
 
             /* Estilo del encabezado de página */
@@ -221,46 +220,45 @@ font-size: 0.8rem">
                 text-align: center;
                 font-size: 16px;
                 font-weight: bold;
-                padding: 10px 0;
             }
 
             /* Estilo del pie de página de página */
             footer {
                 text-align: center;
                 font-size: 12px;
-                padding: 5px 0;
             }
         `,
-    });
+                        });
 
-                      
 
-    const pdf = await page.pdf({ format: 'A4' });
 
-                   
+                        const pdf = await page.pdf({ format: 'A4' });
 
-    await browser.close();
-    console.log("PDF generado y listo para enviar.");
 
-    // Ahora puedes enviar el correo electrónico dentro de este bloque
-    await transporter.sendMail({
-        from: '<nervinjflores@gmail.com>',
-        to: e.correo,
-        subject: `Recibo mes ${moment(recibo.reciboRecibomodelo.Fecha).format('MM/YYYY')} - Casa ${e?.uservivienda?.nroCasa}`,
-        text: `Buenas tardes ${e?.uservivienda?.nombre}, \neste es el recibo ${moment(recibo.reciboRecibomodelo.Fecha).format('MM/YYYY')}. \npara mas informacion acercarse al condominio\n Saludos cordiales\n Junta de Condominio`,
-        attachments: [
-            {
-                filename: 'recibo.pdf',
-                content: pdf, // Adjunta el PDF generado
-            },
-        ],
-    });
 
-    resolve();
-} catch (error) {
-    console.error("Error al generar el PDF o enviar el correo:", error);
-    reject(error);
-}})
+                        await browser.close();
+                        console.log("PDF generado y listo para enviar.");
+
+                        // Ahora puedes enviar el correo electrónico dentro de este bloque
+                        await transporter.sendMail({
+                            from: '<nervinjflores@gmail.com>',
+                            to: e.correo,
+                            subject: `Recibo mes ${moment(recibo.reciboRecibomodelo.Fecha).format('MM/YYYY')} - Casa ${e?.uservivienda?.nroCasa}`,
+                            text: `Buenas tardes ${e?.uservivienda?.nombre}, \neste es el recibo ${moment(recibo.reciboRecibomodelo.Fecha).format('MM/YYYY')}. \npara mas informacion acercarse al condominio\n Saludos cordiales\n Junta de Condominio`,
+                            attachments: [
+                                {
+                                    filename: 'recibo.pdf',
+                                    content: pdf, // Adjunta el PDF generado
+                                },
+                            ],
+                        });
+
+                        resolve();
+                    } catch (error) {
+                        console.error("Error al generar el PDF o enviar el correo:", error);
+                        reject(error);
+                    }
+                })
 
                 console.log('Correo enviado a:', 'correo_destino@ejemplo.com');
                 console.log(`numero: ${Number(recipen.length)}, status: ${status}, total: ${totalpagar}`)

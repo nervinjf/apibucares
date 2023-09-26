@@ -482,7 +482,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                         <p>${USD(totalmontodolares * (10 / 100)).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>${USD(totalmontodolares + totalmontodolares * (10 / 100).format())}</p>
+                        <p>${USD(totalmontodolares + totalmontodolares * (10 / 100)).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
                         <p>${USD(totalmontodolares + totalmontodolares * (10 / 100)).format()}</p>

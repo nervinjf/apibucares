@@ -184,14 +184,15 @@ height: 1rem;
 font-size: 0.8rem">
     <p>Bs. ${new Intl.NumberFormat('es-VE', {
         style: 'currency',
-    currency: 'VES',
-    thousandSeparator: '.',
-    decimalSeparator: ',',
-    minimumGroupingDigits: 3,
-    groupingSeparator: '',
-    useGrouping: false,
-    minimumFractionDigits: 1,
-    useGrouping: true}).format(e?.monto * recibo?.reciboRecibomodelo?.bcv)}</p>
+        currency: 'VES',
+        thousandSeparator: '.',
+        decimalSeparator: ',',
+        minimumGroupingDigits: 3,
+        groupingSeparator: '',
+        useGrouping: true,
+        minimumFractionDigits: 1,
+        minimumIntegerDigits: 1
+}).format(e?.monto * recibo?.reciboRecibomodelo?.bcv)}</p>
 </div>`).join('');
 
                 const contenidoHTML4 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>

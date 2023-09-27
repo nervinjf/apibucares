@@ -421,6 +421,16 @@ font-size: 0.8rem">
                     // Descarga el PDF
                     await writeFile('recibo.pdf', pdf);
 
+                    const { navigator } = window;
+
+                    const progressBar = document.querySelector('.progress-bar');
+
+                    navigator.onDownloadProgress((event) => {
+                        const percentComplete = (event.loaded / event.total) * 100;
+
+                        progressBar.style.width = `${percentComplete}%`;
+                    });
+
                     await browser.close();
                     console.log("PDF generado y listo para descargar.");
 

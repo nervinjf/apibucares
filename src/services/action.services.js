@@ -416,14 +416,20 @@ font-size: 0.8rem">
 
                     const pdf = await page.pdf({ format: 'A4' });
 
-                    async function getPDFBuffer(pdf) {
-                        const buffer = await pdf.toBuffer();
-                        return buffer;
-                    }
+                    // Crea un objeto Blob con los datos del PDF
+                    const blob = new Blob([pdf]);
 
-                    const buffer = await getPDFBuffer(pdf);
+                    // Crea una URL para el objeto Blob
+                    const url = await URL.createObjectURL(blob);
 
-                    await fs.writeFile('reporte.pdf', buffer);
+                    // Descarga el PDF
+                    axios.get(url)
+                        .then((response) => {
+                            const buffer = response.data;
+
+                            // Guarda el archivo en el disco
+                            fs.writeFile('reporte.pdf', buffer);
+                        });
 
                     await browser.close();
                     console.log("PDF generado y listo para descargar.");

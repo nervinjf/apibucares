@@ -415,8 +415,14 @@ font-size: 0.8rem">
 
 
                     const pdf = await page.pdf({ format: 'A4' });
+                    const buffer = await pdf.buffer();
 
-                    await pdf.saveAs('reporte.pdf');
+                    const blob = new Blob([buffer], { type: 'application/pdf' });
+                    const url = await URL.createObjectURL(blob);
+                    const anchor = document.createElement('a');
+                    anchor.href = url;
+                    anchor.download = 'reporte.pdf';
+                    anchor.click();
 
                     await browser.close();
                     console.log("PDF generado y listo para descargar.");

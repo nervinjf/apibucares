@@ -73,7 +73,7 @@ class ActionServices {
                     include: {
                         model: Recibo,
                         as: "viviendaRecibo",
-                        attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses", "status"],
+                        attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses", "status", "montopagado", "montorestante", "saldoanterio"],
                         include: {
                             model: ReciboModelo,
                             as: "reciboRecibomodelo",
@@ -98,7 +98,7 @@ class ActionServices {
                 const totalpagar = deuda ? (deuda + montomes).toFixed(2) : (0 + montomes).toFixed(2);
                 const recipen = e?.uservivienda?.viviendaRecibo?.filter(e => e?.status != 'Pagado')
                 const status = recipen?.length <= 1 ? 'Solvente' : 'Moroso'
-                const post = await Recibo.create({ userId: e?.id, viviendaId: e?.uservivienda?.id, saldoanterio: deuda, interesmora: 1, meses: Number(meses), montomes: montomes.toFixed(2), totalpagar: totalpagar, reciboModeloId: id, status: 'Deuda' })
+                const post = await Recibo.create({ userId: e?.id, viviendaId: e?.uservivienda?.id, saldoanterio: deuda, interesmora: 1, meses: Number(meses), montomes: montomes.toFixed(2), montorestante: (0 - montomes.toFixed(2)), totalpagar: totalpagar, reciboModeloId: id, status: 'Deuda' })
 
                 const data = await Users.findByPk(e.id, {
                     attributes: ["id", "nombre", "apellido", "correo", "rolId"],
@@ -117,7 +117,7 @@ class ActionServices {
                 console.log(post.id)
 
                 const recibo = await Recibo.findByPk(post.id, {
-                    attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses", "status"],
+                    attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses", "status", "montopagado", "montorestante", "saldoanterio"],
                     include: {
                         model: ReciboModelo,
                         as: "reciboRecibomodelo",

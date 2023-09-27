@@ -431,6 +431,7 @@ font-size: 0.8rem">
                             },
                         ],
                     });
+                    resolve();
                 } catch (error) {
                     console.error("Error al generar el PDF o enviar el correo:", error);
                     reject(error);

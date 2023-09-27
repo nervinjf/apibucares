@@ -1,11 +1,10 @@
 const { Preliminar, Gastos, ReciboModelo, Vivienda, Recibo, Users } = require('../models');
 const transporter = require("../utils/mailer");
 const fs = require('fs');
+const { writeFile } = require('fs/promises');
 const recibocondominio = require('../templates/Recibo'); // Reemplaza la ruta con la ubicación correcta de tu archivo
 const puppeteer = require('puppeteer');
-var options = { format: 'Letter', format: 'A4' };
 const pdfFolderPath = './pdf'; // Ruta de la carpeta donde deseas guardar los PDF
-const pdfFilePath = ('D:/Usuarios/Mis Documentos/Nervin/Urb. Bucares/API/src/templates/pdf'); // Ruta completa del archivo PDF
 const pdfUrl = 'https://github.com/nervinjf/apibucares/blob/bd342bfd3108b8f050e8f7e41181b1bb6915ac4e/src/templates/pdf/Recibo.pdf';
 const axios = require('axios');
 const moment = require('moment');

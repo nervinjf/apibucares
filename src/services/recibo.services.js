@@ -5,7 +5,7 @@ class ReciboServices {
     static async getR() {
         try {
             const result = await Recibo.findAll(({
-                attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses"],
+                attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses", "status", "montopagado", "montorestante", "saldoanterio"],
                 include: {
                     model: ReciboModelo,
                     as: "reciboRecibomodelo",
@@ -26,7 +26,7 @@ class ReciboServices {
     static async getId(id) {
         try {
             const result = await Recibo.findByPk(id, {
-                attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses"],
+                attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses", "status", "montopagado", "montorestante", "saldoanterio"],
                 include: {
                     model: ReciboModelo,
                     as: "reciboRecibomodelo",

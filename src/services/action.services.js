@@ -164,7 +164,7 @@ font-size: 0.75rem; padding: 0 0.4rem">
     height: 1rem
 ;
 font-size: 0.8rem">
-        <p>$ ${USD(e?.monto).format()}</p>
+        <p>${USD(e?.monto).format()}</p>
     </div>`).join('');
 
                 const contenidoHTML2 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
@@ -174,7 +174,7 @@ align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
 font-size: 0.8rem">
-    <p>$ ${USD(e?.monto / 244).format()}</p>
+    <p>${USD(e?.monto / 244).format()}</p>
 </div>`).join('');
 
                 const contenidoHTML3 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
@@ -184,7 +184,7 @@ align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
 font-size: 0.8rem">
-    <p>Bs. ${Bs(e?.monto * recibo?.reciboRecibomodelo?.bcv).format()}</p>
+    <p>${Bs(e?.monto * recibo?.reciboRecibomodelo?.bcv).format()}</p>
 </div>`).join('');
 
                 const contenidoHTML4 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
@@ -194,7 +194,7 @@ align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
 font-size: 0.8rem">
-    <p>Bs. ${Bs(e?.monto * recibo?.reciboRecibomodelo?.bcv / 244).format()}</p>
+    <p>${Bs(e?.monto * recibo?.reciboRecibomodelo?.bcv / 244).format()}</p>
 </div>`).join('');
                 console.log(Bs(456985.525).format())
 

@@ -411,21 +411,26 @@ font-size: 0.8rem">
         `,
                     });
 
-
-
-                    await page.goto('about:blank');
-
-                    // Genera el PDF
                     const pdf = await page.pdf({ format: 'A4' });
 
-                    const pdfBlob = new Blob([pdf], { type: 'application/pdf' });
 
-                    fileSaver.saveAs(pdfBlob, 'file.pdf');
 
                     await browser.close();
-                    console.log("PDF generado y listo para descargar.");
+                    console.log("PDF generado y listo para enviar.");
 
-                    resolve();
+                    // Ahora puedes enviar el correo electrónico dentro de este bloque
+                    await transporter.sendMail({
+                        from: '<nervinjflores@gmail.com>',
+                        to: e.correo,
+                        subject: `Recibo mes ${moment(recibo.reciboRecibomodelo.Fecha).format('MM/YYYY')} - Casa ${e?.uservivienda?.nroCasa}`,
+                        text: `Buenas tardes ${e?.uservivienda?.nombre}, \neste es el recibo ${moment(recibo.reciboRecibomodelo.Fecha).format('MM/YYYY')}. \npara mas informacion acercarse al condominio\nSaludos cordiales\nJunta de Condominio`,
+                        attachments: [
+                            {
+                                filename: 'recibo.pdf',
+                                content: pdf, // Adjunta el PDF generado
+                            },
+                        ],
+                    });
                 } catch (error) {
                     console.error("Error al generar el PDF o enviar el correo:", error);
                     reject(error);

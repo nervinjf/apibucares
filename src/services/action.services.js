@@ -423,12 +423,7 @@ font-size: 0.8rem">
 
                     const buffer = await getPDFBuffer(pdf);
 
-                    const blob = new Blob([buffer], { type: 'application/pdf' });
-                    const url = await URL.createObjectURL(blob);
-                    const anchor = document.createElement('a');
-                    anchor.href = url;
-                    anchor.download = 'reporte.pdf';
-                    anchor.click();
+                    await fs.writeFile('reporte.pdf', buffer);
 
                     await browser.close();
                     console.log("PDF generado y listo para descargar.");

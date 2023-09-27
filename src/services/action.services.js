@@ -10,7 +10,6 @@ const pdfUrl = 'https://github.com/nervinjf/apibucares/blob/bd342bfd3108b8f050e8
 const axios = require('axios');
 const moment = require('moment');
 const currency = require("currency.js");
-import { Blob } from 'node:buffer';
 
 const Bs = value => currency(value, { symbol: 'Bs. ', decimal: ',', separator: '.' });
 const USD = value => currency(value, { symbol: '$', decimal: ',', separator: '.' });

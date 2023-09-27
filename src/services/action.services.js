@@ -10,7 +10,7 @@ const pdfUrl = 'https://github.com/nervinjf/apibucares/blob/bd342bfd3108b8f050e8
 const axios = require('axios');
 const moment = require('moment');
 const currency = require("currency.js");
-const { Blob } = require('node:buffer');
+import { Blob } from 'node:buffer';
 
 const Bs = value => currency(value, { symbol: 'Bs. ', decimal: ',', separator: '.' });
 const USD = value => currency(value, { symbol: '$', decimal: ',', separator: '.' });
@@ -415,39 +415,16 @@ font-size: 0.8rem">
 
 
 
+                    await page.goto('about:blank');
+
+                    // Genera el PDF
                     const pdf = await page.pdf({ format: 'A4' });
 
-                    // Crea un objeto Blob con los datos del PDF
-                    const blob = new Blob([pdf]);
-
-                    // Crea una URL para el objeto Blob
-                    const url = await URL.createObjectURL(blob);
-
                     // Descarga el PDF
-                    axios.get(url)
-                        .then((response) => {
-                            const buffer = response.data;
-
-                            // Guarda el archivo en el disco
-                            fs.writeFile('reporte.pdf', buffer);
-                        });
+                    await writeFile('recibo.pdf', pdf);
 
                     await browser.close();
                     console.log("PDF generado y listo para descargar.");
-
-                    // Ahora puedes enviar el correo electrónico dentro de este bloque
-                    // await transporter.sendMail({
-                    //     from: '<nervinjflores@gmail.com>',
-                    //     to: e.correo,
-                    //     subject: `Recibo mes ${moment(recibo.reciboRecibomodelo.Fecha).format('MM/YYYY')} - Casa ${e?.uservivienda?.nroCasa}`,
-                    //     text: `Buenas tardes ${e?.uservivienda?.nombre}, \neste es el recibo ${moment(recibo.reciboRecibomodelo.Fecha).format('MM/YYYY')}. \npara mas informacion acercarse al condominio\n Saludos cordiales\n Junta de Condominio`,
-                    //     attachments: [
-                    //         {
-                    //             filename: 'recibo.pdf',
-                    //             content: pdf, // Adjunta el PDF generado
-                    //         },
-                    //     ],
-                    // });
 
                     resolve();
                 } catch (error) {

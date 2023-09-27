@@ -30,8 +30,8 @@ const reciboEnv = async (req, res, next) => {
 
 const reciboDownload = async (req, res, next) => {
     try {
-        const { id } = req.params;
-        const result = await ActionServices.DownloadRecibo(id);
+        const { id, userId } = req.params;
+        const result = await ActionServices.DownloadRecibo(id, userId);
         res.json(result);
     } catch (error) {
         next({

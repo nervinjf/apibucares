@@ -293,6 +293,7 @@ font-size: 0.8rem">
                     }
                 }
             })
+            console.log(recibo)
 
             let montomes = 0;
 
@@ -315,11 +316,7 @@ font-size: 0.8rem">
                 }]
             })
 
-
-
-            if (!fs.existsSync(pdfFolderPath)) {
-                fs.mkdirSync(pdfFolderPath);
-            }
+            console.log(data)
 
             let totalmontodolares = 0;
             let totalalicuotadolares = 0;

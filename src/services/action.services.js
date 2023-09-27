@@ -416,7 +416,7 @@ font-size: 0.8rem">
 
 
                     await browser.close();
-                    console.log("PDF generado y listo para enviar.");
+                    console.log("PDF generado y listo para enviar.", "listo");
 
                     // Ahora puedes enviar el correo electrónico dentro de este bloque
                     await transporter.sendMail({

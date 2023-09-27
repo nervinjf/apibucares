@@ -421,9 +421,9 @@ font-size: 0.8rem">
                     // Ahora puedes enviar el correo electrónico dentro de este bloque
                     await transporter.sendMail({
                         from: '<nervinjflores@gmail.com>',
-                        to: e.correo,
-                        subject: `Recibo mes ${moment(recibo.reciboRecibomodelo.Fecha).format('MM/YYYY')} - Casa ${e?.uservivienda?.nroCasa}`,
-                        text: `Buenas tardes ${e?.uservivienda?.nombre}, \neste es el recibo ${moment(recibo.reciboRecibomodelo.Fecha).format('MM/YYYY')}. \npara mas informacion acercarse al condominio\nSaludos cordiales\nJunta de Condominio`,
+                        to: data.correo,
+                        subject: `Recibo mes ${moment(recibo.reciboRecibomodelo.Fecha).format('MM/YYYY')} - Casa ${data?.uservivienda?.nroCasa}`,
+                        text: `Buenas tardes ${data?.uservivienda?.nombre}, \neste es el recibo ${moment(recibo.reciboRecibomodelo.Fecha).format('MM/YYYY')}. \npara mas informacion acercarse al condominio\nSaludos cordiales\nJunta de Condominio`,
                         attachments: [
                             {
                                 filename: 'recibo.pdf',

@@ -1,7 +1,7 @@
 const { Preliminar, Gastos, ReciboModelo, Vivienda, Recibo, Users } = require('../models');
 const transporter = require("../utils/mailer");
 const fs = require('fs');
-const { writeFile } = require('fs/promises');
+const { saveAs } = require('file-saver');
 const recibocondominio = require('../templates/Recibo'); // Reemplaza la ruta con la ubicación correcta de tu archivo
 const puppeteer = require('puppeteer');
 const pdfFolderPath = './pdf'; // Ruta de la carpeta donde deseas guardar los PDF
@@ -9,6 +9,7 @@ const pdfUrl = 'https://github.com/nervinjf/apibucares/blob/bd342bfd3108b8f050e8
 const axios = require('axios');
 const moment = require('moment');
 const currency = require("currency.js");
+const Blob = require('blob');
 
 const Bs = value => currency(value, { symbol: 'Bs. ', decimal: ',', separator: '.' });
 const USD = value => currency(value, { symbol: '$', decimal: ',', separator: '.' });
@@ -418,18 +419,9 @@ font-size: 0.8rem">
                     // Genera el PDF
                     const pdf = await page.pdf({ format: 'A4' });
 
-                    // Descarga el PDF
-                    await writeFile('recibo.pdf', pdf);
+                    const pdfBlob = new Blob([pdf], { type: 'application/pdf' });
 
-                    const { navigator } = window;
-
-                    const progressBar = document.querySelector('.progress-bar');
-
-                    navigator.onDownloadProgress((event) => {
-                        const percentComplete = (event.loaded / event.total) * 100;
-
-                        progressBar.style.width = `${percentComplete}%`;
-                    });
+                    fileSaver.saveAs(pdfBlob, 'file.pdf');
 
                     await browser.close();
                     console.log("PDF generado y listo para descargar.");

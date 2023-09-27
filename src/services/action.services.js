@@ -415,7 +415,13 @@ font-size: 0.8rem">
 
 
                     const pdf = await page.pdf({ format: 'A4' });
-                    const buffer = await pdf.buffer();
+
+                    async function getPDFBuffer(pdf) {
+                        const buffer = await pdf.toBuffer();
+                        return buffer;
+                    }
+
+                    const buffer = await getPDFBuffer(pdf);
 
                     const blob = new Blob([buffer], { type: 'application/pdf' });
                     const url = await URL.createObjectURL(blob);

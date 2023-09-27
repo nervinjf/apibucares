@@ -279,7 +279,7 @@ font-size: 0.8rem">
 
     static async DownloadRecibo(id, userId) {
         try {
-
+            console.log(id, userId)
             const recibo = await Recibo.findByPk(id, {
                 attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses", "status"],
                 include: {
@@ -311,16 +311,6 @@ font-size: 0.8rem">
                         model: Recibo,
                         as: "viviendaRecibo",
                         attributes: ["id", "totalpagar", "montomes", "saldoanterio", "interesmora", "meses", "status"],
-                        include: {
-                            model: ReciboModelo,
-                            as: "reciboRecibomodelo",
-                            attributes: ["id", "Fecha", "bcv"],
-                            include: {
-                                model: Gastos,
-                                as: "recibomodeloGastos",
-                                attributes: ["id", "nombre", "Fecha", "ncasa", "monto"]
-                            }
-                        }
                     }
                 }]
             })

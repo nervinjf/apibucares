@@ -213,7 +213,7 @@ font-size: 0.8rem">
                         const response = await axios.get(pdfUrl);
                         const pdfBuffer = response.data;
 
-                        await page.setContent(recibocondominio(data, recibo, totalmontodolares, totalalicuotadolares, totalalicuotaBs, totalmontoBs, contenidoHTML, contenidoHTML1, contenidoHTML2, contenidoHTML3, contenidoHTML4));
+                        await page.setContent(recibocondominio(data, recibo, totalmontodolares, totalalicuotadolares, totalalicuotaBs, totalmontoBs, contenidoHTML, contenidoHTML1, contenidoHTML2, contenidoHTML3, contenidoHTML4, tasa));
                         await page.addStyleTag({
                             content: `
             /* Define márgenes y estilo de página */
@@ -398,7 +398,7 @@ font-size: 0.8rem">
                     // const response = await axios.get(pdfUrl);
                     // const pdfBuffer = response.data;
 
-                    await page.setContent(recibocondominio(data, recibo, totalmontodolares, totalalicuotadolares, totalalicuotaBs, totalmontoBs, contenidoHTML, contenidoHTML1, contenidoHTML2, contenidoHTML3, contenidoHTML4));
+                    await page.setContent(recibocondominio(data, recibo, totalmontodolares, totalalicuotadolares, totalalicuotaBs, totalmontoBs, contenidoHTML, contenidoHTML1, contenidoHTML2, contenidoHTML3, contenidoHTML4, tasa));
                     await page.addStyleTag({
                         content: `
             /* Define márgenes y estilo de página */

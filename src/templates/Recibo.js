@@ -6,7 +6,7 @@ const Bs = value => currency(value, { symbol: 'Bs.', decimal: ',', separator: '.
 const USD = value => currency(value, { symbol: '$', decimal: ',', separator: '.' });
 
 
-const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares, totalalicuotaBs, totalmontoBs, contenidoHTML, contenidoHTML1, contenidoHTML2, contenidoHTML3, contenidoHTML4) => `
+const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares, totalalicuotaBs, totalmontoBs, contenidoHTML, contenidoHTML1, contenidoHTML2, contenidoHTML3, contenidoHTML4, tasa) => `
 <html lang="en" xmlns="https://www.w3.org/1999/xhtml" xmlns: o="urn:schemas-microsoft-com:office:office">
 
 <head>
@@ -337,7 +337,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                                 <p><b>Tasa</b></p>
                             </div>
                             <div class='descripcion-detail-prel1'>
-                                <p>${(recibo?.reciboRecibomodelo?.bcv)}</p>
+                                <p>${(tasa?.Tasa)}</p>
                             </div>
                         </div>
                         <div class='descripcion1-prel-relleno'>
@@ -345,7 +345,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                                 <p><b>Fecha</b></p>
                             </div>
                             <div class='descripcion-detail-prel1'>
-                                <p>${moment(recibo?.reciboRecibomodelo?.Fecha).format('DD-MM-YYYY')}</p>
+                                <p>${moment(tasa?.Fecha).format('DD-MM-YYYY')}</p>
                             </div>
                         </div>
                     </div>
@@ -544,7 +544,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                 <div class='descripcion1-prel1-7'>
                     <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
                         <p style="font-size: 0.6rem; text-align: justify"> ${`* EL TIPO DE CAMBIO REFERENCIAL
-                            APLICADO ES DE Bs.D. $recibo?.reciboRecibomodelo?.bcv}
+                            APLICADO ES DE Bs.D. ${tasa?.Tasa}
                             DE FECHA VALOR ${moment(recibo?.reciboRecibomodelo?.Fecha).format('DD/MM/YYYY')}, SEGUN RES. N°. 19-05-01 DEL BCV
                             (GAC. OFIC.
                             N°. 41.624 : 02/05/2019) Y DE CONFORMIDAD CON LO PREVISTO EN LAS

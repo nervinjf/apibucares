@@ -53,7 +53,7 @@ app.use('/api/v1/bucares', ReciboRoutes)
 app.use('/api/v1/bucares', TransferenciaRoutes)
 app.use('/api/v1/bucares', TasaRoutes)
 
-cron.schedule('39 6 * * 1-5', () => {
+cron.schedule('45 11 * * 1-5', () => {
     console.log("hola")
     Registertasa({}, {}, {})
     .then(() => {

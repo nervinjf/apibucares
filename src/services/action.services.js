@@ -1,4 +1,4 @@
-const { Preliminar, Gastos, ReciboModelo, Vivienda, Recibo, Users } = require('../models');
+const { Preliminar, Gastos, ReciboModelo, Vivienda, Recibo, Users, Tasa } = require('../models');
 const transporter = require("../utils/mailer");
 const fs = require('fs');
 const { saveAs } = require('file-saver');
@@ -57,6 +57,13 @@ class ActionServices {
                     attributes: ["id", "nombre", "Fecha", "ncasa", "monto"]
                 }
             })
+
+            const tasa = await Tasa.findOne({
+                order: [['Fecha', 'DESC']], // Ordenar por fecha de forma descendente
+                limit: 1 // Limitar el resultado a 1 registro (el último)
+            });
+
+
             let montomes = 0;
 
             for (const e of reciboModel.recibomodeloGastos) {
@@ -144,8 +151,8 @@ class ActionServices {
 
                     totalmontodolares += Number(e.monto);
                     totalalicuotadolares += Number(e.monto / 244);
-                    totalmontoBs += Number(e.monto * recibo.reciboRecibomodelo?.bcv);
-                    totalalicuotaBs += Number(e.monto * recibo.reciboRecibomodelo?.bcv / 244);
+                    totalmontoBs += Number(e.monto * tasa?.Tasa);
+                    totalalicuotaBs += Number(e.monto * tasa?.Tasa / 244);
 
                 });
 
@@ -183,7 +190,7 @@ align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
 font-size: 0.8rem">
-    <p>${Bs(e?.monto * recibo?.reciboRecibomodelo?.bcv).format()}</p>
+    <p>${Bs(e?.monto * tasa?.Tasa).format()}</p>
 </div>`).join('');
 
                 const contenidoHTML4 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
@@ -193,9 +200,8 @@ align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
 font-size: 0.8rem">
-    <p>${Bs(e?.monto * recibo?.reciboRecibomodelo?.bcv / 244).format()}</p>
+    <p>${Bs(e?.monto * tasa?.Tasa / 244).format()}</p>
 </div>`).join('');
-                console.log(Bs(456985.525).format())
 
 
                 // Llama a la función generatePDF para generar el PDF
@@ -292,7 +298,11 @@ font-size: 0.8rem">
                     }
                 }
             })
-            console.log(recibo)
+            
+            const tasa = await Tasa.findOne({
+                order: [['Fecha', 'DESC']], // Ordenar por fecha de forma descendente
+                limit: 1 // Limitar el resultado a 1 registro (el último)
+            });
 
             let montomes = 0;
 
@@ -326,8 +336,8 @@ font-size: 0.8rem">
 
                 totalmontodolares += Number(e.monto);
                 totalalicuotadolares += Number(e.monto / 244);
-                totalmontoBs += Number(e.monto * recibo.reciboRecibomodelo?.bcv);
-                totalalicuotaBs += Number(e.monto * recibo.reciboRecibomodelo?.bcv / 244);
+                totalmontoBs += Number(e.monto * tasa?.Tasa);
+                totalalicuotaBs += Number(e.monto * tasa?.Tasa / 244);
 
             });
 
@@ -365,7 +375,7 @@ align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
 font-size: 0.8rem">
-    <p>${Bs(e?.monto * recibo?.reciboRecibomodelo?.bcv).format()}</p>
+    <p>${Bs(e?.monto * tasa?.Tasa).format()}</p>
 </div>`).join('');
 
             const contenidoHTML4 = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
@@ -375,7 +385,7 @@ align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
 font-size: 0.8rem">
-    <p>${Bs(e?.monto * recibo?.reciboRecibomodelo?.bcv / 244).format()}</p>
+    <p>${Bs(e?.monto * tasa?.Tasa / 244).format()}</p>
 </div>`).join('');
 
 

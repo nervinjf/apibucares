@@ -482,10 +482,10 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                         <p>${USD(totalmontodolares * (10 / 100)).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>${USD(totalmontodolares + totalmontodolares * (10 / 100)).format()}</p>
+                        <p>${USD(totalmontodolares + (totalmontodolares * (10 / 100))).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>${USD(totalmontodolares + totalmontodolares * (10 / 100)).format()}</p>
+                        <p>${USD(totalmontodolares + (totalmontodolares * (10 / 100))).format()}</p>
                     </div>
                 </div>
                 <div class='total-prel1-4'>
@@ -496,10 +496,10 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                         <p>${USD(totalalicuotadolares * (10 / 100)).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>${USD(totalalicuotadolares + totalalicuotadolares * (10 / 100)).format()}</p>
+                        <p>${USD(totalalicuotadolares + (totalalicuotadolares * (10 / 100))).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>${USD(totalalicuotadolares + totalalicuotadolares * (10 / 100)).format()}</p>
+                        <p>${USD(totalalicuotadolares + (totalalicuotadolares * (10 / 100))).format()}</p>
                     </div>
                 </div>
                 <div class='descripcion1-prel1-5'>
@@ -510,10 +510,10 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                         <p>${Bs(totalmontoBs * (10 / 100)).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>${Bs(totalmontoBs + totalmontoBs * (10 / 100)).format()}</p>
+                        <p>${Bs(totalmontoBs + (totalmontoBs * (10 / 100))).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>${Bs(totalmontoBs + totalmontoBs * (10 / 100)).format()}</p>
+                        <p>${Bs(totalmontoBs + (totalmontoBs * (10 / 100))).format()}</p>
                     </div>
                 </div>
                 <div class='total-prel1-6'>
@@ -524,10 +524,10 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                         <p>${Bs(totalalicuotaBs * (10 / 100)).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>${Bs(totalalicuotaBs + totalalicuotaBs * (10 / 100)).format()}</p>
+                        <p>${Bs(totalalicuotaBs + (totalalicuotaBs * (10 / 100))).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>${Bs(totalalicuotaBs + totalalicuotaBs * (10 / 100)).format()}</p>
+                        <p>${Bs(totalalicuotaBs + (totalalicuotaBs * (10 / 100))).format()}</p>
                     </div>
                 </div>
             </div>

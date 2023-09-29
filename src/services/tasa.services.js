@@ -5,10 +5,11 @@ class TasaServices {
 
     static async get(fecha){
         try {
+            console.log(fecha)
             const result = await Tasa.findAll({
                 where: {
                     [Op.or]: [
-                        {Fecha: { [Op.like]: `%${fecha}` } },
+                        { Fecha: { [Op.eq]: fecha } },
                     ]
                 },
                 limit: 10
@@ -16,18 +17,10 @@ class TasaServices {
 
             return result;
         } catch (error) {
+            console.log(error)
             throw error;
         }
     }    
-
-    static async posttasa(tasabcv){
-        try {
-            const result = await Tasa.create(tasabcv)
-            return result;
-        } catch (error) {
-            throw error;
-        }
-    }
 
 }
 

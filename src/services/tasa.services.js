@@ -22,6 +22,18 @@ class TasaServices {
         }
     }    
 
+    static async gethoy(){
+        try {
+            const result = await Tasa.findOne({
+                order: [['Fecha', 'DESC']], // Ordenar por fecha de forma descendente
+                limit: 1 // Limitar el resultado a 1 registro (el último)
+            });
+            return result;
+        } catch (error) {
+            console.log(error)
+            throw error;
+        }
+    }    
 }
 
 module.exports = TasaServices;

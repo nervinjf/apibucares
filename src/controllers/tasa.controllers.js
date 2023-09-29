@@ -14,6 +14,20 @@ const Gettasa = async (req, res, next) => {
     }
 };
 
+const Gettasahoy = async (req, res, next) => {
+    try {
+        const result = await TasaServices.gethoy();
+        res.json(result);
+    } catch (error) {
+        next({
+            status: 400,
+            errorContent: error,
+            message: "Hay un error",
+        })
+    }
+};
+
 module.exports = {
     Gettasa,
+    Gettasahoy
 }

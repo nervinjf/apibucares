@@ -9,6 +9,8 @@ const ActionServices = require("./action.services");
 const ViviendaServices = require("./vivienda.services");
 const ReciboServices = require("./recibo.services");
 const TransferenciaServices = require("./transferencia.services");
+const TasaServices = require("./tasa.services");
+const TasaPostServices = require("./tasapost.services");
 
 
 module.exports = {
@@ -22,5 +24,7 @@ module.exports = {
     ActionServices,
     ViviendaServices,
     ReciboServices,
-    TransferenciaServices
+    TransferenciaServices,
+    TasaServices,
+    TasaPostServices
 }

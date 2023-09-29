@@ -7,6 +7,7 @@ const Gastos = require('./gastos.models');
 const ReciboModelo = require('./recibomodelo.models');
 const Recibo = require('./recibo.models');
 const Transferencia = require('./transferencias.models');
+const Tasa = require('./tasa.models');
 
 module.exports = {
     Users,
@@ -17,5 +18,6 @@ module.exports = {
     Gastos,
     ReciboModelo,
     Recibo,
-    Transferencia
+    Transferencia,
+    Tasa
 }

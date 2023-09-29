@@ -20,6 +20,7 @@ const Vivienda = db.define("vivienda", {
     nroCasa:{
         type: DataTypes.STRING(10),
         allowNull: false,
+        unique: true, // Restricción única en el campo nroCasa
         field: 'nro_casa',
     },
     telefono:{

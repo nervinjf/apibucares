@@ -149,13 +149,13 @@ class ActionServices {
 
                 recibo?.reciboRecibomodelo?.recibomodeloGastos?.map(e => {
 
-                    totalmontodolares += (e.monto).toFixed(2);
-                    totalalicuotadolares += (e.monto / 244).toFixed(2);
-                    totalmontoBs += (e.monto * tasa?.Tasa).toFixed(2);
-                    totalalicuotaBs += (e.monto * tasa?.Tasa / 244).toFixed(2);
+                    totalmontodolares += Number(e.monto);
+                    totalalicuotadolares += Number(e.monto / 244);
+                    totalmontoBs += Number(e.monto * tasa?.Tasa);
+                    totalalicuotaBs += Number(e.monto * tasa?.Tasa / 244);
 
                 });
-                    console.log(totalmontoBs, totalalicuotaBs, tasa?.Tasa)
+                    console.log(totalmontodolares, totalalicuotadolares, totalmontoBs, totalalicuotaBs, tasa?.Tasa)
 
                 const contenidoHTML = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
                     `<div key=${e.id} style="display: flex; justify-content: flex-start; align-items: flex-end; border-top: 0.1rem solid black; height: 1rem;
@@ -335,13 +335,12 @@ font-size: 0.8rem">
 
             recibo?.reciboRecibomodelo?.recibomodeloGastos?.map(e => {
 
-                totalmontodolares += (e.monto).toFixed(2);
-                totalalicuotadolares += (e.monto / 244).toFixed(2);
-                totalmontoBs += (e.monto * tasa?.Tasa).toFixed(2);
-                totalalicuotaBs += (e.monto * tasa?.Tasa / 244).toFixed(2);
+                totalmontodolares += Number(e.monto);
+                totalalicuotadolares += Number(e.monto / 244);
+                totalmontoBs += Number(e.monto * tasa?.Tasa);
+                totalalicuotaBs += Number(e.monto * tasa?.Tasa / 244);
 
             });
-                console.log(totalmontoBs, totalalicuotaBs, tasa?.Tasa)
 
             const contenidoHTML = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
                 `<div key=${e.id} style="display: flex; justify-content: flex-start; align-items: flex-end; border-top: 0.1rem solid black; height: 1rem;

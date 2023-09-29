@@ -1,4 +1,5 @@
 const { Tasa } = require('../models');
+const { Op } = require('sequelize');
 
 class TasaServices {
 

@@ -336,7 +336,7 @@ font-size: 0.8rem">
                 totalmontodolares += Number(e.monto);
                 totalalicuotadolares += (e.monto).toFixed(2) / 244;
                 totalmontoBs += (e.monto).toFixed(2) * (tasa?.Tasa).toFixed(2);
-                totalalicuotaBs += totalalicuotadolares * (tasa?.Tasa).toFixed(2);
+                totalalicuotaBs = totalalicuotadolares * (tasa?.Tasa).toFixed(2);
             });
 
             console.log((totalmontodolares).toFixed(2), (totalalicuotadolares).toFixed(2), (totalmontoBs).toFixed(2), (totalalicuotaBs).toFixed(2), tasa?.Tasa)

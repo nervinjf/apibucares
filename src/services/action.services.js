@@ -336,7 +336,7 @@ font-size: 0.8rem">
                 totalmontodolares += Number(e.monto);
                 totalalicuotadolares += (e.monto).toFixed(2) / 244;
                 totalmontoBs = totalmontodolares * (tasa?.Tasa).toFixed(2);
-                    console.log(totalalicuotadolares)
+                console.log(`el resultado de ${totalalicuotadolares} por ${tasa?.Tasa} es igual a ${totalalicuotadolares* tasa?.Tasa}`)
                 totalalicuotaBs = totalalicuotadolares * tasa?.Tasa;
             });
 

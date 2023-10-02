@@ -326,8 +326,6 @@ font-size: 0.8rem">
                 }]
             })
 
-            console.log(data)
-
             let totalmontodolares = 0;
             let totalalicuotadolares = 0;
             let totalmontoBs = 0;
@@ -341,6 +339,8 @@ font-size: 0.8rem">
                 totalalicuotaBs += Number(e.monto * tasa?.Tasa / 244);
 
             });
+
+            console.log(totalmontodolares, totalalicuotadolares, totalmontoBs, totalalicuotaBs)
 
             const contenidoHTML = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
                 `<div key=${e.id} style="display: flex; justify-content: flex-start; align-items: flex-end; border-top: 0.1rem solid black; height: 1rem;

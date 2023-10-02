@@ -516,18 +516,18 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                         <p>${Bs(totalmontoBs + totalmontoBs * (10 / 100)).format()}</p>
                     </div>
                 </div>
-                <div class='total-prel1-6'>
+               <div class='total-prel1-6'>
                     <div class='descripcion-detail-prel'>
-                        <p>${parseFloat(Bs(totalalicuotaBs).format()).toFixed(2)}</p>
+                        <p>${Bs((totalalicuotaBs).toFixed(2)).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>${parseFloat(Bs(totalalicuotaBs * (10 / 100)).format()).toFixed(2)}</p>
+                        <p>${Bs((totalalicuotaBs * (10 / 100)).toFixed(2)).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>${parseFloat(Bs(totalalicuotaBs + totalalicuotaBs * (10 / 100)).format()).toFixed(2)}</p>
+                        <p>${Bs((totalalicuotaBs + totalalicuotaBs * (10 / 100)).toFixed(2)).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>${parseFloat(Bs(totalalicuotaBs + totalalicuotaBs * (10 / 100)).format()).toFixed(2)}</p>
+                        <p>${Bs((totalalicuotaBs + totalalicuotaBs * (10 / 100)).toFixed(2)).format()}</p>
                     </div>
                 </div>
             </div>

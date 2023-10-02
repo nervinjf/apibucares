@@ -521,7 +521,7 @@ const recibocondominio = (data, recibo, totalmontodolares, totalalicuotadolares,
                         <p>${Bs(totalalicuotaBs).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>${Bs(Math.round(totalalicuotaBs * 10) / 10).format()}</p>
+                        <p>${Bs. (totalalicuotaBs * 10).replace(",", ".")}`.slice(2)}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
                         <p>${Bs(totalalicuotaBs + totalalicuotaBs * (10 / 100)).format()}</p>

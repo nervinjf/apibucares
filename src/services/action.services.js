@@ -333,15 +333,10 @@ font-size: 0.8rem">
 
             recibo?.reciboRecibomodelo?.recibomodeloGastos?.map(e => {
 
-                // totalmontodolares += Number(e.monto);
-                // totalalicuotadolares += Number(e.monto / 244);
-                // totalmontoBs += Number(e.monto * tasa?.Tasa);
-                // totalalicuotaBs += Number(e.monto / 244) * tasa?.Tasa;
-
                 totalmontodolares += Number(e.monto);
                 totalalicuotadolares += (e.monto).toFixed(2) / 244;
                 totalmontoBs += (e.monto).toFixed(2) * (tasa?.Tasa).toFixed(2);
-                totalalicuotaBs += ((e.monto).toFixed(2) / 244) * (tasa?.Tasa).toFixed(2);
+                totalalicuotaBs += totalalicuotadolares * (tasa?.Tasa).toFixed(2);
             });
 
             console.log((totalmontodolares).toFixed(2), (totalalicuotadolares).toFixed(2), (totalmontoBs).toFixed(2), (totalalicuotaBs).toFixed(2), tasa?.Tasa)

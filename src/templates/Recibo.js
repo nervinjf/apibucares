@@ -522,11 +522,7 @@ const recibocondominio = (data, recibo, contenidoHTML, contenidoHTML1, contenido
                         <p>${Bs(totalalicuotaBs1).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-<<<<<<< HEAD
                         <p>${Bs(totalalicuotaBs2).format()}</p>
-=======
-                        <p>Bs. ${(totalalicuotaBs * 10 /100).replace(",", ".").slice(2)}</p>
->>>>>>> faa4646626b147d43a251f8afb664997f9a28015
                     </div>
                     <div class='descripcion-detail-prel'>
                         <p>${Bs(totalalicuotaBs3).format()}</p>

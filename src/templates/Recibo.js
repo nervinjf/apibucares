@@ -577,20 +577,19 @@ const recibocondominio = (data, recibo, contenidoHTML, contenidoHTML1, contenido
                             <p>0,00% </p>
                         </div>
                         <div class='descripcion-detail-prel2-2'>
-                            <p style="font-size: 0.6rem; text-align: center">${Bs(totalmontoBs + totalmontoBs *
-                                (10 / 100)).format()}</p>
+                            <p style="font-size: 0.6rem; text-align: center">${Bs(totalmontoBs3).format()}</p>
                         </div>
                     </div>
                 </div>
                 <div class='descripcion1-prel1-8'>
                     <div class='descripcion-detail-prel'>
-                        <p>${Bs(totalmontodolares + totalmontodolares * (10 / 100)).format()}</p>
+                        <p>${Bs(totalmontodolares3).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
                         <p>$0,00</p>
                     </div>
                     <div class='descripcion-detail-prel'>
-                        <p>${Bs(totalmontodolares + totalmontodolares * (10 / 100)).format()}</p>
+                        <p>${Bs(totalmontodolares3).format()}</p>
                     </div>
                     <div class='descripcion-detail-prel'>
                         <p>I.V.A.;</p>

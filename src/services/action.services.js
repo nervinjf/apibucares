@@ -162,7 +162,7 @@ class ActionServices {
             const totalmontodolares3 = Math.round((totalmontodolares1 + totalmontodolares2) * 100) / 100;
             const totalmontodolares4 = Math.round((totalmontodolares1 + totalmontodolares2) * 100) / 100;
 
-            const totalalicuotadolares1 = Math.floor(totalalicuotadolares * 100) / 100;)
+            const totalalicuotadolares1 = Math.floor(totalalicuotadolares * 100) / 100;
             const totalalicuotadolares2 = Math.floor((totalalicuotadolares * 0.1) * 100) / 100;
             const totalalicuotadolares3 = Math.floor((totalalicuotadolares1 + totalalicuotadolares2) * 100) / 100;
             const totalalicuotadolares4 = Math.floor((totalalicuotadolares1 + totalalicuotadolares2 ) * 100) / 100;

@@ -69,6 +69,7 @@ class ActionServices {
             for (const e of reciboModel.recibomodeloGastos) {
                 montomes += Number(e.monto / 244)
             }
+
             montomes = montomes + montomes * (10 / 100);
 
             const allviviendas = await Users.findAll({
@@ -155,7 +156,28 @@ class ActionServices {
                     totalalicuotaBs += Number(e.monto * tasa?.Tasa / 244);
 
                 });
-                    console.log(totalmontodolares, totalalicuotadolares, totalmontoBs, totalalicuotaBs, tasa?.Tasa)
+
+                const totalmontodolares1 = (totalmontodolares).toFixed(2)
+                const totalmontodolares2 = (totalmontodolares * (10 / 100)).toFixed(2)
+                const totalmontodolares3 = (totalmontodolares + totalmontodolares * (10 / 100)).toFixed(2)
+                const totalmontodolares4 = (totalmontodolares + totalmontodolares * (10 / 100)).toFixed(2)
+
+                const totalalicuotadolares1 = (totalalicuotadolares).toFixed(2)
+                const totalalicuotadolares2 = (totalalicuotadolares * (10 / 100)).toFixed(2)
+                const totalalicuotadolares3 = (totalalicuotadolares + totalalicuotadolares * (10 / 100)).toFixed(2)
+                const totalalicuotadolares4 = (totalalicuotadolares + totalalicuotadolares * (10 / 100)).toFixed(2)
+
+                const totalmontoBs1 = (totalmontoBs).toFixed(2)
+                const totalmontoBs2 = (totalmontoBs * (10 / 100)).toFixed(2)
+                const totalmontoBs3 = (totalmontoBs + totalmontoBs * (10 / 100)).toFixed(2)
+                const totalmontoBs4 = (totalmontoBs + totalmontoBs * (10 / 100)).toFixed(2)
+
+                const totalalicuotaBs1 = (totalalicuotaBs).toFixed(2)
+                const totalalicuotaBs2 = (totalalicuotaBs * 10 / 100).toFixed(2)
+                const totalalicuotaBs3 = (totalalicuotaBs + totalalicuotaBs * (10 / 100)).toFixed(2)
+                const totalalicuotaBs4 = (totalalicuotaBs + totalalicuotaBs * (10 / 100)).toFixed(2)
+
+                console.log(totalmontodolares, totalalicuotadolares, totalmontoBs, totalalicuotaBs, tasa?.Tasa)
 
                 const contenidoHTML = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
                     `<div key=${e.id} style="display: flex; justify-content: flex-start; align-items: flex-end; border-top: 0.1rem solid black; height: 1rem;
@@ -214,9 +236,9 @@ font-size: 0.8rem">
                         const response = await axios.get(pdfUrl);
                         const pdfBuffer = response.data;
 
-                        await page.setContent(recibocondominio(data, recibo, totalmontodolares, totalalicuotadolares, totalalicuotaBs, totalmontoBs, contenidoHTML, contenidoHTML1, contenidoHTML2, contenidoHTML3, contenidoHTML4, tasa));
-                        await page.addStyleTag({
-                            content: `
+                        await page.setContent(recibocondominio(data, recibo, contenidoHTML, contenidoHTML1, contenidoHTML2, contenidoHTML3, contenidoHTML4, tasa, totalmontodolares1, totalmontodolares2, totalmontodolares3, totalmontodolares4,
+                            totalalicuotadolares1, totalalicuotadolares2, totalalicuotadolares3, totalalicuotadolares4, totalmontoBs1, totalmontoBs2, totalmontoBs3, totalmontoBs4, totalalicuotaBs1, totalalicuotaBs2, totalalicuotaBs3, totalalicuotaBs4)); await page.addStyleTag({
+                                content: `
             /* Define márgenes y estilo de página */
             @page {
                 size: A4;
@@ -235,7 +257,7 @@ font-size: 0.8rem">
                 font-size: 12px;
             }
         `,
-                        });
+                            });
 
 
 
@@ -299,7 +321,7 @@ font-size: 0.8rem">
                     }
                 }
             })
-            
+
             const tasa = await Tasa.findOne({
                 order: [['Fecha', 'DESC']], // Ordenar por fecha de forma descendente
                 limit: 1 // Limitar el resultado a 1 registro (el último)
@@ -326,14 +348,12 @@ font-size: 0.8rem">
                 }]
             })
 
-            console.log(data)
-
             let totalmontodolares = 0;
             let totalalicuotadolares = 0;
             let totalmontoBs = 0;
             let totalalicuotaBs = 0;
 
-            recibo?.reciboRecibomodelo?.recibomodeloGastos?.map(e => {
+            recibo?.reciboRecibomodelo?.recibomodeloGastos?.map(async e => {
 
                 totalmontodolares += Number(e.monto);
                 totalalicuotadolares += Number(e.monto / 244);
@@ -341,6 +361,29 @@ font-size: 0.8rem">
                 totalalicuotaBs += Number(e.monto * tasa?.Tasa / 244);
 
             });
+
+
+            const totalmontodolares1 = (totalmontodolares).toFixed(2)
+            const totalmontodolares2 = (totalmontodolares * (10 / 100)).toFixed(2)
+            const totalmontodolares3 = (totalmontodolares + totalmontodolares * (10 / 100)).toFixed(2)
+            const totalmontodolares4 = (totalmontodolares + totalmontodolares * (10 / 100)).toFixed(2)
+
+            const totalalicuotadolares1 = (totalalicuotadolares).toFixed(2)
+            const totalalicuotadolares2 = (totalalicuotadolares * (10 / 100)).toFixed(2)
+            const totalalicuotadolares3 = (totalalicuotadolares + totalalicuotadolares * (10 / 100)).toFixed(2)
+            const totalalicuotadolares4 = (totalalicuotadolares + totalalicuotadolares * (10 / 100)).toFixed(2)
+
+            const totalmontoBs1 = (totalmontoBs).toFixed(2)
+            const totalmontoBs2 = (totalmontoBs * (10 / 100)).toFixed(2)
+            const totalmontoBs3 = (totalmontoBs + totalmontoBs * (10 / 100)).toFixed(2)
+            const totalmontoBs4 = (totalmontoBs + totalmontoBs * (10 / 100)).toFixed(2)
+
+            const totalalicuotaBs1 = (totalalicuotaBs).toFixed(2)
+            const totalalicuotaBs2 = (totalalicuotaBs * 10 / 100).toFixed(2)
+            const totalalicuotaBs3 = (totalalicuotaBs + totalalicuotaBs * (10 / 100)).toFixed(2)
+            const totalalicuotaBs4 = (totalalicuotaBs + totalalicuotaBs * (10 / 100)).toFixed(2)
+
+            console.log(totalmontodolares, totalalicuotadolares, totalmontoBs, totalalicuotaBs, tasa?.Tasa)
 
             const contenidoHTML = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
                 `<div key=${e.id} style="display: flex; justify-content: flex-start; align-items: flex-end; border-top: 0.1rem solid black; height: 1rem;
@@ -399,7 +442,8 @@ font-size: 0.8rem">
                     // const response = await axios.get(pdfUrl);
                     // const pdfBuffer = response.data;
 
-                    await page.setContent(recibocondominio(data, recibo, totalmontodolares, totalalicuotadolares, totalalicuotaBs, totalmontoBs, contenidoHTML, contenidoHTML1, contenidoHTML2, contenidoHTML3, contenidoHTML4, tasa));
+                    await page.setContent(recibocondominio(data, recibo, contenidoHTML, contenidoHTML1, contenidoHTML2, contenidoHTML3, contenidoHTML4, tasa, totalmontodolares1, totalmontodolares2, totalmontodolares3, totalmontodolares4,
+                        totalalicuotadolares1, totalalicuotadolares2, totalalicuotadolares3, totalalicuotadolares4, totalmontoBs1, totalmontoBs2, totalmontoBs3, totalmontoBs4, totalalicuotaBs1, totalalicuotaBs2, totalalicuotaBs3, totalalicuotaBs4));
                     await page.addStyleTag({
                         content: `
             /* Define márgenes y estilo de página */

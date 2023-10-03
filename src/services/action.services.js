@@ -362,7 +362,6 @@ font-size: 0.8rem">
                 totalalicuotaBs = (totalalicuotadolares).toFixed(2) * tasa?.Tasa;
             });
 
-<<<<<<< HEAD
 
             const totalmontodolares1 = (totalmontodolares).toFixed(2)
             const totalmontodolares2 = (totalmontodolares * (10 / 100)).toFixed(2)
@@ -386,10 +385,6 @@ font-size: 0.8rem">
 
             console.log(totalmontodolares, totalalicuotadolares, totalmontoBs, totalalicuotaBs, tasa?.Tasa)
 
-=======
-            console.log((totalmontodolares).toFixed(2), (totalalicuotadolares).toFixed(2), (totalmontoBs).toFixed(2), (totalalicuotaBs).toFixed(2), tasa?.Tasa)
-            
->>>>>>> faa4646626b147d43a251f8afb664997f9a28015
             const contenidoHTML = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
                 `<div key=${e.id} style="display: flex; justify-content: flex-start; align-items: flex-end; border-top: 0.1rem solid black; height: 1rem;
 font-size: 0.75rem; padding: 0 0.4rem">

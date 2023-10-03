@@ -157,25 +157,25 @@ class ActionServices {
 
                 });
 
-                const totalmontodolares1 = (totalmontodolares).toFixed(2)
-                const totalmontodolares2 = (totalmontodolares * (10 / 100)).toFixed(2)
-                const totalmontodolares3 = (totalmontodolares + totalmontodolares * (10 / 100)).toFixed(2)
-                const totalmontodolares4 = (totalmontodolares + totalmontodolares * (10 / 100)).toFixed(2)
+                const totalmontodolares1 = Math.round(totalmontodolares)
+                const totalmontodolares2 = Math.round(totalmontodolares * 10 / 100);
+                const totalmontodolares3 = Math.round(totalmontodolares + totalmontodolares * (10 / 100))
+                const totalmontodolares4 = Math.round(totalmontodolares + totalmontodolares * (10 / 100))
 
-                const totalalicuotadolares1 = (totalalicuotadolares).toFixed(2)
-                const totalalicuotadolares2 = (totalalicuotadolares * (10 / 100)).toFixed(2)
-                const totalalicuotadolares3 = (totalalicuotadolares + totalalicuotadolares * (10 / 100)).toFixed(2)
-                const totalalicuotadolares4 = (totalalicuotadolares + totalalicuotadolares * (10 / 100)).toFixed(2)
+                const totalalicuotadolares1 = Math.round(totalalicuotadolares)
+                const totalalicuotadolares2 = Math.round(totalalicuotadolares * (10 / 100))
+                const totalalicuotadolares3 = Math.round(totalalicuotadolares + totalalicuotadolares * (10 / 100))
+                const totalalicuotadolares4 = Math.round(totalalicuotadolares + totalalicuotadolares * (10 / 100))
 
-                const totalmontoBs1 = (totalmontoBs).toFixed(2)
-                const totalmontoBs2 = (totalmontoBs * (10 / 100)).toFixed(2)
-                const totalmontoBs3 = (totalmontoBs + totalmontoBs * (10 / 100)).toFixed(2)
-                const totalmontoBs4 = (totalmontoBs + totalmontoBs * (10 / 100)).toFixed(2)
+                const totalmontoBs1 = Math.round(totalmontoBs)
+                const totalmontoBs2 = Math.round(totalmontoBs * (10 / 100))
+                const totalmontoBs3 = Math.round(totalmontoBs + totalmontoBs * (10 / 100))
+                const totalmontoBs4 = Math.round(totalmontoBs + totalmontoBs * (10 / 100))
 
-                const totalalicuotaBs1 = (totalalicuotaBs).toFixed(2)
-                const totalalicuotaBs2 = (totalalicuotaBs * 10 / 100).toFixed(2)
-                const totalalicuotaBs3 = (totalalicuotaBs + totalalicuotaBs * (10 / 100)).toFixed(2)
-                const totalalicuotaBs4 = (totalalicuotaBs + totalalicuotaBs * (10 / 100)).toFixed(2)
+                const totalalicuotaBs1 = Math.round(totalalicuotaBs)
+                const totalalicuotaBs2 = Math.round(totalalicuotaBs * 10 / 100)
+                const totalalicuotaBs3 = Math.round(totalalicuotaBs + totalalicuotaBs * (10 / 100))
+                const totalalicuotaBs4 = Math.round(totalalicuotaBs + totalalicuotaBs * (10 / 100))
 
                 console.log(totalmontodolares, totalalicuotadolares, totalmontoBs, totalalicuotaBs, tasa?.Tasa)
 
@@ -356,32 +356,31 @@ font-size: 0.8rem">
             recibo?.reciboRecibomodelo?.recibomodeloGastos?.map(async e => {
 
                 totalmontodolares += Number(e.monto);
-                totalalicuotadolares += (e.monto).toFixed(2) / 244;
-                totalmontoBs = totalmontodolares * (tasa?.Tasa).toFixed(2);
-                console.log(`el resultado de ${(totalalicuotadolares).toFixed(2)} por ${tasa?.Tasa} es igual a ${totalalicuotadolares* tasa?.Tasa}`)
-                totalalicuotaBs = (totalalicuotadolares).toFixed(2) * tasa?.Tasa;
+                totalalicuotadolares += Number(e.monto / 244);
+                totalmontoBs += Number(e.monto * tasa?.Tasa);
+                totalalicuotaBs += Number(e.monto * tasa?.Tasa / 244);
             });
 
 
-            const totalmontodolares1 = (totalmontodolares).toFixed(2)
-            const totalmontodolares2 = (totalmontodolares * (10 / 100)).toFixed(2)
-            const totalmontodolares3 = (totalmontodolares + totalmontodolares * (10 / 100)).toFixed(2)
-            const totalmontodolares4 = (totalmontodolares + totalmontodolares * (10 / 100)).toFixed(2)
+            const totalmontodolares1 = Math.round(totalmontodolares)
+            const totalmontodolares2 = Math.round(totalmontodolares * (10 / 100))
+            const totalmontodolares3 = Math.round(totalmontodolares + totalmontodolares * (10 / 100))
+            const totalmontodolares4 = Math.round(totalmontodolares + totalmontodolares * (10 / 100))
 
-            const totalalicuotadolares1 = (totalalicuotadolares).toFixed(2)
-            const totalalicuotadolares2 = (totalalicuotadolares * (10 / 100)).toFixed(2)
-            const totalalicuotadolares3 = (totalalicuotadolares + totalalicuotadolares * (10 / 100)).toFixed(2)
-            const totalalicuotadolares4 = (totalalicuotadolares + totalalicuotadolares * (10 / 100)).toFixed(2)
+            const totalalicuotadolares1 = Math.round(totalalicuotadolares)
+            const totalalicuotadolares2 = Math.round(totalalicuotadolares * (10 / 100))
+            const totalalicuotadolares3 = Math.round(totalalicuotadolares + totalalicuotadolares * (10 / 100))
+            const totalalicuotadolares4 = Math.round(totalalicuotadolares + totalalicuotadolares * (10 / 100))
 
-            const totalmontoBs1 = (totalmontoBs).toFixed(2)
-            const totalmontoBs2 = (totalmontoBs * (10 / 100)).toFixed(2)
-            const totalmontoBs3 = (totalmontoBs + totalmontoBs * (10 / 100)).toFixed(2)
-            const totalmontoBs4 = (totalmontoBs + totalmontoBs * (10 / 100)).toFixed(2)
+            const totalmontoBs1 = Math.round(totalmontoBs)
+            const totalmontoBs2 = Math.round(totalmontoBs * (10 / 100))
+            const totalmontoBs3 = Math.round(totalmontoBs + totalmontoBs * (10 / 100))
+            const totalmontoBs4 = Math.round(totalmontoBs + totalmontoBs * (10 / 100))
 
-            const totalalicuotaBs1 = (totalalicuotaBs).toFixed(2)
-            const totalalicuotaBs2 = (totalalicuotaBs * 10 / 100).toFixed(2)
-            const totalalicuotaBs3 = (totalalicuotaBs + totalalicuotaBs * (10 / 100)).toFixed(2)
-            const totalalicuotaBs4 = (totalalicuotaBs + totalalicuotaBs * (10 / 100)).toFixed(2)
+            const totalalicuotaBs1 = Math.round(totalalicuotaBs)
+            const totalalicuotaBs2 = Math.round(totalalicuotaBs * 10 / 100)
+            const totalalicuotaBs3 = Math.round(totalalicuotaBs + totalalicuotaBs * (10 / 100))
+            const totalalicuotaBs4 = Math.round(totalalicuotaBs + totalalicuotaBs * (10 / 100))
 
             console.log(totalmontodolares, totalalicuotadolares, totalmontoBs, totalalicuotaBs, tasa?.Tasa)
 

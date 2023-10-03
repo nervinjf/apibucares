@@ -383,7 +383,7 @@ font-size: 0.8rem">
             const totalalicuotaBs3 = (totalalicuotaBs + totalalicuotaBs * (10 / 100)).toFixed(2)
             const totalalicuotaBs4 = (totalalicuotaBs + totalalicuotaBs * (10 / 100)).toFixed(2)
 
-            console.log(totalmontodolares, totalalicuotadolares, totalmontoBs, totalalicuotaBs, tasa?.Tasa)
+            console.log(totalmontodolares1, totalalicuotadolares1, totalmontoBs1, totalalicuotaBs1, tasa?.Tasa)
 
             const contenidoHTML = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
                 `<div key=${e.id} style="display: flex; justify-content: flex-start; align-items: flex-end; border-top: 0.1rem solid black; height: 1rem;

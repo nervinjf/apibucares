@@ -358,7 +358,7 @@ font-size: 0.8rem">
                 totalmontodolares += Number(e.monto);
                 totalalicuotadolares += Number(e.monto / 244);
                 totalmontoBs += Number(e.monto * tasa?.Tasa);
-                totalalicuotaBs += totalalicuotadolares * tasa?.Tasa / 244);
+                totalalicuotaBs += totalalicuotadolares * tasa?.Tasa / 244;
             });
 
 

@@ -378,8 +378,8 @@ font-size: 0.8rem">
             const totalmontoBs3 = Math.floor((totalmontoBs1 + totalmontoBs2) * 100) / 100;
             const totalmontoBs4 = Math.floor((totalmontoBs1 + totalmontoBs2) * 100) / 100;
 
-            const totalalicuotaBs_ = Math.floor(totalalicuotaBs * 100) / 100;
-            const totalalicuotaBs1 = Math.floor((totalalicuotaBs_ * tasa?.Tasa) * 100) / 100;
+            const totalalicuotadolares_ = Math.floor(totalalicuotadolares * 100) / 100;
+            const totalalicuotaBs1 = Math.floor((totalalicuotadolares_ * tasa?.Tasa) * 100) / 100;
             const totalalicuotaBs2 = Math.floor((totalalicuotaBs1 * 0.1) * 100) / 100;
             const totalalicuotaBs3 = Math.floor((totalalicuotaBs1 + totalalicuotaBs2) * 100) / 100;
             const totalalicuotaBs4 = Math.floor((totalalicuotaBs1 + totalalicuotaBs2) * 100) / 100;

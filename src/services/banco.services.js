@@ -17,7 +17,12 @@ class BancoServices {
 
     static async postPagobdv(data) {
         try {
-
+            
+            const options = {};
+            options.headers = {
+                "Content-Type": "application/json",
+                accept: "application/json"
+            };
             const client = axios.create(options);
 
             const getOwnerCredentials = oauth.client(axios.create(), {
@@ -25,11 +30,11 @@ class BancoServices {
                 grant_type: "client_credentials",
                 client_id: process.env.CLIENT_ID,
                 client_secret: process.env.CLIENT_SECRET,
-              });
-          
-              client.interceptors.request.use(
+            });
+
+            client.interceptors.request.use(
                 oauth.interceptor(tokenProvider, getOwnerCredentials)
-              );
+            );
 
             const { amount, number, casa, fecha, cellPhone, email, urlToReturn } = data
 

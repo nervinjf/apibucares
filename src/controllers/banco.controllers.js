@@ -3,7 +3,7 @@ const { BancoServices } = require('../services');
 const getpagobdv = async (req, res, next) => {
     try {
         const { id } = req.body;
-        const result = await bancoServices.getPagobdv(id);
+        const result = await BancoServices.getPagobdv(id);
         res.json(result);
     } catch (error) {
         next({
@@ -17,7 +17,7 @@ const getpagobdv = async (req, res, next) => {
 const postpagobdv = async (req, res, next) => {
     try {
         const data = req.body;
-        const result = await bancoServices.postPagobdv(data);
+        const result = await BancoServices.postPagobdv(data);
         res.json(result);
     } catch (error) {
         next({

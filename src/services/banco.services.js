@@ -18,11 +18,11 @@ class BancoServices {
         try {
             // Obtener el token de OAuth2 usando el flujo de credenciales del cliente
             const tokenResponse = await axios.post('https://biodemo.ex-cle.com:4443/Biopago2/IPG2/connect/token', {
-                grant_type: 'client_credentials',
-                client_id: process.env.CLIENT_ID,
-                client_secret: process.env.CLIENT_SECRET,
-                scope: 'OAuth2', // Especifica el alcance que se requiere
-            });
+                "grant_type": "client_credentials",
+                "client_id": "25060008",
+                "client_secret": "dv05EbiJ",
+                "scope": "OAuth2"
+              });
 
             const accessToken = tokenResponse.data.access_token;
 

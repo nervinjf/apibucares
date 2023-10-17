@@ -43,7 +43,7 @@ class BancoServices {
               }
       
           // Realiza la solicitud a la API
-          const result = await axios.get('https://biodemo.ex-cle.com:4443/Biopago2/IPG2/api/Payments', data2);
+          const result = await axios.post('https://biodemo.ex-cle.com:4443/Biopago2/IPG2/api/Payments', data2);
           return result;
         } catch (error) {
           throw error;

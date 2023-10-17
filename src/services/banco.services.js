@@ -26,7 +26,18 @@ class BancoServices {
 
             const accessToken = tokenResponse.data.access_token;
 
-            console.log(tokenResponse.data.error )
+            console.log(tokenResponse.data.error, "Aqui esto error" )
+            console.log(accessToken, "respuesta" )
+
+            if (tokenResponse.data.error) {
+                console.error('Error al obtener el token de acceso:', tokenResponse.data.error);
+                throw new Error('Error al obtener el token de acceso');
+              }
+              
+              if (response.data.error) {
+                console.error('Error en la solicitud a la API:', response.data.error);
+                throw new Error('Error en la solicitud a la API');
+              }
 
             // Configurar las cabeceras con el token de acceso
             const headers = {

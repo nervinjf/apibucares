@@ -17,7 +17,7 @@ class BancoServices {
 
     static async postPagobdv(data) {
         try {
-            
+
             const options = {};
             options.headers = {
                 "Content-Type": "application/json",

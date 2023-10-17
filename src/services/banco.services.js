@@ -28,33 +28,34 @@ class BancoServices {
             const instance = axios.create({
                 headers: {
                     common: {
-                        Authorization: `Bearer ${ token }`,
-            },
-    },
-});
+                        Authorization: `Bearer ${token}`,
+                    },
+                },
+            });
 
-const { amount, number, casa, fecha, cellPhone, email, urlToReturn } = data
+            const { amount, number, casa, fecha, cellPhone, email, urlToReturn } = data
 
-const data2 = {
-    "currency": 1,
-    "amount": amount,
-    "reference": `PRB${casa}-${fecha.replace('-', "").replace('-', "")}`,
-    "title": "Pago factura",
-    "description": "Cancela condominio",
-    "letter": "V",
-    "number": number,
-    "urlToReturn": urlToReturn,
-    "cellPhone": cellPhone,
-    "email": email
-}
+            const data2 = {
+                "currency": 1,
+                "amount": amount,
+                "reference": `PRB${casa}-${fecha.replace('-', "").replace('-', "")}`,
+                "title": "Pago factura",
+                "description": "Cancela condominio",
+                "letter": "V",
+                "number": number,
+                "urlToReturn": urlToReturn,
+                "cellPhone": cellPhone,
+                "email": email
+            }
 
-// Realiza la solicitud a la API
-const result = await instance.post('https://biodemo.ex-cle.com:4443/Biopago2/IPG2/api/Payments', data2);
-return result;
+            // Realiza la solicitud a la API
+            const result = await instance.post('https://biodemo.ex-cle.com:4443/Biopago2/IPG2/api/Payments', data2);
+            console.log(result.data)
+            return result;
         } catch (error) {
-    throw error;
-}
-      }  
+            throw error;
+        }
+    }
 
 }
 

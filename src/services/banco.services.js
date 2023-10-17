@@ -3,7 +3,7 @@ const axios = require('axios');
 const oauth = require('axios-oauth-client');
 const tokenProvider = require('axios-token-interceptor');
 require('dotenv').config();
-
+const qs = require('qs');
 
 
 class BancoServices {

@@ -7,7 +7,7 @@ const handleError = require("./middlewares/error.middleware");
 const transporter = require('./utils/mailer');
 const moment = require('moment');
 const { Registertasa } = require("./controllers/tasapost.controllers");
-const { authRoutes, TasaRoutes, TasaPostRoutes, TransferenciaRoutes, UserRoutes, RolRoutes, AbsRoutes, PrelRoutes, ReciboMRoutes, GastosRoutes, ActionRoutes, ReciboRoutes, ViviendaRoutes } = require("./routes");
+const { authRoutes, TasaRoutes, BancoRoutes, TasaPostRoutes, TransferenciaRoutes, UserRoutes, RolRoutes, AbsRoutes, PrelRoutes, ReciboMRoutes, GastosRoutes, ActionRoutes, ReciboRoutes, ViviendaRoutes } = require("./routes");
 require("moment-timezone");
 moment.locale('es-VE');
 moment.tz.setDefault("America/Caracas");
@@ -52,6 +52,7 @@ app.use('/api/v1/bucares', ViviendaRoutes)
 app.use('/api/v1/bucares', ReciboRoutes)
 app.use('/api/v1/bucares', TransferenciaRoutes)
 app.use('/api/v1/bucares', TasaRoutes)
+app.use('/api/v1/bucares', BancoRoutes)
 
 cron.schedule('0 6 * * 1-5', () => {
     console.log("hola")

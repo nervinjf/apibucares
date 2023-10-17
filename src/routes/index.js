@@ -11,6 +11,7 @@ const ReciboRoutes = require("./recibo.routes");
 const TransferenciaRoutes = require("./transferencia.routes");
 const TasaRoutes = require("./tasa.routes");
 const TasaPostRoutes = require("./tasapost.routes");
+const BancoRoutes = require("./Bancos.routes");
 
 module.exports = {
     UserRoutes,
@@ -25,5 +26,6 @@ module.exports = {
     ReciboRoutes,
     TransferenciaRoutes,
     TasaRoutes,
-    TasaPostRoutes
+    TasaPostRoutes,
+    BancoRoutes
 }

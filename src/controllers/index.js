@@ -11,6 +11,7 @@ const { Gettasa, Gettasahoy } = require("./tasa.controllers");
 const { Registertasa } = require("./tasapost.controllers");
 const { reciboModelo, reciboEnv, reciboDownload } = require("./action.controllers");
 const { GetTransferencia, Registertransferencia, UpdateTransferencia, DeleteTransferencia } = require("./transferencia.controllers");
+const { getpagobdv, postpagobdv } = require("./banco.controllers");
 
 
 module.exports = {
@@ -55,5 +56,7 @@ module.exports = {
     reciboDownload,
     Gettasa,
     Registertasa,
-    Gettasahoy
+    Gettasahoy,
+    getpagobdv,
+    postpagobdv
 }

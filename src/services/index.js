@@ -11,6 +11,7 @@ const ReciboServices = require("./recibo.services");
 const TransferenciaServices = require("./transferencia.services");
 const TasaServices = require("./tasa.services");
 const TasaPostServices = require("./tasapost.services");
+const BancoServices = require("./banco.services");
 
 
 module.exports = {
@@ -26,5 +27,6 @@ module.exports = {
     ReciboServices,
     TransferenciaServices,
     TasaServices,
-    TasaPostServices
+    TasaPostServices,
+    BancoServices
 }

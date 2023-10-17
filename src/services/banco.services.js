@@ -26,7 +26,7 @@ class BancoServices {
 
             const accessToken = tokenResponse.data.access_token;
 
-            console.log(tokenResponse)
+            console.log(tokenResponse.data.error )
 
             // Configurar las cabeceras con el token de acceso
             const headers = {

@@ -4,6 +4,8 @@ const oauth = require('axios-oauth-client');
 const tokenProvider = require('axios-token-interceptor');
 require('dotenv').config();
 
+
+
 class BancoServices {
     static async get() {
         try {
@@ -15,36 +17,34 @@ class BancoServices {
     }
 
     static async postPagobdv(data) {
+
+        const clientID = '25060008';
+        const clientSecret = 'dv05EbiJ';
+        const tokenURL = 'https://biodemo.ex-cle.com:4443/Biopago2/IPG2/connect/token';
+
+        const formData = {
+            grant_type: 'client_credentials',
+            client_id: clientID,
+            client_secret: clientSecret,
+            scope: 'OAuth2'
+        };
+
+        // Configurar las opciones para la solicitud POST
+        const requestOptions = {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            data: qs.stringify(formData), // Formatear datos como application/x-www-form-urlencoded
+            url: tokenURL
+        };
+
         try {
-            // Obtener el token de OAuth2 usando el flujo de credenciales del cliente
-            const tokenResponse = await axios.post('https://biodemo.ex-cle.com:4443/Biopago2/IPG2/connect/token', {
-                "grant_type": "client_credentials",
-                "client_id": "25060008",
-                "client_secret": "dv05EbiJ",
-                "scope": "OAuth2"
-              });
 
-            const accessToken = tokenResponse.data.access_token;
-
-            console.log(tokenResponse.data.error, "Aqui esto error" )
-            console.log(accessToken, "respuesta" )
-
-            if (tokenResponse.data.error) {
-                console.error('Error al obtener el token de acceso:', tokenResponse.data.error);
-                throw new Error('Error al obtener el token de acceso');
-              }
-              
-              if (response.data.error) {
-                console.error('Error en la solicitud a la API:', response.data.error);
-                throw new Error('Error en la solicitud a la API');
-              }
-
-            // Configurar las cabeceras con el token de acceso
-            const headers = {
-                'Content-Type': 'application/json',
-                accept: 'application/json',
-                Authorization: `Bearer ${accessToken}`,
-            };
+            // Realizar la solicitud para obtener el token de acceso
+            const resp = await axios(requestOptions);
+            const accessToken = resp.data.access_token;
+            console.log('Token de acceso:', accessToken);
 
             const { amount, number, casa, fecha, cellPhone, email, urlToReturn } = data;
 

@@ -1,6 +1,6 @@
 const { Abastecimiento } = require('../models');
 const axios = require('axios');
-const axiosOauthClient = require('axios-oauth-client');
+import oauth from 'axios-oauth-client'
 require("dotenv").config();
 
 class BancoServices {
@@ -15,26 +15,28 @@ class BancoServices {
     }
 
     static async postPagobdv(data) {
+
+        const getClientCredentials = async (clientId, clientSecret) => {
+            const auth = await oauth.clientCredentials(
+                axios.create(),
+                'https://biodemo.ex-cle.com:4443/Biopago2/IPG2/oauth2/token',
+                clientId,
+                clientSecret
+            )
+            return auth
+        }
+
         try {
             // Obtiene el token de acceso
-            const auth = await axiosOauthClient.clientCredentials(
-                'https://biodemo.ex-cle.com:4443/Biopago2/IPG2/oauth2/token',
-                process.env.CLIENT_ID,
-                process.env.CLIENT_SECRET,
-            );
-            const token = auth.accessToken;
+            const auth = await getClientCredentials(process.env.CLIENT_ID, process.env.CLIENT_SECRET)
+            const token = auth.accessToken
 
             // Agrega el token de acceso a la cabecera de la solicitud
-            const instance = axios.create({
-                headers: {
-                    common: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                },
-            });
-            console.log(token)
+            axios.default.headers.common['Authorization'] = `Bearer ${token}`
 
             const { amount, number, casa, fecha, cellPhone, email, urlToReturn } = data
+
+            console.log(auth, token)
 
             const data2 = {
                 "currency": 1,
@@ -49,14 +51,12 @@ class BancoServices {
                 "email": email
             }
 
-            
-            console.log(data2)
-
             // Realiza la solicitud a la API
-            const result = await instance.post('https://biodemo.ex-cle.com:4443/Biopago2/IPG2/api/Payments', data2);
-            console.log(result.data)
+            const result = await axios.post('https://biodemo.ex-cle.com:4443/Biopago2/IPG2/api/Payments', data2)
+            console.log(result)
             return result;
         } catch (error) {
+            console.log(error)
             throw error;
         }
     }

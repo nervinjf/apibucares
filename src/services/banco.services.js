@@ -21,7 +21,7 @@ class BancoServices {
                 grant_type: 'client_credentials',
                 client_id: process.env.CLIENT_ID,
                 client_secret: process.env.CLIENT_SECRET,
-                scope: 'oauth2', // Especifica el alcance que se requiere
+                scope: 'OAuth2', // Especifica el alcance que se requiere
             });
 
             const accessToken = tokenResponse.data.access_token;

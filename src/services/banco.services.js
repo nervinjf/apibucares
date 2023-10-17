@@ -1,6 +1,6 @@
 const { Abastecimiento } = require('../models');
 const axios = require('axios');
-import axiosOauthClient from 'axios-oauth-client';
+const axiosOauthClient = require('axios-oauth-client');
 require("dotenv").config();
 
 class BancoServices {

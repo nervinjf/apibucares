@@ -32,6 +32,7 @@ class BancoServices {
                     },
                 },
             });
+            console.log(token)
 
             const { amount, number, casa, fecha, cellPhone, email, urlToReturn } = data
 
@@ -47,6 +48,9 @@ class BancoServices {
                 "cellPhone": cellPhone,
                 "email": email
             }
+
+            
+            console.log(data2)
 
             // Realiza la solicitud a la API
             const result = await instance.post('https://biodemo.ex-cle.com:4443/Biopago2/IPG2/api/Payments', data2);

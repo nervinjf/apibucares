@@ -3,7 +3,13 @@ const axios = require('axios');
 const oauth = require('axios-oauth-client');
 const tokenProvider = require('axios-token-interceptor');
 require('dotenv').config();
-const qs = require('qs');
+
+const getClientCredentials = oauth.clientCredentials(
+    axios.create(),
+    'https://biodemo.ex-cle.com:4443/Biopago2/IPG2/connect/token', // URL del endpoint del token de acceso
+    '25060008', // ID de cliente (client_id)
+    'dv05EbiJ' // Clave secreta del cliente (client_secret)
+);
 
 
 class BancoServices {
@@ -18,32 +24,11 @@ class BancoServices {
 
     static async postPagobdv(data) {
 
-        const clientID = '25060008';
-        const clientSecret = 'dv05EbiJ';
-        const tokenURL = 'https://biodemo.ex-cle.com:4443/Biopago2/IPG2/connect/token';
-
-        const formData = {
-            grant_type: 'client_credentials',
-            client_id: clientID,
-            client_secret: clientSecret,
-            scope: 'OAuth2'
-        };
-
-        // Configurar las opciones para la solicitud POST
-        const requestOptions = {
-            method: 'post',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            data: qs.stringify(formData), // Formatear datos como application/x-www-form-urlencoded
-            url: tokenURL
-        };
-
         try {
 
             // Realizar la solicitud para obtener el token de acceso
-            const resp = await axios(requestOptions);
-            const accessToken = resp.data.access_token;
+            const auth = await getClientCredentials('OAuth2'); // Ámbito opcional
+            const accessToken = auth.access_token;
             console.log('Token de acceso:', accessToken);
 
             const { amount, number, casa, fecha, cellPhone, email, urlToReturn } = data;

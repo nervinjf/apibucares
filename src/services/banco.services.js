@@ -23,7 +23,7 @@ class BancoServices {
         try {
             const token = await generateAccessToken();
 
-            const response = await axios.post(`https://biodemo.ex-cle.com:4443/Biopago2/IPG2/api/Payments/${id}`, {
+            const response = await axios.get(`https://biodemo.ex-cle.com:4443/Biopago2/IPG2/api/Payments/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 },

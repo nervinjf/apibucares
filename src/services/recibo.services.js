@@ -53,7 +53,7 @@ class ReciboServices {
         }
     }
 
-    static async update(id, updPrel) {
+    static async update(id, updRM) {
         try {
             const result = await Recibo.update(updRM, {
                 where: { id }

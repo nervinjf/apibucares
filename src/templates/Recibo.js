@@ -43,7 +43,7 @@ const recibocondominio = (data, recibo, contenidoHTML, contenidoHTML1, contenido
 }
 
 .containerrecibomodelo-sect2{
-    width: 70%;
+    width: 85%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -213,7 +213,7 @@ const recibocondominio = (data, recibo, contenidoHTML, contenidoHTML1, contenido
 }
 
 .descripcion1-prel1-2{
-    width: 40%;
+    width: 65%;
     display: flex;
     flex-direction: column;
     border-right: 0.1rem solid black;
@@ -221,7 +221,7 @@ const recibocondominio = (data, recibo, contenidoHTML, contenidoHTML1, contenido
 }
 
 .descripcion1-prel1-3{
-    width: 12%;
+    width: 11.25%;
     display: flex;
     flex-direction: column;
     border-right: 0.1rem solid black;
@@ -229,7 +229,7 @@ const recibocondominio = (data, recibo, contenidoHTML, contenidoHTML1, contenido
 }
 
 .total-prel1-4{
-    width: 13%;
+    width: 11.25%;
     display: flex;
     flex-direction: column;
     border-right: 0.1rem solid black;
@@ -238,7 +238,7 @@ const recibocondominio = (data, recibo, contenidoHTML, contenidoHTML1, contenido
 
 
 .descripcion1-prel1-5{
-    width: 18%;
+    width: 11.25%;
     display: flex;
     flex-direction: column;
     border-right: 0.1rem solid black;
@@ -246,7 +246,7 @@ const recibocondominio = (data, recibo, contenidoHTML, contenidoHTML1, contenido
 }
 
 .total-prel1-6{
-    width: 17%;
+    width: 11.25%;
     display: flex;
     flex-direction: column;
     border-right: 0.1rem solid black;

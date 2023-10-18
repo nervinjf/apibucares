@@ -4,12 +4,20 @@ const oauth = require('axios-oauth-client');
 const tokenProvider = require('axios-token-interceptor');
 require('dotenv').config();
 
-const getClientCredentials = oauth.clientCredentials(
-    axios.create(),
-    'https://biodemo.ex-cle.com:4443/Biopago2/IPG2/connect/token', // URL del endpoint del token de acceso
-    '25060008', // ID de cliente (client_id)
-    'dv05EbiJ' // Clave secreta del cliente (client_secret)
-);
+
+async function generateAccessToken() {
+    const response = await axios({
+      url: "https://biodemo.ex-cle.com:4443/Biopago2/IPG2/connect/token",
+      method: "post",
+      data: "grant_type=client_credentials",
+      auth: {
+        username: "25060008",
+        password: "dv05EbiJ",
+      },
+    });
+    return response.data.access_token;
+  }
+
 
 
 class BancoServices {
@@ -21,15 +29,11 @@ class BancoServices {
             throw error;
         }
     }
-
+    
     static async postPagobdv(data) {
-
+        
         try {
-
-            // Realizar la solicitud para obtener el token de acceso
-            const auth = await getClientCredentials('OAuth2'); // Ámbito opcional
-            const accessToken = auth.access_token;
-            console.log('Token de acceso:', accessToken);
+            const token = await generateAccessToken();
 
             const { amount, number, casa, fecha, cellPhone, email, urlToReturn } = data;
 
@@ -48,7 +52,9 @@ class BancoServices {
 
             // Realiza la solicitud a la API con el token de acceso
             const response = await axios.post('https://biodemo.ex-cle.com:4443/Biopago2/IPG2/api/Payments', paymentData, {
-                headers: headers,
+                headers: {
+                    Authorization: `Bearer ${token}`
+                },
             });
 
             console.log(response.data); // Puedes acceder a los datos de la respuesta usando response.data

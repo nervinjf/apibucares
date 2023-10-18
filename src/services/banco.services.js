@@ -1,7 +1,5 @@
 const { Abastecimiento } = require('../models');
 const axios = require('axios');
-const oauth = require('axios-oauth-client');
-const tokenProvider = require('axios-token-interceptor');
 require('dotenv').config();
 
 
@@ -11,8 +9,8 @@ async function generateAccessToken() {
       method: "post",
       data: "grant_type=client_credentials",
       auth: {
-        username: "25060008",
-        password: "dv05EbiJ",
+        username: process.env.CLIENT_ID,
+        password: process.env.CLIENT_SECRET,
       },
     });
     return response.data.access_token;

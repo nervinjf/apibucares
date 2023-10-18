@@ -2,7 +2,7 @@ const { BancoServices } = require('../services');
 
 const getpagobdv = async (req, res, next) => {
     try {
-        const { id } = req.body;
+        const { id } = req.params;
         const result = await BancoServices.getPagobdv(id);
         res.json(result);
     } catch (error) {

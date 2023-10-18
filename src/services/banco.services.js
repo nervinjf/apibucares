@@ -19,10 +19,16 @@ async function generateAccessToken() {
 
 
 class BancoServices {
-    static async get() {
+    static async getPagobdv(id) {
         try {
-            const result = await Abastecimiento.findAll();
-            return result;
+            const token = await generateAccessToken();
+
+            const response = await axios.post(`https://biodemo.ex-cle.com:4443/Biopago2/IPG2/api/Payments/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                },
+            });
+            return response.data;
         } catch (error) {
             throw error;
         }
@@ -54,8 +60,6 @@ class BancoServices {
                     Authorization: `Bearer ${token}`
                 },
             });
-
-            console.log(response.data); // Puedes acceder a los datos de la respuesta usando response.data
             return response.data;
         } catch (error) {
             console.error(error);

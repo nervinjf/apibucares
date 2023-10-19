@@ -389,7 +389,7 @@ font-size: 0.8rem">
 
             const contenidoHTML = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
                 `<div key=${e.id} style="display: flex; justify-content: flex-start; align-items: flex-end; border-top: 0.1rem solid black; height: 1rem;
-font-size: 0.75rem; padding: 0 0.4rem">
+font-size: 0.5rem; padding: 0 0.4rem">
         <p>${e.nombre}</p>
     </div>`).join('');
 
@@ -400,7 +400,7 @@ font-size: 0.75rem; padding: 0 0.4rem">
     border-top: 0.1rem solid black;
     height: 1rem
 ;
-font-size: 0.8rem">
+font-size: 0.7rem">
         <p>${USD(e?.monto).format()}</p>
     </div>`).join('');
 
@@ -410,7 +410,7 @@ justify-content: center;
 align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
-font-size: 0.8rem">
+font-size: 0.7rem">
     <p>${USD(e?.monto / 244).format()}</p>
 </div>`).join('');
 
@@ -420,7 +420,7 @@ justify-content: center;
 align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
-font-size: 0.8rem">
+font-size: 0.7rem">
     <p>${Bs(e?.monto * tasa?.Tasa).format()}</p>
 </div>`).join('');
 
@@ -430,7 +430,7 @@ justify-content: center;
 align-items: center;
 border-top: 0.1rem solid black;
 height: 1rem;
-font-size: 0.8rem">
+font-size: 0.7rem">
     <p>${Bs(e?.monto * tasa?.Tasa / 244).format()}</p>
 </div>`).join('');
 

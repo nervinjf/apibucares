@@ -218,6 +218,7 @@ const recibocondominio = (data, recibo, contenidoHTML, contenidoHTML1, contenido
     flex-direction: column;
     border-right: 0.1rem solid black;
     gap: 0.0rem;
+    font-size: "0.7rem"
 }
 
 .descripcion1-prel1-3{

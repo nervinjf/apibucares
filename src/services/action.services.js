@@ -389,7 +389,7 @@ font-size: 0.8rem">
 
             const contenidoHTML = recibo?.reciboRecibomodelo?.recibomodeloGastos?.map((e) =>
                 `<div key=${e.id} style="display: flex; justify-content: flex-start; align-items: flex-end; border-top: 0.1rem solid black; height: 1rem;
-font-size: 0.62rem; padding: 0 0.4rem">
+font-size: 0.61rem; padding: 0 0.4rem">
         <p>${e.nombre}</p>
     </div>`).join('');
 

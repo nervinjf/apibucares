@@ -313,6 +313,10 @@ const recibocondominio = (data, recibo, contenidoHTML, contenidoHTML1, contenido
     align-items: center;
 }
 
+#miContenedor1{
+    font-size: 0.8rem
+}
+
     </style>
 </head>
 
